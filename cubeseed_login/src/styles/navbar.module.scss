@@ -1,0 +1,37 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem;
+  // position: sticky;
+  // top: 0px;
+  // z-index: 1;
+  width: 100%;
+  background-color: white;
+  box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0rem;
+
+    li {
+      padding: 22px 40px;
+      margin: 0.5rem 0rem;
+    }
+  }
+
+  .links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0;
+  }
+}
+
+:export {
+  myClass: string;
+}

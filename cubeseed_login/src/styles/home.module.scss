@@ -1,0 +1,15 @@
+
+.home{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 20px;
+}
+
+.getStarted {
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    line-height: 30px;
+}
