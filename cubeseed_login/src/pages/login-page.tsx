@@ -34,6 +34,27 @@ const LoginPage: React.FC<LoginFormProps> = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+  const handleLogin = () => {
+    if (email === '') {
+      setEmailError('Please enter valid email address');
+    } else {
+      setEmailError('');
+    }
+
+    if (password === '') {
+      setPasswordError('Wrong password');
+    } else {
+      setPasswordError('');
+    }
+
+    if (email !== '' && password !== '') {
+      // Perform login logic
+    }
+  };
+
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -75,6 +96,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
               onChange={handleEmailChange}
               required
             />
+            {emailError && <div className={styles.emailerror}>{emailError}</div>}
           </div>
 
           <div className={styles.inputwrap}>
@@ -86,6 +108,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
               onChange={handlePasswordChange}
               required
             />
+            {passwordError && <div className={styles.passworderror}>{passwordError}</div>}
           </div>
 
           <div className={styles.after_input}>
@@ -108,23 +131,18 @@ const LoginPage: React.FC<LoginFormProps> = ({
             </div>
           </div>
 
-          <Link href="/login-page" legacyBehavior className={styles.loginbtn}>
-            <a className={styles.button}>Login</a>
+          <Link href="/login-page" legacyBehavior className={styles.loginbtn} onClick={handleLogin}>
+            <button className={styles.button} onClick={handleLogin}>Login</button>
           </Link>
-
           <div className={styles.line}>
             <hr />
           </div>
 
           <div className={styles.or}>OR</div>
-
-          {/* <div className="loginoptions">
-          <AiFillGoogleCircle/>
-          <BsFacebook/>
-          <AiFillTwitterCircle/>
-        </div> */}
           <div className={styles.loginoptions}>
-            <Image src={loginoptions} alt="loginoptions" className={styles.optionsimg} />
+            <Link href="/redirect-page">
+              <Image src={loginoptions} alt="loginoptions" className={styles.optionsimg} />
+            </Link>
           </div>
 
           <div className={styles.new}>

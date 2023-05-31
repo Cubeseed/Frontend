@@ -1,0 +1,81 @@
+.container {
+    border: 1px solid blue;
+    width: 100%;
+    height: 100vh;
+  }
+  .background {
+    width: 100%;
+    height: 40vh;
+  
+    z-index: -1;
+    background-color: #02575d;
+  }
+  .redirect_container {
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    height: 50rem;
+    width: 45rem;
+    position: relative;
+    top: 4rem;
+    box-shadow: 1px 1px 10px 5px grey;
+    left: 31rem;
+  
+    background-color: white;
+  }
+  .logo {
+    position: relative;
+    left: -14rem;
+    top: -17rem;
+  }
+  .logoimg {
+    height: 4rem;
+    width: 15rem;
+  }
+  .hang_text {
+    position: relative;
+    top: -12rem;
+    color: #02575d;
+    font-size: 3rem;
+  }
+  .line {
+    position: relative;
+    width: 80%;
+    top: -6rem;
+    height: 20px;
+  }
+  .redirect_to {
+    position: relative;
+    top: -1rem;
+    font-size: 2rem;
+  }
+  .redirect_message {
+    position: relative;
+    top: 3rem;
+    font-size: 1.5rem;
+  }
+  .links {
+    position: relative;
+    top: 16rem;
+    left: 15rem;
+  }
+  .helplink {
+    font-size: 1rem;
+    color: #03656b;
+    text-decoration: none;
+  }
+  .privacylink {
+    font-size: 1rem;
+    margin-left: 2rem;
+    color: #03656b;
+    text-decoration: none;
+  }
+  .termslink {
+    font-size: 1rem;
+    margin-left: 2rem;
+    color: #03656b;
+    text-decoration: none;
+  }
