@@ -63,6 +63,7 @@
 import Navbar from '@/comps/Navbar'
 import ProgressBar from '@/comps/ProgressBar'
 import ServiceForm from '@/comps/forms/ServiceForm'
+import Confirmation from './Confirmation'
 import { useMultiSteps } from '@/hooks/useMultiSteps'
 import Head from 'next/head'
 import { FormEvent } from 'react'
@@ -80,8 +81,9 @@ export default function Home() {
   const stepDivs = [
     <ServiceForm />,
     <UserDetailsForm />,
-    <div>three</div>,
-    <div>four</div>,
+    <Confirmation />,
+    //<div>three</div>,
+    //<div>four</div>,
   ]
 
 
