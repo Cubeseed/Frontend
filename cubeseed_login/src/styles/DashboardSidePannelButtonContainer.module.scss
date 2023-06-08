@@ -1,0 +1,59 @@
+.DashboardSidePannelButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 100%;
+  height: 100vh;
+
+  .MainButtons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  }
+
+  .button {
+    all: unset;
+    text-align: center;
+    width: 100%;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  .button:focus {
+    background: #03656b;
+    color: white;
+    border-radius: 100px;
+  }
+
+  .button:hover {
+    cursor: pointer;
+  }
+
+  .button_div {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    margin-right: 1rem;
+  }
+}
+
+.SupportSettingsButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+}
