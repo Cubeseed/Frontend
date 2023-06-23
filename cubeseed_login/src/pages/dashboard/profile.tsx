@@ -1,13 +1,14 @@
 import DashboardSidePannel from '@/comps/dashboard/DashboardSidePannel'
 import Profile from '@/comps/dashboard/DashboardNavbar/DashboardNavbar'
 
-const profile = () => {
+const Profilepage = () => {
   return (
     <div>
     <DashboardSidePannel />
-    <Profile />
+    {/*<Profile />*/}
+    
     </div>
   )
 }
 
-export default profile
+export default Profilepage
