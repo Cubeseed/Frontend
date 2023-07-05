@@ -1,0 +1,184 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 6rem;
+  font-family: "Inter";
+
+  .courseVerificationHeader {
+    height: 20%;
+    margin: 5rem 0;
+
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 2rem auto;
+    }
+    p {
+      font-size: 16px;
+      width: 75%;
+    }
+  }
+
+  .verificationContainer {
+    border-radius: 10px;
+    background: var(--cubeseed-white, #fff);
+    box-shadow: 0px 2px 5px 3px rgba(3, 101, 107, 0.15);
+    padding: 5rem;
+    text-align: center;
+    max-width: 980px;
+
+    .submitCourse {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 100px;
+      background: var(--cubeseed-ref-secondary-secondary-10, #ffb84c);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      width: 130px;
+      margin-top: 1rem;
+    }
+  }
+
+  .verification {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    .code {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 35%;
+
+      p {
+        height: 30%;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: -0.342px;
+        margin-bottom: 7rem;
+      }
+
+      .codeGroup {
+        position: relative;
+        margin-bottom: 7rem;
+
+        .codeLabel {
+          position: absolute;
+          top: -7px;
+          left: 36px;
+          background-color: #fff;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 16px;
+        }
+
+        .addCode {
+          width: 85%;
+          padding: 0 1rem;
+          margin: 0.1px;
+        }
+      }
+    }
+
+    .dividerTop {
+      border-left: 2px solid #d0dad7;
+      height: 40%;
+      position: absolute;
+      left: 50%;
+      margin-left: 0px;
+      top: 10px;
+    }
+
+    .dividerBottom {
+      border-left: 2px solid #d0dad7;
+      height: 40%;
+      position: absolute;
+      left: 50%;
+      margin-left: 0px;
+      bottom: 10px;
+    }
+
+    .uploadCertificate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 35%;
+
+      p {
+        height: 30%;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: -0.342px;
+        margin-bottom: 2rem;
+      }
+      .formGroup {
+        border-radius: 10px;
+        border: 1px dashed var(--cubeseed-ref-tertiary-tertiary-80, #bed6cd);
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        justify-content: space-between;
+        width: 100%;
+
+        img {
+          width: 30px;
+        }
+
+        .selectedFile {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #45dfa9;
+          margin: 1rem 0;
+
+          .p {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 0;
+            text-align: start;
+          }
+        }
+
+        span {
+          font-size: 12px;
+          line-height: 16px;
+          color: #6a7370;
+        }
+
+        .uploadLabel {
+          position: relative;
+          left: 0;
+          color: var(--cubeseed-ref-secondary-secondary-50, #886634);
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 16px;
+          border-radius: 100px;
+          border: 2px solid var(--cubeseed-ref-secondary-secondary-10, #ffb84c);
+          background: rgba(171, 190, 209, 0.09);
+          padding: 1rem;
+          margin: 2rem 0;
+        }
+
+        input {
+          width: 0.1px;
+          height: 0.1px;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          z-index: -1;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
+  }
+}
