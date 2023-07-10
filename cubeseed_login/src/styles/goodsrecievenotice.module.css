@@ -1,0 +1,67 @@
+.wrapper {
+  padding: 10px;
+}
+.wrapper .order {
+  font-size: 10px;
+  color: #002629;
+  margin: 10px 0;
+}
+.wrapper .info {
+  font-size: 12px;
+  margin: 10px 0;
+  color: #002629;
+}
+.wrapper .addInfo {
+  font-size: 10px;
+  color: #002629;
+  margin: 20px 0;
+}
+.wrapper .checkEl {
+  display: flex;
+  width: 100%;
+  gap: 17px;
+}
+.wrapper .checkEl span {
+  color: #002629;
+  display: flex;
+  gap: 2px;
+  font-size: 12px;
+}
+.wrapper .checkEl span input {
+  margin: 0;
+  padding: 0;
+  width: 15px;
+}
+
+.wrapperTwo {
+  position: relative;
+  width: 100%;
+}
+.wrapperTwo .inputHolder {
+  font-size: 13px;
+  gap: 20px;
+  display: flex;
+  width: 552px;
+}
+.wrapperTwo .inputHolder .dates {
+  width: 25%;
+}
+.wrapperTwo .inputHolder .times {
+  width: 20%;
+}
+.wrapperTwo .inputHolder .times label {
+  left: 170px;
+}
+.wrapperTwo .note {
+  margin: 0 12px;
+  position: relative;
+}
+.wrapperTwo .note label {
+  top: -7px;
+  font-size: 13px;
+}
+.wrapperTwo .note textarea {
+  width: 550px;
+  height: 121px;
+  padding: 2px;
+}/*# sourceMappingURL=goodsrecievenotice.module.css.map */

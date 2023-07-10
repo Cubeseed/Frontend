@@ -11,16 +11,16 @@
 
 // export default LoginPage;
 
-
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import loginoptions from "../assets/loginoptions.png";
 import logo from "../assets/cubeseed.png";
 import styles from "@/styles/loginpage.module.scss";
+import GoodsRecievedNote from "@/comps/grn/goodsrecievenotice";
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void;
@@ -29,32 +29,31 @@ interface LoginFormProps {
 
 const LoginPage: React.FC<LoginFormProps> = ({
   onSubmit,
-  onForgotPassword
+  onForgotPassword,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const handleLogin = () => {
-    if (email === '') {
-      setEmailError('Please enter valid email address');
+    if (email === "") {
+      setEmailError("Please enter valid email address");
     } else {
-      setEmailError('');
+      setEmailError("");
     }
 
-    if (password === '') {
-      setPasswordError('Wrong password');
+    if (password === "") {
+      setPasswordError("Wrong password");
     } else {
-      setPasswordError('');
+      setPasswordError("");
     }
 
-    if (email !== '' && password !== '') {
+    if (email !== "" && password !== "") {
       // Perform login logic
     }
   };
-
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -96,7 +95,9 @@ const LoginPage: React.FC<LoginFormProps> = ({
               onChange={handleEmailChange}
               required
             />
-            {emailError && <div className={styles.emailerror}>{emailError}</div>}
+            {emailError && (
+              <div className={styles.emailerror}>{emailError}</div>
+            )}
           </div>
 
           <div className={styles.inputwrap}>
@@ -108,7 +109,9 @@ const LoginPage: React.FC<LoginFormProps> = ({
               onChange={handlePasswordChange}
               required
             />
-            {passwordError && <div className={styles.passworderror}>{passwordError}</div>}
+            {passwordError && (
+              <div className={styles.passworderror}>{passwordError}</div>
+            )}
           </div>
 
           <div className={styles.after_input}>
@@ -125,14 +128,25 @@ const LoginPage: React.FC<LoginFormProps> = ({
             </div>
 
             <div className={styles.forgotpassword}>
-              <a href="#" onClick={onForgotPassword} className={styles.forgotlink}>
+              <a
+                href="#"
+                onClick={onForgotPassword}
+                className={styles.forgotlink}
+              >
                 Forgot password?
               </a>
             </div>
           </div>
 
-          <Link href="/login-page" legacyBehavior className={styles.loginbtn} onClick={handleLogin}>
-            <button className={styles.button} onClick={handleLogin}>Login</button>
+          <Link
+            href="/login-page"
+            legacyBehavior
+            className={styles.loginbtn}
+            onClick={handleLogin}
+          >
+            <button className={styles.button} onClick={handleLogin}>
+              Login
+            </button>
           </Link>
           <div className={styles.line}>
             <hr />
@@ -141,7 +155,11 @@ const LoginPage: React.FC<LoginFormProps> = ({
           <div className={styles.or}>OR</div>
           <div className={styles.loginoptions}>
             <Link href="/redirect-page">
-              <Image src={loginoptions} alt="loginoptions" className={styles.optionsimg} />
+              <Image
+                src={loginoptions}
+                alt="loginoptions"
+                className={styles.optionsimg}
+              />
             </Link>
           </div>
 
