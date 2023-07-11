@@ -13,6 +13,7 @@
 
 
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from 'next/image';
 import { AiFillGoogleCircle } from "react-icons/ai";
@@ -36,6 +37,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
   const [rememberMe, setRememberMe] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const router = useRouter();
 
   const handleLogin = () => {
     if (email === '') {
@@ -52,6 +54,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
 
     if (email !== '' && password !== '') {
       // Perform login logic
+      router.push('/farm-verification');
     }
   };
 
@@ -131,7 +134,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
             </div>
           </div>
 
-          <Link href="/login-page" legacyBehavior className={styles.loginbtn} onClick={handleLogin}>
+          <Link href="#" legacyBehavior className={styles.loginbtn} onClick={handleLogin}>
             <button className={styles.button} onClick={handleLogin}>Login</button>
           </Link>
           <div className={styles.line}>

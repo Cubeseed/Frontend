@@ -74,6 +74,7 @@ import UserDetailsForm from '@/comps/forms/UserDetailsForm'
 import Link from "next/link"
 import React from 'react'
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Profilepage from './dashboard/profile'
 
 
 export default function Home() {
@@ -82,6 +83,7 @@ export default function Home() {
     <ServiceForm />,
     <UserDetailsForm />,
     <Confirmation />,
+    
     //<div>three</div>,
     //<div>four</div>,
   ]
