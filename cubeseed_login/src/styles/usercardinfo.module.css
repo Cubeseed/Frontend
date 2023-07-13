@@ -1,5 +1,29 @@
 .userInfo {
-  background: rgb(223, 250, 223);
+  background: rgb(243, 252, 243);
   width: 400px;
-  margin: 0 10px;
+  margin: 10px 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px rgba(115, 114, 114, 0.9);
+  gap: 10px;
+}
+.userInfo img {
+  border-radius: 50px;
+}
+.userInfo .listWrapper {
+  display: flex;
+  align-items: self-start;
+}
+.userInfo .listWrapper .list {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.userInfo .listWrapper .list li {
+  display: flex;
+  gap: 5px;
+  padding: 3px 5px;
 }/*# sourceMappingURL=usercardinfo.module.css.map */

@@ -2,14 +2,16 @@ import DashboardSidePannel from "@/comps/dashboard/DashboardSidePannel";
 import Profile from "@/comps/dashboard/DashboardNavbar/DashboardNavbar";
 import CourseVerification from "./course_verification";
 
-const profile = () => {
+const Profilepage = () => {
   return (
     <div>
-      <DashboardSidePannel />
-      <CourseVerification />
-      <Profile />
+
+    <DashboardSidePannel />
+    {/*<Profile />*/}
     </div>
   );
 };
 
-export default profile;
+
+export default Profilepage
+

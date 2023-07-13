@@ -1,36 +1,34 @@
 import React from "react";
 import userCardInfo from "@/styles/usercardinfo.module.scss";
+import Farmer from "@/assets/farmer image 1.png";
+import Image from "next/image";
 
 export default function UserCardinfo() {
   return (
     <section className={userCardInfo.userInfo}>
-      <img src="" alt="" />
-      <ul>
-        <li>
-          <span>Name</span>
-          <span>Famer's Name</span>
-        </li>
-        <li>
-          <span>Company</span>
-          <span>FamerName</span>
-        </li>
-        <li>
-          <span>Contact</span>
-          <span>
+      <Image src={Farmer} alt="" width={70} height={70} className="img" />
+      <div className={userCardInfo.listWrapper}>
+        <ul className={userCardInfo.list}>
+          <li>Name</li>
+          <li>Company</li>
+          <li>Contact</li>
+          <li>Address</li>
+        </ul>
+        <ul className={userCardInfo.list}>
+          <li>Famer'sName</li>
+          <li> Farm Name</li>
+          <li>
             +234986464654
             <br />
             email@site.com
-          </span>
-        </li>
-        <li>
-          <span>Contact</span>
-          <span>
-            +234986464654
+          </li>
+          <li>
+            Building Street Address
             <br />
-            email@site.com
-          </span>
-        </li>
-      </ul>
+            City,State/province,country
+          </li>
+        </ul>
+      </div>
     </section>
   );
 }

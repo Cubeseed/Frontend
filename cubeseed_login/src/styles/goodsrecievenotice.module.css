@@ -1,67 +1,139 @@
-.wrapper {
+.overallWrapper {
+  box-shadow: 2px 2px 2px gray;
+  width: 627px;
+  display: flex;
+  border-bottom-left-radius: 30px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.overallWrapper .Grnfooter {
+  width: 100%;
+  box-shadow: 2px -1px 2px #9d9b9b;
+  padding: 10px 20px;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+}
+.overallWrapper .Grnfooter .close {
+  padding: 7px;
+  border-radius: 30px;
+  border: none;
+  background: #03656b;
+  width: 117px;
+  height: 44px;
+  color: #fff;
+  cursor: pointer;
+}
+.overallWrapper .Grnfooter .leftBtn {
+  display: flex;
+  gap: 30px;
+}
+.overallWrapper .Grnfooter .leftBtn .save {
+  padding: 7px;
+  border-radius: 30px;
+  width: 161px;
+  height: 44px;
+  border: none;
+  border: 1px solid #ffb84c;
+  color: #ddbe8e;
+  cursor: pointer;
+}
+.overallWrapper .Grnfooter .leftBtn .send {
+  border-radius: 30px;
+  border: none;
+  background: #ffb84c;
+  width: 161px;
+  height: 44px;
+  cursor: pointer;
+}
+.overallWrapper .wrappers {
+  width: 552px;
+}
+.overallWrapper .wrappers .sentBy {
+  margin-top: 2rem;
+}
+.overallWrapper .wrappers .sentBy p {
+  padding: 10px 10px;
+}
+.overallWrapper .wrappers ---------------------------------------- tBy {
+  margin: 20px 10px;
+}
+.overallWrapper .wrappers .wrapper {
   padding: 10px;
 }
-.wrapper .order {
+.overallWrapper .wrappers .wrapper .order {
   font-size: 10px;
   color: #002629;
   margin: 10px 0;
 }
-.wrapper .info {
-  font-size: 12px;
+.overallWrapper .wrappers .wrapper .title {
+  font-size: 30px;
+}
+.overallWrapper .wrappers .wrapper .info {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
   margin: 10px 0;
   color: #002629;
 }
-.wrapper .addInfo {
+.overallWrapper .wrappers .wrapper .addInfo {
   font-size: 10px;
   color: #002629;
   margin: 20px 0;
 }
-.wrapper .checkEl {
+.overallWrapper .wrappers .wrapper .checkEl {
   display: flex;
   width: 100%;
   gap: 17px;
 }
-.wrapper .checkEl span {
+.overallWrapper .wrappers .wrapper .checkEl span {
   color: #002629;
   display: flex;
   gap: 2px;
   font-size: 12px;
 }
-.wrapper .checkEl span input {
+.overallWrapper .wrappers .wrapper .checkEl span input {
   margin: 0;
   padding: 0;
   width: 15px;
 }
-
-.wrapperTwo {
+.overallWrapper .wrappers .wrapperTwo {
   position: relative;
   width: 100%;
 }
-.wrapperTwo .inputHolder {
+.overallWrapper .wrappers .wrapperTwo .inputHolder {
   font-size: 13px;
   gap: 20px;
   display: flex;
   width: 552px;
 }
-.wrapperTwo .inputHolder .dates {
+.overallWrapper .wrappers .wrapperTwo .inputHolder .dates {
   width: 25%;
 }
-.wrapperTwo .inputHolder .times {
+.overallWrapper .wrappers .wrapperTwo .inputHolder .times {
   width: 20%;
 }
-.wrapperTwo .inputHolder .times label {
+.overallWrapper .wrappers .wrapperTwo .inputHolder .times label {
   left: 170px;
 }
-.wrapperTwo .note {
+.overallWrapper .wrappers .wrapperTwo .note {
   margin: 0 12px;
   position: relative;
+  width: 100%;
 }
-.wrapperTwo .note label {
+.overallWrapper .wrappers .wrapperTwo .note label {
   top: -7px;
   font-size: 13px;
 }
-.wrapperTwo .note textarea {
-  width: 550px;
+.overallWrapper .wrappers .wrapperTwo .note textarea {
+  width: 500px;
   height: 121px;
-  padding: 2px;
+  padding: 8px;
+}
+.overallWrapper .wrappers .wrapperTwo .note span {
+  color: rgb(83, 82, 82);
+  align-items: end;
+  display: flex;
+  justify-content: end;
+  width: 90%;
 }/*# sourceMappingURL=goodsrecievenotice.module.css.map */

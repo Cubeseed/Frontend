@@ -71,6 +71,8 @@ import styles from "../styles/Login.module.scss";
 import Carousel from "@/comps/Carousel";
 import UserDetailsForm from "@/comps/forms/UserDetailsForm";
 import Link from "next/link";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Profilepage from "./dashboard/profile";
 
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -79,6 +81,7 @@ export default function Home() {
     <ServiceForm />,
     <UserDetailsForm />,
     <Confirmation />,
+
     //<div>three</div>,
     //<div>four</div>,
   ];
