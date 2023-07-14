@@ -1,5 +1,5 @@
 import styles from "@/styles/redirectpage.module.scss"
-import logo from "../assets/cubeseed.png";
+import logo from "@/assets/cubeseed.png";
 import Image from 'next/image';
 
 const RedirectPage = () => {

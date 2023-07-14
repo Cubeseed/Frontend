@@ -42,9 +42,9 @@
 // }
 
 import Link from "next/link";
-import navStyles from "../styles/navbar.module.scss"
+import navStyles from "@/styles/navbar.module.scss"
 import React from 'react';
-import LoginPage from "@/pages/login-page";
+import LoginPage from "@/pages/login_page/login-page";
 
 
 export default function Navbar() {
@@ -74,7 +74,7 @@ export default function Navbar() {
         </ul>
       </div>
       <div className={navStyles.navbuttongroup}>
-        <Link href="/login-page" legacyBehavior className={navStyles.loginbutton}>
+        <Link href="/login_page/login-page" legacyBehavior className={navStyles.loginbutton}>
           <a className={navStyles.button}>Login</a>
         </Link>
         <Link href="/signup" legacyBehavior className={navStyles.signupbutton}>

@@ -60,17 +60,18 @@
 //   )
 // }
 
-import Navbar from '@/comps/Navbar'
-import ProgressBar from '@/comps/ProgressBar'
-import ServiceForm from '@/comps/forms/ServiceForm'
-import Confirmation from './Confirmation'
+import Navbar from '@/component/navbar/Navbar'
+import ProgressBar from '@/component/progressbar/ProgressBar'
+import ServiceForm from '@/component/forms/ServiceForm'
+//import Confirmation from './confirmation_page/Confirmation'
+import Confirmation from './confirmation_page/Confirmation'
 import { useMultiSteps } from '@/hooks/useMultiSteps'
 import Head from 'next/head'
 import { FormEvent } from 'react'
 import homeStyles from "@/styles/home.module.scss"
 import styles from "../styles/Login.module.scss";
-import Carousel from '@/comps/Carousel'
-import UserDetailsForm from '@/comps/forms/UserDetailsForm'
+import Carousel from '@/component/carousel/Carousel'
+import UserDetailsForm from '@/component/forms/UserDetailsForm'
 import Link from "next/link"
 import React from 'react'
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'

@@ -1,4 +1,4 @@
-import DashboardNavbar from '@/comps/dashboard/DashboardNavbar/DashboardNavbar'
+import DashboardNavbar from '@/component/dashboard/DashboardNavbar/DashboardNavbar'
 
 const profile = () => {
   return (

@@ -1,9 +1,9 @@
-import DashboardSidePannel from '@/comps/dashboard/DashboardSidePannel'
-import Profile from '@/comps/dashboard/DashboardNavbar/DashboardNavbar'
+import DashboardSidePannel from '@/component/dashboard/DashboardSidePannel'
+import Profile from '@/component/dashboard/DashboardNavbar/DashboardNavbar'
 import styles from '@/styles/FarmVerification.module.scss'
 import React, { useState } from 'react'
-import DropdownSelect from '@/comps/DropdownSelect'
-import Upload from '@/comps/Upload'
+import DropdownSelect from '@/component/dropdown/DropdownSelect'
+import Upload from '@/component/uploadfile/Upload'
 import Link from 'next/link'
 
 const FarmVerification = () => {
