@@ -1,3 +1,5 @@
+const {fontFamily} = require("tailwindcss/defaultTheme")
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,7 +11,11 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans]
+      }
+    },
   },
   plugins: [],
 }
