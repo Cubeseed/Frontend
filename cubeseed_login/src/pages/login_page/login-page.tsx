@@ -19,9 +19,10 @@ import Image from 'next/image';
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import loginoptions from "../assets/loginoptions.png";
-import logo from "../assets/cubeseed.png";
+import loginoptions from "@/assets/loginoptions.png";
+import logo from "@/assets/cubeseed.png";
 import styles from "@/styles/loginpage.module.scss";
+
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void;
@@ -52,10 +53,10 @@ const LoginPage: React.FC<LoginFormProps> = ({
       setPasswordError('');
     }
 
-    if (email !== '' && password !== '') {
-      // Perform login logic
-      router.push('/farm-verification');
-    }
+    // if (email !== '' && password !== '') {
+    //   // Perform login logic
+    //   router.push('/farm-verification');
+    // }
   };
 
 
@@ -75,7 +76,35 @@ const LoginPage: React.FC<LoginFormProps> = ({
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(email, password, rememberMe);
+    //onSubmit(email, password, rememberMe);
+    login(email, password);
+  };
+
+  const login = async(username: string, password: string) => {
+    try {
+      // api url
+      const response = await fetch('http://localhost:8000/api/auth/token/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        // Login successful
+        // Redirect the user to the desired page or perform any other actions
+        console.log('Login successful:', data);
+      } else {
+        // Login failed
+        // Handle the error, e.g., show an error message to the user
+        console.log('Login failed');
+      }
+    } catch (error) {
+      // Handle network errors or other exceptions
+      console.error('Login failed', error);
+    }
   };
 
   return (
@@ -134,8 +163,10 @@ const LoginPage: React.FC<LoginFormProps> = ({
             </div>
           </div>
 
-          <Link href="#" legacyBehavior className={styles.loginbtn} onClick={handleLogin}>
-            <button className={styles.button} onClick={handleLogin}>Login</button>
+          <Link href="#" legacyBehavior className={styles.loginbtn} >
+            <a>
+            <button className={styles.button} type="submit" onClick={handleLogin}>Login</button>
+            </a>
           </Link>
           <div className={styles.line}>
             <hr />
@@ -143,7 +174,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
 
           <div className={styles.or}>OR</div>
           <div className={styles.loginoptions}>
-            <Link href="/redirect-page">
+            <Link href="/redirect_page/redirect-page">
               <Image src={loginoptions} alt="loginoptions" className={styles.optionsimg} />
             </Link>
           </div>
