@@ -16,8 +16,8 @@ type value = {
 export default function Service({ value }: value) {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
-  const radioRef = useRef<InputHTMLAttributes<HTMLInputElement>>(null);
-
+  //const radioRef = useRef<InputHTMLAttributes<HTMLInputElement>>(null)
+  const radioRef = useRef<HTMLInputElement>(null);
   const selectOption = () => {
     setIsChecked(!isChecked);
     radioRef.current?.checked === true;

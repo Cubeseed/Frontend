@@ -1,4 +1,4 @@
-import Service from "../Service";
+import Service from "../service-instance/Service";
 import serviceStyles from "@/styles/serviceform.module.scss"
 
 

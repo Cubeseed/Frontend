@@ -1,6 +1,6 @@
 import { useMultiSteps } from '@/hooks/useMultiSteps'
 import progressStyles from '@/styles/progress.module.scss'
-import ServiceForm from './forms/ServiceForm'
+import ServiceForm from '../forms/ServiceForm'
 import { JSXElementConstructor, ReactElement } from 'react'
 
 const stepDivs = [
