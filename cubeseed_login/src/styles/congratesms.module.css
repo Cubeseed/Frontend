@@ -1,0 +1,64 @@
+.congratsContainer {
+  height: 300px;
+  width: 500px;
+  box-shadow: 2px 2px 2px ghostwhite, -2px 2px 2px ghostwhite;
+  margin: 10px auto;
+  border-radius: 10px;
+  position: relative;
+}
+.congratsContainer .circlCon {
+  height: 100px;
+}
+.congratsContainer .circlCon .btnClose {
+  width: 100%;
+  position: absolute;
+  left: 90%;
+  top: 20px;
+  font-size: 20px;
+}
+.congratsContainer .circlCon .circle {
+  background-color: #f1fcfd;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.congratsContainer .popImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  left: 30%;
+}
+.congratsContainer .text {
+  margin: 1.4rem;
+  text-align: center;
+  padding-top: 50px;
+  line-height: 30px;
+}
+.congratsContainer .btnWrapper {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  justify-content: end;
+  padding: 0 10px;
+}
+.congratsContainer .btnWrapper .close,
+.congratsContainer .btnWrapper .view {
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  padding: 4px;
+}
+.congratsContainer .btnWrapper .close {
+  border: 1px solid #ffb84c;
+  color: #ddbe8e;
+}
+.congratsContainer .btnWrapper .view {
+  background: #ffb84c;
+  border: none;
+  font-weight: 500;
+}/*# sourceMappingURL=congratesms.module.css.map */

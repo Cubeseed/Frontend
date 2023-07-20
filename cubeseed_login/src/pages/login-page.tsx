@@ -21,7 +21,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import loginoptions from "../assets/loginoptions.png";
 import logo from "../assets/cubeseed.png";
 import styles from "@/styles/loginpage.module.scss";
-import GoodsRecievedNote from "@/comps/grn/goodsrecievenotice";
+import GoodsRecievedNote from "@/comps/FarmGrn/goodsrecievenotice";
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void;

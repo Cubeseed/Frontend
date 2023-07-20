@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Context } from "@/context/context";
 type TextAreaProps = {
   limit: number;
 };
 
 function Textarea({ limit }: TextAreaProps) {
-  const [content, setContent] = React.useState<string>();
+  const { setText, text } = useContext(Context);
+
+  // const [content, setContent] = React.useState<string>();
 
   const handleTextArea = React.useCallback(
     (text: string) => {
-      setContent(text.slice(0, limit));
+      setText(text.slice(0, limit));
     },
-    [limit, setContent]
+    [limit, setText]
   );
 
   return (
     <>
       <textarea
-        value={content}
+        value={text}
         placeholder="input"
         onChange={(e) => handleTextArea(e.target.value)}
       ></textarea>
