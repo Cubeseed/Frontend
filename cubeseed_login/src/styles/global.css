@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --clr-primary: #03656B;
+    --clr-secondary: #ffb84c;
+    --clr-accent: #886634;
+  }
+}

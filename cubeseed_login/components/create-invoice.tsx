@@ -7,6 +7,7 @@ import payto from "../public/pay-to.png";
 import Input from "./pieces/input";
 import Textarea from "./pieces/textarea";
 import Table from "./pieces/table";
+import CreateSucess from "./create-sucess";
 
 type BillType = {
   name: string;
@@ -28,6 +29,7 @@ type SummaryType = {
 
 export default function CreateInvoice() {
   const [shouldOpen, setOpen] = useState(false);
+  const [isSuccess, setSuccess] = useState(false);
 
   const billerData = [
     { name: "Name", value: "Farmer&apos;s name" },
@@ -239,7 +241,7 @@ export default function CreateInvoice() {
                   <button className="text-[#886634] font-light rounded-[100px] py-3 px-6 h-[44px] bg-transparent flex items-center border border-yellow-400">
                     Save as Draft
                   </button>
-                  <button className="text-white font-light bg-[#03656B] rounded-[100px] py-3 px-6 h-[44px] flex items-center">
+                  <button onClick={() => setSuccess(true)} className="text-white font-light bg-[#03656B] rounded-[100px] py-3 px-6 h-[44px] flex items-center">
                     Send Invoice
                   </button>
                 </div>
@@ -248,6 +250,7 @@ export default function CreateInvoice() {
           </div>
         </div>
       )}
+      {isSuccess && <CreateSucess setSuccess={setSuccess}/>}
     </div>
   );
 }

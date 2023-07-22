@@ -1,6 +1,5 @@
 import Navbar from "@/comps/Navbar";
 import DashboardNavbar from "@/comps/dashboard/DashboardNavbar/DashboardNavbar";
-import "@/styles/global.css";
 
 export const metadata = {
   title: "Next.js",
