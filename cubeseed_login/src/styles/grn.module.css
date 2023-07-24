@@ -1,0 +1,291 @@
+.wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.4rem;
+}
+.wrapper .title {
+  width: 80%;
+}
+.wrapper .title .order {
+  margin: 1rem 0;
+  font-size: 12px;
+}
+.wrapper .title .Grn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.wrapper .title .Grn h2 {
+  font-size: 20px;
+}
+.wrapper .title .Grn .img {
+  background-color: #e0c294;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffb84c;
+}
+
+.tableContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.tableContainer .tablesCon {
+  width: 75%;
+  display: flex;
+  gap: 20px;
+}
+.tableContainer .tablesCon .line {
+  width: 0.1%;
+  height: 99%;
+  color: gray;
+  background-color: gray;
+}
+.tableContainer .tablesCon .billingContainer {
+  width: 334px;
+}
+.tableContainer .tablesCon .billingContainer .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3px 0;
+  color: #002629;
+  line-height: 20px;
+  font-family: inter;
+  font-size: 14px;
+}
+.tableContainer .tablesCon .billingContainer .head .view {
+  display: flex;
+  align-items: center;
+  color: #27797e;
+}
+.tableContainer .tablesCon .billingContainer .bdy {
+  display: flex;
+  gap: 10px;
+  margin: 4px 0;
+  color: #002629;
+  line-height: 14px;
+  font-size: 14px;
+  font-family: inter;
+}
+.tableContainer .tablesCon .billingContainer .bdy .farmInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tableContainer .tablesCon .billingContainer .bdy .farmIn {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.tableContainer .tablesCon .shippingContainer {
+  width: 334px;
+}
+.tableContainer .tablesCon .shippingContainer .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3px 0;
+  color: #002629;
+  line-height: 20px;
+  font-family: inter;
+  font-size: 14px;
+}
+.tableContainer .tablesCon .shippingContainer .head .view {
+  display: flex;
+  align-items: center;
+  color: #27797e;
+}
+.tableContainer .tablesCon .shippingContainer .bdy {
+  display: flex;
+  gap: 10px;
+  margin: 4px 0;
+  color: #002629;
+  line-height: 14px;
+  font-size: 14px;
+  font-family: inter;
+}
+.tableContainer .tablesCon .shippingContainer .bdy .farmInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tableContainer .tablesCon .shippingContainer .bdy .farmIn {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.tableContainer .tablesCon .deliveryInformation {
+  width: 334px;
+}
+.tableContainer .tablesCon .deliveryInformation .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3px 0;
+  color: #002629;
+  line-height: 20px;
+  font-family: inter;
+  font-size: 14px;
+}
+.tableContainer .tablesCon .deliveryInformation .head .view {
+  display: flex;
+  align-items: center;
+  color: #27797e;
+}
+.tableContainer .tablesCon .deliveryInformation .bdy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 4px 0;
+  color: #002629;
+  line-height: 14px;
+  font-size: 14px;
+  font-family: inter;
+}
+.tableContainer .tablesCon .deliveryInformation .bdy .delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.tableContainer .tablesCon .deliveryInformation .bdy .time {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tables {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.tables table {
+  width: 70%;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+.tables table tbody {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #27797e;
+  border-radius: 4px;
+  border: 1px solid #27797e;
+}
+.tables table tbody .rows {
+  color: #002629;
+}
+.tables table tbody tr {
+  border: 0.5px solid #27797e;
+  display: flex;
+  justify-content: space-between;
+}
+.tables table tbody tr th {
+  font-weight: 400;
+  font-size: 14px;
+  width: 100px;
+  padding: 10px 0;
+}
+
+.last {
+  width: 100%;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+.last .lastContent {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.last .lastContent .contents {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.last .lastContent .contents .text {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px 10px;
+  width: 70%;
+  border: 1px solid gray;
+  background-color: #dbedee;
+}
+.last .lastContent .contents .text p {
+  padding: 7px 0;
+}
+.last .lastContent .contents .amountWrapper {
+  border: 1px solid gray;
+  background-color: #f1fcfd;
+  border-radius: 5px;
+  width: 30%;
+  display: flex;
+  justify-content: end;
+  padding: 10px 20px;
+}
+.last .lastContent .contents .amountWrapper .amountwrap .amount {
+  color: #27797e;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+.last .lastContent .contents .amountWrapper .amountwrap .amount p {
+  padding: 5px 0;
+  text-align: center;
+}
+.last .lastContent .contents .amountWrapper .amountwrap .amounts {
+  color: #002629;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+.last .lastContent .contents .amountWrapper .amountwrap .amounts p {
+  padding: 5px 0;
+  text-align: center;
+}
+
+.btnWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.btnWrap .btn {
+  width: 89%;
+  display: flex;
+  justify-content: space-between;
+}
+.btnWrap .btn .close {
+  border-radius: 15px;
+  background-color: #002629;
+  color: #f1fcfd;
+  padding: 6px;
+  width: 121px;
+  height: 44px;
+  border: none;
+}
+.btnWrap .btn .download {
+  border: none;
+  width: 162px;
+  padding: 6px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color: #ffb84c;
+  border-radius: 15px;
+}/*# sourceMappingURL=grn.module.css.map */

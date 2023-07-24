@@ -1,0 +1,32 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/mock.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.carousel .card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  width: 431px;
+  height: 332px;
+  background: rgba(0, 38, 41, 0.7);
+  color: white;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: 10px;
+}
+.carousel .card .profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+  padding: 15px 0px;
+}/*# sourceMappingURL=carousel.module.css.map */

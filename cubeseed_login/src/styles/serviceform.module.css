@@ -1,0 +1,8 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=serviceform.module.css.map */

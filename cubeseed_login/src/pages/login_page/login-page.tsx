@@ -11,18 +11,16 @@
 
 // export default LoginPage;
 
-
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from 'next/image';
-import { AiFillGoogleCircle } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
-import { AiFillTwitterCircle } from "react-icons/ai";
+import Image from "next/image";
+// import { AiFillGoogleCircle } from "react-icons/ai";
+// import { BsFacebook } from "react-icons/bs";
+// import { AiFillTwitterCircle } from "react-icons/ai";
 import loginoptions from "@/assets/loginoptions.png";
 import logo from "@/assets/cubeseed.png";
 import styles from "@/styles/loginpage.module.scss";
-
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void;
@@ -31,26 +29,26 @@ interface LoginFormProps {
 
 const LoginPage: React.FC<LoginFormProps> = ({
   onSubmit,
-  onForgotPassword
+  onForgotPassword,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const router = useRouter();
 
   const handleLogin = () => {
-    if (email === '') {
-      setEmailError('Please enter valid email address');
+    if (email === "") {
+      setEmailError("Please enter valid email address");
     } else {
-      setEmailError('');
+      setEmailError("");
     }
 
-    if (password === '') {
-      setPasswordError('Wrong password');
+    if (password === "") {
+      setPasswordError("Wrong password");
     } else {
-      setPasswordError('');
+      setPasswordError("");
     }
 
     // if (email !== '' && password !== '') {
@@ -58,7 +56,6 @@ const LoginPage: React.FC<LoginFormProps> = ({
     //   router.push('/farm-verification');
     // }
   };
-
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -80,30 +77,30 @@ const LoginPage: React.FC<LoginFormProps> = ({
     login(email, password);
   };
 
-  const login = async(username: string, password: string) => {
+  const login = async (username: string, password: string) => {
     try {
       // api url
-      const response = await fetch('http://localhost:8000/api/auth/token/', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8000/api/auth/token/", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, password }),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         // Login successful
         // Redirect the user to the desired page or perform any other actions
-        console.log('Login successful:', data);
+        console.log("Login successful:", data);
       } else {
         // Login failed
         // Handle the error, e.g., show an error message to the user
-        console.log('Login failed');
+        console.log("Login failed");
       }
     } catch (error) {
       // Handle network errors or other exceptions
-      console.error('Login failed', error);
+      console.error("Login failed", error);
     }
   };
 
@@ -128,7 +125,9 @@ const LoginPage: React.FC<LoginFormProps> = ({
               onChange={handleEmailChange}
               required
             />
-            {emailError && <div className={styles.emailerror}>{emailError}</div>}
+            {emailError && (
+              <div className={styles.emailerror}>{emailError}</div>
+            )}
           </div>
 
           <div className={styles.inputwrap}>
@@ -140,7 +139,9 @@ const LoginPage: React.FC<LoginFormProps> = ({
               onChange={handlePasswordChange}
               required
             />
-            {passwordError && <div className={styles.passworderror}>{passwordError}</div>}
+            {passwordError && (
+              <div className={styles.passworderror}>{passwordError}</div>
+            )}
           </div>
 
           <div className={styles.after_input}>
@@ -157,15 +158,25 @@ const LoginPage: React.FC<LoginFormProps> = ({
             </div>
 
             <div className={styles.forgotpassword}>
-              <a href="#" onClick={onForgotPassword} className={styles.forgotlink}>
+              <a
+                href="#"
+                onClick={onForgotPassword}
+                className={styles.forgotlink}
+              >
                 Forgot password?
               </a>
             </div>
           </div>
 
-          <Link href="#" legacyBehavior className={styles.loginbtn} >
+          <Link href="#" legacyBehavior className={styles.loginbtn}>
             <a>
-            <button className={styles.button} type="submit" onClick={handleLogin}>Login</button>
+              <button
+                className={styles.button}
+                type="submit"
+                onClick={handleLogin}
+              >
+                Login
+              </button>
             </a>
           </Link>
           <div className={styles.line}>
@@ -175,7 +186,11 @@ const LoginPage: React.FC<LoginFormProps> = ({
           <div className={styles.or}>OR</div>
           <div className={styles.loginoptions}>
             <Link href="/redirect_page/redirect-page">
-              <Image src={loginoptions} alt="loginoptions" className={styles.optionsimg} />
+              <Image
+                src={loginoptions}
+                alt="loginoptions"
+                className={styles.optionsimg}
+              />
             </Link>
           </div>
 

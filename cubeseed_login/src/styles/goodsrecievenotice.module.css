@@ -1,0 +1,168 @@
+.overallWrapper {
+  box-shadow: 1px 1px 1px gray, -1px 1px 1px gray;
+  width: 427px;
+  height: 650px;
+  display: flex;
+  position: relative;
+  border-bottom-left-radius: 30px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.overallWrapper .Grnfooter {
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  border-bottom-left-radius: 20px;
+  width: 100%;
+  box-shadow: 1px 1px 2px #9d9b9b;
+  padding: 8px 20px;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+}
+.overallWrapper .Grnfooter .close {
+  padding: 7px;
+  border-radius: 30px;
+  border: none;
+  background: #03656b;
+  width: 80px;
+  height: 44px;
+  color: #fff;
+  cursor: pointer;
+}
+.overallWrapper .Grnfooter .leftBtn {
+  display: flex;
+  gap: 30px;
+}
+.overallWrapper .Grnfooter .leftBtn .save {
+  padding: 2px;
+  border-radius: 30px;
+  font-size: 10px;
+  width: 101px;
+  height: 44px;
+  border: none;
+  border: 1px solid #ffb84c;
+  color: #ddbe8e;
+  cursor: pointer;
+}
+.overallWrapper .Grnfooter .leftBtn .send {
+  border-radius: 30px;
+  border: none;
+  background: #ffb84c;
+  width: 121px;
+  height: 44px;
+  cursor: pointer;
+}
+.overallWrapper .wrappers {
+  width: 100%;
+}
+.overallWrapper .wrappers .close {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  font-size: 20px;
+  padding-right: 10px;
+}
+.overallWrapper .wrappers .sentBy {
+  margin-top: 0.3rem;
+}
+.overallWrapper .wrappers .sentBy h3 {
+  padding: 10px 10px;
+  font-size: 600;
+}
+.overallWrapper .wrappers ---------------------------------------- tBy {
+  margin: 20px 10px;
+}
+.overallWrapper .wrappers .wrapper {
+  padding: 10px;
+}
+.overallWrapper .wrappers .wrapper .order {
+  font-size: 10px;
+  color: #002629;
+  margin: 5px 0;
+}
+.overallWrapper .wrappers .wrapper .title {
+  font-size: 30px;
+}
+.overallWrapper .wrappers .wrapper .info {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 10px 0;
+  color: #083538;
+}
+.overallWrapper .wrappers .wrapper .addInfo {
+  font-size: 10px;
+  color: #03656b;
+  margin: 2rem 0;
+}
+.overallWrapper .wrappers .wrapper .checkEl {
+  display: flex;
+  width: 100%;
+  gap: 17px;
+  margin: 1.3rem 0;
+  color: #023235;
+}
+.overallWrapper .wrappers .wrapper .checkEl p {
+  color: #03656b;
+}
+.overallWrapper .wrappers .wrapper .checkEl span {
+  display: flex;
+  gap: 2px;
+  font-size: 12px;
+}
+.overallWrapper .wrappers .wrapper .checkEl span input {
+  margin: 0;
+  padding: 0;
+  width: 15px;
+}
+.overallWrapper .wrappers .wrapper .checkEl span input[type=checkbox]:checked {
+  accent-color: #03656b !important;
+  color: white;
+}
+.overallWrapper .wrappers .wrapperTwo {
+  position: relative;
+  width: 100%;
+}
+.overallWrapper .wrappers .wrapperTwo .inputHolder {
+  font-size: 13px;
+  gap: 20px;
+  display: flex;
+  width: 552px;
+  margin-bottom: 1rem;
+}
+.overallWrapper .wrappers .wrapperTwo .inputHolder .dates {
+  width: 25%;
+  font-size: 12px;
+  color: #03656b;
+}
+.overallWrapper .wrappers .wrapperTwo .inputHolder .times {
+  width: 20%;
+  font-size: 12px;
+  color: #03656b;
+}
+.overallWrapper .wrappers .wrapperTwo .inputHolder .times label {
+  left: 170px;
+}
+.overallWrapper .wrappers .wrapperTwo .note {
+  margin: 0 12px;
+  position: relative;
+  width: 100%;
+}
+.overallWrapper .wrappers .wrapperTwo .note label {
+  top: -7px;
+  font-size: 13px;
+}
+.overallWrapper .wrappers .wrapperTwo .note textarea {
+  width: 90%;
+  height: 121px;
+  padding: 8px;
+}
+.overallWrapper .wrappers .wrapperTwo .note span {
+  color: rgb(83, 82, 82);
+  align-items: end;
+  display: flex;
+  font-size: 10px;
+  justify-content: end;
+  width: 90%;
+}/*# sourceMappingURL=goodsrecievenotice.module.css.map */
