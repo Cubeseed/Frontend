@@ -1,7 +1,11 @@
-import CreateInvoice from "../../../components/create-invoice";
+import CreateInvoice from "@cs/components/create-invoice";
+import CreateSucess from "@cs/components/create-success";
+import { useState } from "react";
 
-export default async function Invoice() {
+export default async function DashboardPage() {
   return (
-   <div className="text-lg"><CreateInvoice /></div>
-  )
+    <div>
+      <CreateInvoice />
+    </div>
+  );
 }

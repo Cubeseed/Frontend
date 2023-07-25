@@ -4,8 +4,13 @@
 
 @layer base {
   :root {
-    --clr-primary: #03656B;
+    --clr-primary: #002629;
+    --clr-primary-10: #03656B;
+    --clr-primary-20: #27797E;
     --clr-secondary: #ffb84c;
     --clr-accent: #886634;
+    --clr-neutral-30: #46524E;
+    --clr-neutral-70: #B4BABE;
+    --clr-neutral-90: #EBF3F1;
   }
 }

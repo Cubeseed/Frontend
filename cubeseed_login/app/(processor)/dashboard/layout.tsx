@@ -13,12 +13,14 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
-      <div className="flex">
-        <aside className="w-[15%] h-screen bg-white shadow-2xl">
+      <header className="sticky inset-0 ">
+        <Navbar />
+      </header>
+      <div>
+        <aside className="w-[250px] h-screen fixed inset-0 bg-white shadow-2xl">
           <DashboardNavbar />
         </aside>
-        <main className="w-[calc(100%-15%)]">{children}</main>
+        <main className="ml-[250px]">{children}</main>
       </div>
     </div>
   );

@@ -2,34 +2,18 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import billto from "../public/bill-to.png";
-import payto from "../public/pay-to.png";
+import billto from "@cs/public/bill-to.png";
+import payto from "@cs/public/pay-to.png";
 import Input from "./pieces/input";
 import Textarea from "./pieces/textarea";
 import Table from "./pieces/table";
-import CreateSucess from "./create-sucess";
-
-type BillType = {
-  name: string;
-  value: string;
-};
-
-type OrderType = {
-  service: string;
-  quantity: string;
-  unit: string;
-  price: string;
-  total: string;
-};
-
-type SummaryType = {
-  name: string;
-  value: string;
-};
+import CreateSucess from "./create-success";
+import { BillType, OrderType, SummaryType } from "@cs/types";
+import { DashboardHeading } from "./header";
 
 export default function CreateInvoice() {
-  const [shouldOpen, setOpen] = useState(false);
-  const [isSuccess, setSuccess] = useState(false);
+  const [shouldOpen, setOpen] = useState(false)
+  const [isSuccess, setSuccess] = useState(false)
 
   const billerData = [
     { name: "Name", value: "Farmer&apos;s name" },
@@ -80,14 +64,14 @@ export default function CreateInvoice() {
   const renderOrder = (item: OrderType) => (
     <>
       <tr className="bg-[#F9FFFF]">
-        <td className="py-4">{item.service}</td>
+        <td className="p-4">{item.service}</td>
         <td>{item.quantity}</td>
         <td>{item.unit}</td>
         <td>{item.price}</td>
         <td>{item.total}</td>
       </tr>
       <tr>
-        <td colSpan={4}>
+        <td colSpan={4} className="p-4">
           <span className="block">Details</span>
           <span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
@@ -125,13 +109,12 @@ export default function CreateInvoice() {
         <div className="grid items-center h-screen w-screen fixed inset-0 backdrop-brightness-50">
           <div className="w-[60%] bg-white mx-auto self-start mt-8 overflow-auto max-h-[90%] relative rounded-bl-[35px] shadow-lg">
             <div className="relative p-8 pb-16 text-[#002629]">
-              <p className="font-medium text-sm">Order ID &gt; Invoice ID </p>
-              <h1 className="font-bold text-4xl">Invoice</h1>
-              <p className="text-base font-normal text-[#002629] mt-4">
-                Fill out the missing information and an invoice will be created
-                and sent to [farmer’s name].
-              </p>
-
+              <DashboardHeading
+                heading="Invoice"
+                text="Fill out the missing information and an invoice will be created
+                and sent to [farmer’s name]."
+                subheading="Order ID &gt; Invoice ID "
+              />
               <span
                 className="grid items-center absolute right-[3%] top-[1%] cursor-pointer z-10 rounded-full"
                 onClick={() => setOpen(false)}
@@ -194,7 +177,7 @@ export default function CreateInvoice() {
                         headers={orderHeaders}
                         items={orderData}
                         render={renderOrder}
-                        className="w-full font-normal text-sm border border-[#03656B]  rounded-[4px]"
+                        className="w-full font-normal text-sm border border-[#03656B] rounded-[4px] text-left"
                         thStyle="border-b border-[#03656B]"
                       />
                     </div>
@@ -241,7 +224,10 @@ export default function CreateInvoice() {
                   <button className="text-[#886634] font-light rounded-[100px] py-3 px-6 h-[44px] bg-transparent flex items-center border border-yellow-400">
                     Save as Draft
                   </button>
-                  <button onClick={() => setSuccess(true)} className="text-white font-light bg-[#03656B] rounded-[100px] py-3 px-6 h-[44px] flex items-center">
+                  <button
+                    onClick={() => setSuccess(true)}
+                    className="text-white font-light bg-[#03656B] rounded-[100px] py-3 px-6 h-[44px] flex items-center"
+                  >
                     Send Invoice
                   </button>
                 </div>
@@ -250,7 +236,7 @@ export default function CreateInvoice() {
           </div>
         </div>
       )}
-      {isSuccess && <CreateSucess setSuccess={setSuccess}/>}
+      {isSuccess && <CreateSucess isSuccess={isSuccess} setSuccess={setSuccess} />}
     </div>
   );
 }

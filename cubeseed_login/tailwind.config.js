@@ -14,13 +14,21 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "var(--clr-primary)"
+          DEFAULT: "var(--clr-primary)",
+          100: "var(--clr-primary-10)",
+          200: "var(--clr-primary-20)"
         },
         secondary: {
           DEFAULT: "var(--clr-secondary)",
         },
         accent: {
           DEFAULT: "var(--clr-accent)",
+        },
+        csneutral: {
+          DEFAULT: "var(--clr-neutral)",
+          300: "var(--clr-neutral-30)",
+          700: "var(--clr-neutral-70)",
+          900: "var(--clr-neutral-90)",
         }
       },
       fontFamily: {

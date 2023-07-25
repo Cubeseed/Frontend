@@ -22,7 +22,7 @@ const Table = <TItem,>({
         <thead className={`${props.thStyle}`}>
           <tr>
             {headers.map((header, i) => (
-              <th key={i}>{header}</th>
+              <th key={i} className="p-4">{header}</th>
             ))}
           </tr>
         </thead>
