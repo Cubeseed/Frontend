@@ -1,0 +1,171 @@
+.overallWrapper {
+  box-shadow: 1px 1px 1px gray, -1px 1px 1px gray;
+  width: 427px;
+  height: 650px;
+  display: flex;
+  position: relative;
+  border-bottom-left-radius: 30px;
+  flex-direction: column;
+  margin: 0 auto;
+  .Grnfooter {
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+    border-bottom-left-radius: 20px;
+    width: 100%;
+    box-shadow: 1px 1px 2px rgba($color: #9d9b9b, $alpha: 1);
+    padding: 8px 20px;
+    display: flex;
+    font-size: 16px;
+
+    justify-content: space-between;
+    .close {
+      padding: 7px;
+      border-radius: 30px;
+      border: none;
+      background: #03656b;
+      width: 80px;
+      height: 44px;
+      color: #fff;
+      cursor: pointer;
+    }
+    .leftBtn {
+      display: flex;
+      gap: 30px;
+      .save {
+        padding: 2px;
+        border-radius: 30px;
+        font-size: 10px;
+        width: 101px;
+        height: 44px;
+        border: none;
+        border: 1px solid #ffb84c;
+        color: #ddbe8e;
+        cursor: pointer;
+      }
+      .send {
+        border-radius: 30px;
+        border: none;
+        background: #ffb84c;
+        width: 121px;
+        height: 44px;
+        cursor: pointer;
+      }
+    }
+  }
+  .wrappers {
+    width: 100%;
+    .close {
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      font-size: 20px;
+      padding-right: 10px;
+    }
+    .sentBy {
+      margin-top: 0.3rem;
+      h3 {
+        padding: 10px 10px;
+        font-size: 600;
+      }
+    }
+    ---------------------------------------- tBy {
+      margin: 20px 10px;
+    }
+    .wrapper {
+      padding: 10px;
+      .order {
+        font-size: 10px;
+        color: #002629;
+        margin: 5px 0;
+      }
+      .title {
+        font-size: 30px;
+      }
+      .info {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        margin: 10px 0;
+        color: #083538;
+      }
+      .addInfo {
+        font-size: 10px;
+        color: #03656b;
+        margin: 2rem 0;
+      }
+      .checkEl {
+        display: flex;
+        width: 100%;
+        gap: 17px;
+        margin: 1.3rem 0;
+        color: #023235;
+        p {
+          color: #03656b;
+        }
+        span {
+          display: flex;
+          gap: 2px;
+          font-size: 12px;
+
+          input {
+            margin: 0;
+            padding: 0;
+            width: 15px;
+          }
+          input[type="checkbox"]:checked {
+            accent-color: #03656b !important;
+            color: white;
+          }
+        }
+      }
+    }
+    .wrapperTwo {
+      position: relative;
+      width: 100%;
+      .inputHolder {
+        font-size: 13px;
+        gap: 20px;
+        display: flex;
+        width: 552px;
+        margin-bottom: 1rem;
+        .dates {
+          width: 25%;
+          font-size: 12px;
+          color: #03656b;
+        }
+        .times {
+          width: 20%;
+          font-size: 12px;
+          color: #03656b;
+
+          label {
+            left: 170px;
+          }
+        }
+      }
+      .note {
+        margin: 0 12px;
+        position: relative;
+        width: 100%;
+        label {
+          top: -7px;
+          font-size: 13px;
+        }
+        textarea {
+          width: 90%;
+          height: 121px;
+          padding: 8px;
+        }
+        span {
+          color: rgb(83, 82, 82);
+          align-items: end;
+          display: flex;
+          font-size: 10px;
+          justify-content: end;
+          width: 90%;
+        }
+      }
+    }
+  }
+}

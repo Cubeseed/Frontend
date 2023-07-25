@@ -1,0 +1,111 @@
+.verify_container {
+    position: relative;
+    top: -53rem;
+    left: 30rem;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .verifyform {
+        position: relative;
+        top: 8rem;
+        
+        left: 5rem;
+
+        .addressinput {
+            border: 1px solid grey;
+            width: 20%;
+        }
+
+        .dropdownright {
+            position: relative;
+            top: 2rem;
+            width: 20%;
+    
+            .dropdownright_label {
+                position: relative;
+                top: 2.5rem;
+                font-size: 0.9rem;
+            }
+        
+            .dropdownright_selection {
+                position: relative;
+                top: 2rem;
+            }
+        }
+    
+        .dropdownleft {
+            position: relative;
+            top: -1.4rem;
+            left: 30rem;
+            width: 20%;
+    
+            .dropdownleft_label {
+                position: relative;
+                top: 2.5rem;
+                font-size: 0.9rem;
+            }
+        
+            .dropdownleft_selection {
+                position: relative;
+                top: 2rem;
+            }
+        }
+
+        .uploadright {
+            position: relative;
+            left: 30rem;
+            top: -14.3rem;
+        }
+        .confirm {
+            position: relative;
+            top: -8rem;
+
+            .confirmCheck {
+                position: relative;
+                left: -1rem;
+                top: -0.5rem;
+                outline: 2px solid #FFB84C;
+                width: 20px;
+                height: 20px;
+                border-radius: 0%;
+                border: 1px solid white;
+                cursor: pointer;
+            }
+
+            .confirmLabel {
+                position: relative;
+                top: -0.8rem;
+                left: 0;
+                color: #01656B;
+            }
+        }
+        .completeButton {
+            position: relative;
+            left: 21rem;
+            top: -4.6rem;
+
+            .button {
+                width: 100px;
+                background-color: #ffb84c;
+                color: #333;
+                border: 2px solid #ffb84c;
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 12px 26px;
+                gap: 10px;
+                border-radius: 100px;
+            }
+
+        }
+        
+
+
+    }
+
+    
+    
+}
