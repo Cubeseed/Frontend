@@ -1,15 +1,18 @@
 import Image from "next/image";
 import check from "@cs/public/check.svg";
 import ellipse from "@cs/public/ellipse.png";
+import Link from "next/link";
 
 export interface CreateSuccessProps {
+  isSuccess: boolean;
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function CreateSucess({ setSuccess }: CreateSuccessProps) {
+export default function CreateSucess({ isSuccess, setSuccess }: CreateSuccessProps) {
+  if(!isSuccess) return null;
   return (
-    <div className="grid items-center h-screen w-screen fixed inset-0 backdrop-brightness-50">
-      <div className="grid place-items-center w-[60%] py-8 px-8 bg-white text-primary mx-auto max-h-[90%] shadow-lg relative">
+    <div className="grid items-center h-screen w-screen fixed inset-0 backdrop-brightness-[30%]">
+      <div className="grid place-items-center w-[60%] py-8 px-8 bg-white text-primary-100 mx-auto max-h-[90%] shadow-lg relative rounded-[25px]">
         <span
           className="grid items-center absolute right-[3%] top-[1%] cursor-pointer z-10"
           onClick={() => setSuccess(false)}
@@ -25,9 +28,7 @@ export default function CreateSucess({ setSuccess }: CreateSuccessProps) {
           <button onClick={() => setSuccess(false)} className="text-accent rounded-[100px] py-3 px-6 h-[44px] bg-transparent flex items-center border-2 border-secondary">
             Close
           </button>
-          <button className="bg-secondary text-black rounded-[100px] py-3 px-6 h-[44px] flex items-center">
-            View Invoice
-          </button>
+          <Link className="bg-secondary text-black rounded-[100px] py-3 px-6 h-[44px] flex items-center" href="dashboard/invoice">View Invoice</Link> 
         </div>
       </div>
     </div>
