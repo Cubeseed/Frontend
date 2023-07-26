@@ -22,7 +22,9 @@ const Table = <TItem,>({
         <thead className={`${props.thStyle}`}>
           <tr>
             {headers.map((header, i) => (
-              <th key={i} className="p-4">{header}</th>
+              <th key={i} className="p-4">
+                {header}
+              </th>
             ))}
           </tr>
         </thead>
@@ -33,5 +35,7 @@ const Table = <TItem,>({
     </table>
   );
 };
+
+Table.displayName = "Table"
 
 export default Table;

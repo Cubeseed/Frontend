@@ -20,8 +20,7 @@ export default function CreateInvoice() {
     { name: "Company", value: "Farm name" },
     {
       name: "Contact",
-      value: `+230 200 6005
-    email@site.com`,
+      value: `+230 200 6005 email@site.com`,
     },
     {
       name: "Address",
