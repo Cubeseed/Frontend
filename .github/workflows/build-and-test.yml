@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./cubeseed_login
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x, 20.x]
