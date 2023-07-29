@@ -17,11 +17,11 @@ This repository contains the Frontend development workflow for CubeSeed.
 ## Local Development
 1. Open your terminal (or command prompt) and `Clone` the repository by clicking on the `Code` option on the top left of the respository
    
-   `git clone https;//github.com/Cubeseed/Frontend.git`
+   `git clone https://github.com/Cubeseed/Frontend.git`
 
 4. Navigate to the project's root directory where the `package.json` and `package-lock.json` files are located.
    
-   `cd Frontend/src/cubeseed_login `
+   `cd Frontend/cubeseed_login `
    
 5. Install the project dependencies
    
