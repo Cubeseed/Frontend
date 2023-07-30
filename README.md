@@ -1,5 +1,14 @@
 <a href="https://cubeseed.com.ng/"><img src="https://github.com/KrownWealth/Frontend/assets/25585850/65307db6-f1ea-4376-869b-5c2e0d450592" alt="cubeseed agrocommerce" /></a>
 
+<p align="center">
+   <a href="https://discord.gg/JPBmEcKmpY"><img src="https://img.shields.io/badge/Discord-discord.gg%2FCubeseed-%234A154" alt="Join Cubeseed Discord"></a>
+   <a href="https://github.com/cubeseed/Frontend/stargazers"><img src="https://img.shields.io/github/stars/cubeseed/Frontend" alt="Github Stars"></a>
+   <a href="https://github.com/cubeseed/Frontend/pulse"><img src="https://img.shields.io/github/commit-activity/m/cubeseed/Frontend" alt="Commits-per-month"></a>
+   <a href="https://cal.com/pricing"><img src="https://img.shields.io/badge/Pricing-Free-brightgreen" alt="Pricing"></a>
+   <a href="https://github.com/cubeseed/Frontend/issues?q=is:issue+is:open+label:%22%F0%9F%99%8B%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8Fhelp+wanted%22"><img src="https://img.shields.io/badge/Help%20Wanted-Contribute-blue"></a>
+</p>
+
+
 # Overview
 
 This repository contains the Frontend development workflow for CubeSeed.
