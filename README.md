@@ -52,22 +52,33 @@ This repository contains the Frontend development workflow for CubeSeed.
  * [Farmer motion or Gsap for animation](https://www.framer.com/motion/)
  * [Node JS](https://nodejs.org/en/docs)
  * [Express JS](https://expressjs.com/en/guide/routing.html)
- * [SQL](https://sql-academy.org/en)
+
+### Prerequisites
+
+Here is what you need to be able to run Cubeseed.
+
+- Node.js (Version: >=18.x)
+- npm _(recommended)_
 
 ## Local Development
-1. Open your terminal (or command prompt) and `Clone` the repository by clicking on the `Code` option on the top left of the respository
+1. Open your terminal (or command prompt) and `Clone` the repository by clicking on the `Code` option on the top left of the repository.
    
-   `git clone https://github.com/Cubeseed/Frontend.git`
+   ```sh
+   git clone https://github.com/Cubeseed/Frontend.git
+   ```
+   You can also fork (https://github.com/cubeseed/Frontend/fork)
 
-4. Navigate to the project's root directory where the `package.json` and `package-lock.json` files are located.
+2. Navigate to the project's root directory where the `package.json` and `package-lock.json` files are located.
    
    `cd Frontend/cubeseed_login `
    
-5. Install the project dependencies
+3. Install the project dependencies
    
-   `npm install`
+   ```sh
+   npm install
+   ```
    
-7. Run the development server
+4. Run the development server
    
 
 ```bash
