@@ -1,0 +1,135 @@
+.container {
+  height: 1024px;
+  width: 1080px;
+  display: flex;
+  flex-direction: row;
+
+  .profile {
+    position: relative;
+    left: 3rem;
+
+    .description {
+      position: relative;
+      top: 8rem;
+      left: 8rem;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .avatarblock {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      top: 13rem;
+      left: 8rem;
+
+      .aboutme {
+        position: relative;
+        left: 5rem;
+
+        input {
+          width: 406px;
+          height: 154px;
+        }
+      }
+    }
+
+    .divider {
+      position: relative;
+      top: 16rem;
+      left: 10rem;
+      width: 602px;
+      height: 1px;
+      background: #d0dad7;
+    }
+
+    .infoblock {
+      top: 20rem;
+      left: 20rem;
+      height: 200px;
+      width: 600px;
+      position: relative;
+      .farmname {
+        position: relative;
+        height: 50px;
+        width: 250px;
+        left: -10rem;
+      }
+      .farmsize {
+        position: relative;
+        height: 50px;
+        width: 250px;
+        left: 12rem;
+        top: -3.1rem;
+      }
+      .crops {
+        position: relative;
+        height: 50px;
+        width: 250px;
+        left: -9.5rem;
+      }
+      .livestock {
+        position: relative;
+        height: 50px;
+        width: 250px;
+        left: 12.5rem;
+        top: -3.1rem;
+      }
+    }
+    .ownershipblock {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      position: relative;
+      top: 20rem;
+      left: 10rem;
+      .ownershipgroup {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: relative;
+        top: 4cqb;
+
+        .owner {
+          display: flex;
+          flex-direction: row;
+          width: 50%;
+          p {
+            position: relative;
+            left: -5rem;
+            width: 100%;
+          }
+        }
+        .renter {
+          display: flex;
+          flex-direction: row;
+          width: 50%;
+          p {
+            position: relative;
+            left: -5rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+    .nextbutton {
+      position: relative;
+      top: 25rem;
+      left: 45rem;
+      .buttoncontainer {
+        .button {
+          height: 44px;
+          width: 200px;
+          padding: 12px 26px;
+          margin: 2rem 0;
+          border: none;
+          border-radius: 100px;
+          background: var(--cubeseed-ref-secondary-secondary-10, #ffb84c);
+        }
+      }
+    }
+  }
+}

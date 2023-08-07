@@ -168,7 +168,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
             </div>
           </div>
 
-          <Link href="#" legacyBehavior className={styles.loginbtn}>
+          <Link href="/dashboard/choose_course" legacyBehavior className={styles.loginbtn}>
             <a>
               <button
                 className={styles.button}

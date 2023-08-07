@@ -21,7 +21,7 @@ const AccountVerified = () => {
           with investors.
         </p>
       </div>
-      <Link href={""}>
+      <Link href="/setUpProfile/setUpProfile_page">
         <button className={AccountVerifiedStyles.setUpProfile}>
           Set up Profile
         </button>

@@ -1,6 +1,7 @@
 import CourseVerificationStyle from "@/styles/CourseVerification.module.scss";
 import upload from "../../assets/icons/upload.png";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const CourseVerification = () => {
   const [selectedFile, setSelectedFile] = useState("");
@@ -66,9 +67,14 @@ const CourseVerification = () => {
             </div>
           </div>
         </div>
-        <button type="submit" className={CourseVerificationStyle.submitCourse}>
+        <Link href="/dashboard/account_verified">
+          <button type="submit" className={CourseVerificationStyle.submitCourse}>
+            Submit
+          </button>
+        </Link>
+        {/* <button type="submit" className={CourseVerificationStyle.submitCourse}>
           Submit
-        </button>
+        </button> */}
       </form>
     </div>
   );

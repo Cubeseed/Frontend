@@ -25,7 +25,10 @@ const ChooseCourse = () => {
               return <li>{item}</li>;
             })}
           </ul>
-          <a href="https://www.google.com/">Enroll</a>
+          <Link href="/dashboard/course_verification" legacyBehavior>
+            <a href="#">Enroll</a>
+          </Link>
+          
         </div>
         <div className={ChooseCourseStyle.options}>
           <h4>Outside Source Option</h4>
