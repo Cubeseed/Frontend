@@ -11,17 +11,26 @@ import {
 
 type value = {
   value: string;
+  setService?: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function Service({ value }: value) {
+export default function Service({ value, setService }: value) {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   //const radioRef = useRef<InputHTMLAttributes<HTMLInputElement>>(null)
   const radioRef = useRef<HTMLInputElement>(null);
+
   const selectOption = () => {
-    setIsChecked(!isChecked);
-    radioRef.current?.checked === true;
-    console.log(radioRef.current?.value);
+    if (setService) setService(value);
+    if (value === radioRef.current?.value) {
+      radioRef.current?.checked === true;
+      setIsChecked(!isChecked);
+    } else {
+      setIsChecked(false);
+      radioRef.current?.checked === false;
+    }
+    // radioRef.current?.checked === true;
+    console.log("CURRENT", radioRef.current?.value);
   };
 
   // useEffect(()=>{
