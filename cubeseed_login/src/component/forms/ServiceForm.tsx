@@ -3,13 +3,13 @@ import Service from "../service-instance/Service";
 import serviceStyles from "@/styles/serviceform.module.scss"
 
 
-export default function ServiceForm() {
-  const [service, setService] = useState<string>('');
-  console.log("service", service);
+export default function ServiceForm({ setService }:any) {
+  // const [service, setService] = useState<string>('');
+  // console.log("service", service);
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if(!service) return alert('Please select a service');
+    // if(!service) return alert('Please select a service');
   }
 
   return (

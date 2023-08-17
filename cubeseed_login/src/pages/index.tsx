@@ -71,15 +71,16 @@ import styles from "../styles/Login.module.scss";
 import Carousel from "@/component/carousel/Carousel";
 import UserDetailsForm from "@/component/forms/UserDetailsForm";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Profilepage from "./dashboard/profile";
 
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 export default function Home() {
+  const [service, setService] = useState<string>('');
   const stepDivs = [
-    <ServiceForm />,
+    <ServiceForm setService={setService} />,
     <UserDetailsForm />,
     <Confirmation />,
 
