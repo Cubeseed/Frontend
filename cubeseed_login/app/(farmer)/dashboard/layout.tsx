@@ -1,5 +1,6 @@
 import Navbar from "@/component/navbar/Navbar";
 import DashboardNavbar from "@/component/dashboard/DashboardNavbar/DashboardNavbar";
+import DashboardSidePannel from "@/component/dashboard/DashboardSidePannel";
 
 export const metadata = {
   title: "Next.js",
@@ -18,7 +19,7 @@ export default function DashboardLayout({
       </header>
       <div>
         <aside className="w-[250px] h-screen fixed inset-0 bg-white shadow-2xl">
-          <DashboardNavbar />
+          <DashboardSidePannel/>
         </aside>
         <main className="ml-[250px]">{children}</main>
       </div>
