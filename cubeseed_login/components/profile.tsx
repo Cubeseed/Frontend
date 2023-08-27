@@ -3,6 +3,7 @@
 import Image, { StaticImageData } from "next/image";
 import React, { ElementRef, useRef, useState } from "react";
 import farmer from "@cs/public/farmer1.png";
+import star from "@cs/public/star.svg";
 import { UserProfileType } from "@cs/types";
 // import place from "@cs/assets/svg/place_24px.svg";
 
@@ -91,12 +92,19 @@ function UserProfile({ profile }: UserProfile) {
         </div>
         <div className="flex flex-col gap-6">
           <div className="font-medium text-xl space-y-1">
-            <h2 className="font-bold text-5xl">{profile.full_name}</h2>
+            <h2 className="flex items-center gap-4 font-bold text-5xl">
+              {profile.full_name}
+              <span className="flex">
+                {[...Array(5)].map((el) => (
+                  <Image src={star} alt="star" width={25} height={25} />
+                ))}
+              </span>
+            </h2>
             <p>Farm name</p>
             <p>0.5 hectares</p>
             <p>Farm Cluster Name #0000</p>
             <p className="flex items-center gap-2 text-primary-200">
-              {profile.country}, {profile.city}
+              {profile.city}, {profile.country}
               <span>
                 <svg
                   width="19"
@@ -126,9 +134,9 @@ function UserProfile({ profile }: UserProfile) {
         </div>
       </section>
 
-      <div className="flex justify-between gap-8 mt-16">
-        <div>
-          <section className="w-[70%] bg-primary-900 p-6 rounded-[10px] space-y-8">
+      <div className="flex justify-between gap-16 mt-16">
+        <div className="space-y-12">
+          <section className="w-full bg-primary-900 p-6 rounded-[10px] space-y-8">
             <h3 className="text-black text-2xl font-semibold">About Me</h3>
             <p className="text-primary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -139,25 +147,55 @@ function UserProfile({ profile }: UserProfile) {
               dolor in reprehenderit in voluptate...
             </p>
           </section>
-          <section className="w-[70%] bg-primary-400">
-            <h4>Past activity</h4>
+          <section className="w-full bg-primary-400 p-4 text-white space-y-6 min-h-[205px] rounded-[15px]">
+            <h4 className="text-xl font-medium">Past activity</h4>
+            <div className="flex justify-between">
+              <div>
+                <p className="text-[22px] leading-[36px] font-medium">
+                  Order #0000020
+                </p>
+                <p>5/2/23</p>
+              </div>
+              <div className="text-right">
+                <p className="text-[22px] leading-[36px] font-medium">
+                  $200.02
+                </p>
+                <p>5/2/23</p>
+              </div>
+            </div>
           </section>
         </div>
 
-        <section>
-          <div>
-            <div className="h-[165px] w-[165px] aspect-square">
-              <Image
-                src={src}
-                alt="avatar"
-                width={165}
-                height={165}
-                style={{ height: "100%", width: "100%" }}
-                className="rounded-full"
-              />
+        <div className="space-y-6">
+          {[...Array(3)].map((el) => (
+            <div className="bg-primary-700 p-4 rounded-[20px]">
+              <div className="flex gap-4">
+                <div className="h-[62px] w-[62px] aspect-square">
+                  <Image
+                    src={src}
+                    alt="avatar"
+                    width={165}
+                    height={165}
+                    style={{ height: "100%", width: "100%" }}
+                    className="rounded-full"
+                  />
+                </div>
+                <div>
+                  <h5>Fathima G.</h5>
+                  <span className="flex">
+                    {[...Array(5)].map((el) => (
+                      <Image src={star} alt="star" width={25} height={25} />
+                    ))}
+                  </span>
+                  <p className="min-w-[211px]">
+                    “ I would highly recommend investing in this farm. The
+                    Farmer is very prompt and works hard to meet deadlines.”
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
       </div>
     </div>
   );
