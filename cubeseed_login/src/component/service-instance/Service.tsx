@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useSignUpContext } from "@/context/signup";
 
 type value = {
   value: string;
@@ -16,6 +17,7 @@ type value = {
 
 export default function Service({ value, setService }: value) {
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const { choice, setChoice } = useSignUpContext();
 
   //const radioRef = useRef<InputHTMLAttributes<HTMLInputElement>>(null)
   const radioRef = useRef<HTMLInputElement>(null);
@@ -24,13 +26,15 @@ export default function Service({ value, setService }: value) {
     if (setService) setService(value);
     if (value === radioRef.current?.value) {
       radioRef.current?.checked === true;
+      setChoice(value);
       setIsChecked(!isChecked);
+      // console.log("choice", choice);
     } else {
       setIsChecked(false);
       radioRef.current?.checked === false;
     }
     // radioRef.current?.checked === true;
-    console.log("CURRENT", radioRef.current?.value);
+
   };
 
   // useEffect(()=>{
