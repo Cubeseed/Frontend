@@ -58,6 +58,7 @@
 //   )
 // }
 
+import React, { useState } from "react";
 import Navbar from "@/component/navbar/Navbar";
 import ProgressBar from "@/component/progressbar/ProgressBar";
 import ServiceForm from "@/component/forms/ServiceForm";
@@ -71,14 +72,15 @@ import styles from "../styles/Login.module.scss";
 import Carousel from "@/component/carousel/Carousel";
 import UserDetailsForm from "@/component/forms/UserDetailsForm";
 import Link from "next/link";
-import React, { useState } from "react";
-// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Profilepage from "./dashboard/profile";
+import { useSignUpContext } from "@/context/signup";
+// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 export default function Home() {
   const [service, setService] = useState<string>('');
+  const { choice, setChoice } = useSignUpContext();
   const stepDivs = [
     <ServiceForm setService={setService} />,
     <UserDetailsForm />,
@@ -89,7 +91,16 @@ export default function Home() {
   ];
 
   const { steps, step, next, back, currentIndex, isLastStep, isFirstStep } =
-    useMultiSteps(stepDivs);
+  useMultiSteps(stepDivs);
+
+  function isDisabled() {
+    if (isFirstStep && choice) {
+
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
 
@@ -124,6 +135,9 @@ export default function Home() {
               <h2>Sign Up</h2>
               <p>Lets get started. Which one of these best describes you?</p>
             </section>
+            {isDisabled() ? (
+              <p style={{color: 'red'}}>Please choose a service</p>
+            ) : null}
             {step}
             <p className={homeStyles.steps}>
               {currentIndex + 1} / {steps.length}
@@ -131,6 +145,7 @@ export default function Home() {
             {!isLastStep ? (
               <button
                 type="button"
+                disabled={isDisabled()}
                 onClick={next}
                 className={homeStyles.actionbutton}
               >

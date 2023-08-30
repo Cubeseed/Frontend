@@ -8,8 +8,6 @@ export default function ServiceForm({ setService }:any) {
   // console.log("service", service);
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-
-    // if(!service) return alert('Please select a service');
   }
 
   return (
