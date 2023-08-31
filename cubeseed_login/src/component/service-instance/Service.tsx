@@ -56,7 +56,7 @@ export default function Service({ value, setService }: value) {
         type="radio"
         id="radio"
         name="service"
-        checked={isChecked}
+        checked={choice === value}
         value={value}
         readOnly={true}
         ref={radioRef}

@@ -136,7 +136,7 @@ export default function Home() {
               <p>Lets get started. Which one of these best describes you?</p>
             </section>
             {isDisabled() ? (
-              <p style={{color: 'red'}}>Please choose a service</p>
+              <p style={{textAlign: 'center', textDecoration: 'underline' }}>Please choose a service</p>
             ) : null}
             {step}
             <p className={homeStyles.steps}>
