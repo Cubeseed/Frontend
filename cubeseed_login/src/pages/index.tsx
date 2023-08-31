@@ -102,6 +102,14 @@ export default function Home() {
     }
   }
 
+  function renderStepIndicator(step: number) {
+    if (step === 0 && !choice) {
+      return (
+        <p className="pl-9 absolute">*Please choose a service</p>
+      )
+    }
+  }
+
   console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
 
   function handleSubmit(event: FormEvent) {
@@ -135,9 +143,7 @@ export default function Home() {
               <h2>Sign Up</h2>
               <p>Lets get started. Which one of these best describes you?</p>
             </section>
-            {isDisabled() ? (
-              <p style={{textAlign: 'center', textDecoration: 'underline' }}>Please choose a service</p>
-            ) : null}
+            {renderStepIndicator(currentIndex)}
             {step}
             <p className={homeStyles.steps}>
               {currentIndex + 1} / {steps.length}
