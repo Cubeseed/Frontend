@@ -1,0 +1,42 @@
+#side-nav-bar{
+    display:flex;
+    flex-direction: column;
+    width:240px;
+
+    border: 1px;
+    background-color: rgba(127, 255, 212, 0.183);
+}
+#side-nav-bar-logo{
+    margin-bottom : 35px;
+    width: 150px;
+    align-self: center;
+
+}
+
+#user-name{
+    font:40px;
+    font-weight: bold;
+    margin-bottom: 45px;
+}
+#clickable-link-components{
+    display:flex;
+    flex-direction: column;
+}
+.settingsandsupportDiv{
+    margin-top: 400px;
+    display:flex;
+    flex-direction: column;
+}
+.border-bottom-div{
+    align-self: center;
+    border-bottom:solid grey .5px;
+    width:70%;
+    height:.5px;
+}
+#home-welcome{
+    border-radius:6px;
+}
+#clickable-link-components>span{
+    margin: 5px;
+
+}
