@@ -33,4 +33,4 @@ jobs:
       - run: npm install eslint --save-dev
       
       # Run ESLint
-      - run: npx eslint ./cubeseed_lgin
+      - run: npx eslint .
