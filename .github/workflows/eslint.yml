@@ -32,8 +32,8 @@ jobs:
       # Install ESLint
       - run: npm install eslint --save-dev
 
-      # Run Next Lint
-      - run: npm run lint
-
+      # Create Lint config
+      - run: npm init @eslint/config
+      
       # Run ESLint
       - run: npx eslint .
