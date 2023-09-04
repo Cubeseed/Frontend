@@ -1,38 +1,13 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import React, { ElementRef, useRef, useState } from "react";
-import farmer from "@cs/public/farmer1.png";
 import star from "@cs/public/star.svg";
+import farmer from "@cs/public/farmer1.png";
 import { UserProfileType } from "@cs/types";
+import ReviewCard from "./pieces/review-card";
+import { useState } from "react";
+import ImageBox from "./pieces/image-box";
 // import place from "@cs/assets/svg/place_24px.svg";
-
-const fileTypes = [
-  "image/apng",
-  "image/bmp",
-  "image/gif",
-  "image/jpeg",
-  "image/pjpeg",
-  "image/png",
-  "image/svg+xml",
-  "image/tiff",
-  "image/webp",
-  "image/x-icon",
-];
-
-function validFileType(file: File) {
-  return fileTypes.includes(file.type);
-}
-
-function returnFileSize(number: number) {
-  if (number < 1024) {
-    return `${number} bytes`;
-  } else if (number >= 1024 && number < 1048576) {
-    return `${(number / 1024).toFixed(1)} KB`;
-  } else if (number >= 1048576) {
-    return `${(number / 1048576).toFixed(1)} MB`;
-  }
-}
 
 interface UserProfile {
   profile: UserProfileType;
@@ -40,63 +15,27 @@ interface UserProfile {
 
 function UserProfile({ profile }: UserProfile) {
   const [src, setSrc] = useState<string | StaticImageData>(() => farmer);
-  const fileRef = useRef<ElementRef<"input">>(null);
 
   console.log({ profile });
 
-  const handleClick = () => {
-    if (fileRef.current) fileRef.current.click();
-  };
-  const handleFileChange = () => {
-    if (fileRef.current?.files) {
-      const files = fileRef.current.files;
-      console.log({ zero: files[0] });
-      Array.from(files).forEach((file) => {
-        if (validFileType(file)) {
-          console.log({ size: file.size });
-        }
-        console.log({ file });
-        const image = URL.createObjectURL(file);
-        console.log({ image });
-        setSrc(image);
-      });
-    }
-  };
   return (
     <div>
       <h1 className="font-semibold text-[32px]">My Profile</h1>
       <section className="flex gap-6 mt-8">
-        <div className="flex flex-col justify-between items-center">
-          <div className="h-[165px] w-[165px] aspect-square">
-            <Image
-              src={src}
-              alt="avatar"
-              width={165}
-              height={165}
-              style={{ height: "100%", width: "100%" }}
-              className="rounded-full"
-            />
-          </div>
-          <input
-            ref={fileRef}
-            type="file"
-            name="avatar"
-            id="avatar"
-            accept=".jpg, .jpeg, .png"
-            className="hidden"
-            onChange={handleFileChange}
-          />
-          <a href="#" className="underline" onClick={handleClick}>
-            Update Photo
-          </a>
-        </div>
+        <ImageBox src={src} setSrc={setSrc} />
         <div className="flex flex-col gap-6">
           <div className="font-medium text-xl space-y-1">
             <h2 className="flex items-center gap-4 font-bold text-5xl">
               {profile.full_name}
               <span className="flex">
                 {[...Array(5)].map((el) => (
-                  <Image src={star} alt="star" width={25} height={25} />
+                  <Image
+                    key={el}
+                    src={star}
+                    alt="star"
+                    width={25}
+                    height={25}
+                  />
                 ))}
               </span>
             </h2>
@@ -168,32 +107,7 @@ function UserProfile({ profile }: UserProfile) {
 
         <div className="space-y-6">
           {[...Array(3)].map((el) => (
-            <div className="bg-primary-700 p-4 rounded-[20px]">
-              <div className="flex gap-4">
-                <div className="h-[62px] w-[62px] aspect-square">
-                  <Image
-                    src={src}
-                    alt="avatar"
-                    width={165}
-                    height={165}
-                    style={{ height: "100%", width: "100%" }}
-                    className="rounded-full"
-                  />
-                </div>
-                <div>
-                  <h5>Fathima G.</h5>
-                  <span className="flex">
-                    {[...Array(5)].map((el) => (
-                      <Image src={star} alt="star" width={25} height={25} />
-                    ))}
-                  </span>
-                  <p className="min-w-[211px]">
-                    “ I would highly recommend investing in this farm. The
-                    Farmer is very prompt and works hard to meet deadlines.”
-                  </p>
-                </div>
-              </div>
-            </div>
+            <ReviewCard key={el} src={src} />
           ))}
         </div>
       </div>
