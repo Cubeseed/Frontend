@@ -7,6 +7,10 @@ jobs:
   build:
     name: Run ESLint
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: cubeseed_login
     strategy:
       max-parallel: 42
       fail-fast: false
