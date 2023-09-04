@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint-config-prettier"
+  ],
+  "plugins": [
+    "eslint-plugin-prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error"
+    ]
+  }
 }
