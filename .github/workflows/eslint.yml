@@ -7,10 +7,10 @@ jobs:
   build:
     name: Run ESLint
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: cubeseed_login
+    # defaults:
+    #   run:
+    #     shell: bash
+    #     working-directory: cubeseed_login
     strategy:
       max-parallel: 42
       fail-fast: false
@@ -31,9 +31,6 @@ jobs:
 
       # Install ESLint
       - run: npm install eslint --save-dev
-
-      # Create Lint config
-      - run: npm init @eslint/config
       
       # Run ESLint
-      - run: npx eslint .
+      - run: npx eslint ./cubeseed_lgin
