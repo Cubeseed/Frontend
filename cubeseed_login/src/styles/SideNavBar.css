@@ -2,9 +2,11 @@
     display:flex;
     flex-direction: column;
     width:240px;
-
+    height:100%;
     border: 1px;
-    background-color: rgba(127, 255, 212, 0.183);
+    position:fixed;
+    background-color: #90ceb92c;
+    justify-content: space-between;
 }
 #side-nav-bar-logo{
     margin-bottom : 35px;
@@ -23,10 +25,17 @@
     flex-direction: column;
 }
 .settingsandsupportDiv{
-    margin-top: 400px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+
+}
+.top{
     display:flex;
     flex-direction: column;
 }
+
 .border-bottom-div{
     align-self: center;
     border-bottom:solid grey .5px;
@@ -40,3 +49,21 @@
     margin: 5px;
 
 }
+
+
+/* SideNavBar.css */
+
+/* Normal link styles */
+#clickable-link-components span {
+    padding: 16px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    cursor: pointer; /* Add pointer cursor to indicate clickable */
+  }
+
+  /* Selected link styles */
+  #clickable-link-components span.selected {
+    background-color: #555; /* Change this to your desired background color */
+    color: #fff; /* Change text color if needed */
+  }
