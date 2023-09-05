@@ -8,6 +8,7 @@
     background-color: #90ceb92c;
     justify-content: space-between;
 }
+
 #side-nav-bar-logo{
     margin-bottom : 35px;
     width: 150px;
@@ -57,7 +58,7 @@
 #clickable-link-components span {
     padding: 16px;
     text-decoration: none;
-    color: #fff;
+    color: #000000;
     display: block;
     cursor: pointer; /* Add pointer cursor to indicate clickable */
   }
