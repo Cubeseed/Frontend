@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "cd .. && husky install cubeseed_login/.husky",
+    "pre-commit": "next lint"
   },
   "dependencies": {
     "@material-tailwind/html": "^2.0.0",
@@ -29,7 +31,7 @@
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "^9.0.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "postcss": "^8.4.25",
     "tailwindcss": "^3.3.2"
   }
