@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.scss";
-import "@/styles/global.css" // tailwind
+// import "@/styles/global.css" // tailwind
 import { FarmContexProvider } from "@/context/context";
 import { SignUpContextProvider } from "@/context/signup";
 

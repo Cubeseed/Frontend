@@ -80,7 +80,7 @@ import { useSignUpContext } from "@/context/signup";
 
 export default function Home() {
   const [service, setService] = useState<string>('');
-  const { choice, setChoice } = useSignUpContext();
+  const { choice, setChoice, fullName, email, password, confirmPassword } = useSignUpContext();
   const stepDivs = [
     <ServiceForm setService={setService} />,
     <UserDetailsForm />,
@@ -95,8 +95,9 @@ export default function Home() {
 
   function isDisabled() {
     if (isFirstStep && choice) {
-
       return false;
+    } else if (!isFirstStep && fullName && email && password && password === confirmPassword) {
+      return false
     } else {
       return true;
     }
@@ -105,7 +106,7 @@ export default function Home() {
   function renderStepIndicator(step: number) {
     if (step === 0 && !choice) {
       return (
-        <p className="pl-9 absolute">*Please choose a service</p>
+        <p style={{paddingLeft: '40px'}}>*Please choose a service</p>
       )
     }
   }
