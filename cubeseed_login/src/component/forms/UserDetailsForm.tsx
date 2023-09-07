@@ -21,7 +21,7 @@ export default function UserDetailsForm() {
         confirmPassword: '',
       }
 
-      if (fullName.length < 2) {
+      if (fullName.length < 1) {
         errObj['fullName'] = 'Please enter your full name'
       } else {
         errObj['fullName'] = ''
