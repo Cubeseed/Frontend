@@ -2,7 +2,7 @@ export type BillType = {
     name: string;
     value: string;
   };
-  
+
 export type OrderType = {
     service: string;
     details?: string;
@@ -11,8 +11,15 @@ export type OrderType = {
     price: string;
     total: string;
   };
-  
+
 export type SummaryType = {
     name: string;
     value: string;
   };
+
+export type errors = {
+  fullName?: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+};

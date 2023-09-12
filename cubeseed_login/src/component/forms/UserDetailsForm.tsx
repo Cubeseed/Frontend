@@ -2,24 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { useSignUpContext } from "@/context/signup"
+import { errors } from "@cs/types/index"
+
 export default function UserDetailsForm() {
     const { fullName, setFullName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword } = useSignUpContext();
     // create a errors object state
-    const [errors, setErrors] = useState({
-      fullName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    })
+    const [errors, setErrors] = useState<errors>({});
 
+    // create a useEffect that will check for errors in the form
     useEffect(() => {
       const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-      const errObj = {
-        fullName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      }
+      const errObj: errors = {}
 
       if (fullName.length < 1) {
         errObj['fullName'] = 'Please enter your full name'
