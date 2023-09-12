@@ -2,7 +2,6 @@ import { useState } from "react";
 import Service from "../service-instance/Service";
 import serviceStyles from "@/styles/serviceform.module.scss"
 
-
 export default function ServiceForm({ setService }:any) {
   // const [service, setService] = useState<string>('');
   // console.log("service", service);

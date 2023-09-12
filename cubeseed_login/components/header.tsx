@@ -1,7 +1,7 @@
 interface DashboardHeadingProps {
   heading: string;
   text?: string;
-  subheading: string;
+  subheading?: string;
   status?: React.ReactNode;
 }
 
@@ -12,7 +12,7 @@ export function DashboardHeading({
   status,
 }: DashboardHeadingProps) {
   return (
-    <div className="text-[#002629]">
+    <div className="text-primary">
       <p className="font-medium text-sm">{subheading}</p>
       <div className="flex items-center gap-2">
         <h1 className="font-bold text-4xl">{heading}</h1>
