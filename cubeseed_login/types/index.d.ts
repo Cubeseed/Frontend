@@ -17,7 +17,7 @@ export type SummaryType = {
     value: string;
   };
 
-export type errors = {
+export type SignUpErrors = {
   fullName?: string;
   email?: string;
   password?: string;
