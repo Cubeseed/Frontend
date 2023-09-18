@@ -20,6 +20,21 @@ export type SummaryType = {
 export type SignUpErrors = {
   fullName?: string;
   email?: string;
+  address?: string;
   password?: string;
   confirmPassword?: string;
 };
+
+export type UserProfileType = {
+  url: string,
+  full_name: string,
+  phone_number: string,
+  address: string,
+  city: string,
+  state: string,
+  country: string,
+  zip_code: string,
+  about_me: string,
+  created_at: Date,
+  updated_at: Date
+}
