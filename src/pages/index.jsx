@@ -12,6 +12,11 @@ const HomePage = () => {
       <Link href="/register" legacyBehavior>
         <a>Go to Registration Page</a>
       </Link>
+      <br />
+      <br />
+      <Link href="/login" legacyBehavior>
+        <a>Go to Login Page</a>
+      </Link>
     </div>
   );
 };

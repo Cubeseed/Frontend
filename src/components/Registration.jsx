@@ -1,6 +1,7 @@
 // Registration.js
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import {useUserContext} from '../context/UserContext';
 
 const Registration = () => {
   const [groups, setGroups] = useState([]);
@@ -31,6 +32,30 @@ const Registration = () => {
         setLoading(false);
       });
   }, []);
+
+  const {setUsernameContext, setPasswordContext, setUserIdContext} = useUserContext();
+
+  const updateIsActiveStatus = async (userId) => {
+    try {
+      const response = await fetch(`http://ec2-16-171-43-115.eu-north-1.compute.amazonaws.com:8000/api/userauth/users/${userId}/`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          is_active: true
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Successfully updated is_active status");
+      } else {
+        console.log("Failed to update is_active status");
+      }
+    } catch (error) {
+      console.error("There was a problem updating the is_active status:", error);
+    }
+  };
 
   const handleGroupChange = (e) => {
     const selectedName = e.target.value;
@@ -66,6 +91,16 @@ const Registration = () => {
         const data = await response.json();
         console.log("Registration successful:", data);
         //setRegisteredUser(data);
+        setUsernameContext(name);
+        setPasswordContext(password);
+
+        const urlParts = data.url.split('/');
+        const userId = urlParts[urlParts.length - 2];
+        setUserIdContext(userId);
+        console.log(userId);
+
+        updateIsActiveStatus(userId); 
+
         const groupNames = data.groups.map((groupUrl) => {
           const group = groups.find(g => g.url === groupUrl);
           return group ? group.name : 'Unknown';
@@ -144,3 +179,14 @@ export default Registration;
 
 
 // testuser7
+// put the admin access token into the bearer token in auth.
+
+// curl --location --request PUT 'http://ec2-16-171-43-115.eu-north-1.compute.amazonaws.com:8000/api/userauth/users/7/' \
+// --header 'Content-Type: application/json' \
+// --header 'Accept: application/json' \
+// --header ' X-CSRFToken: gC7cxrl7cik8HlrxiYeJWwOSsLoYQKHoTauLYgs1zjrJuex1VpuLlrc0irKafuM2' \
+// --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0MTE0MTc4LCJpYXQiOjE2OTQxMTM4NzgsImp0aSI6ImZkYTM5MDJjN2RkYzQ3OGJiOWY1Y2FhNjU4MjM0MjIyIiwidXNlcl9pZCI6MX0.RbjBUTLS0jMrcV7yTZW_qvL1QSFMCwt56HF6gnZSmLc' \
+// --form 'username="testuser3"' \
+// --form 'password="userpass3"' \
+// --form 'groups="http://ec2-16-171-43-115.eu-north-1.compute.amazonaws.com:8000/api/userauth/groups/2/"' \
+// --form 'is_active="true"'
