@@ -1,16 +1,16 @@
-import Image, { StaticImageData } from "next/image";
-import React from "react";
-import star from "@cs/public/star.svg";
+import Image, { StaticImageData } from "next/image"
+import React from "react"
+import star from "@cs/public/star.svg"
 
 interface ReviewCard {
-  src: string | StaticImageData;
+  src: string | StaticImageData
 }
 
 const ReviewCard = ({ src }: ReviewCard) => {
   return (
-    <div className="bg-primary-700 p-4 rounded-[20px]">
+    <div className="bg-primary-700 rounded-[20px] p-4">
       <div className="flex gap-4">
-        <div className="h-[62px] w-[62px] aspect-square">
+        <div className="aspect-square h-[62px] w-[62px]">
           <Image
             src={src}
             alt="avatar"
@@ -23,8 +23,8 @@ const ReviewCard = ({ src }: ReviewCard) => {
         <div>
           <h5>Fathima G.</h5>
           <span className="flex">
-            {[...Array(5)].map((el) => (
-              <Image src={star} alt="star" width={25} height={25} />
+            {[...Array(5)].map((el, i) => (
+              <Image key={i} src={star} alt="star" width={25} height={25} />
             ))}
           </span>
           <p className="min-w-[211px]">
@@ -34,7 +34,7 @@ const ReviewCard = ({ src }: ReviewCard) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ReviewCard;
+export default ReviewCard

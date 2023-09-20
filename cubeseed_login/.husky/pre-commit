@@ -3,3 +3,4 @@
 
 cd cubeseed_login
 npx pretty-quick --staged
+npm run pre-commit
