@@ -152,6 +152,7 @@ export default function Home() {
             {!isLastStep ? (
               <button
                 type="button"
+                style={isDisabled() ? { backgroundColor: "#D0DAD7" } : {}}
                 disabled={isDisabled()}
                 onClick={next}
                 className={homeStyles.actionbutton}
