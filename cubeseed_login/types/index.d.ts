@@ -39,3 +39,10 @@ export type UserProfileType = {
   created_at: Date,
   updated_at: Date
 }
+
+export type ApiResponse = {
+  results: {
+    name: string;
+    url: string;
+  }[];
+}

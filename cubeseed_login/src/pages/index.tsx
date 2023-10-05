@@ -58,7 +58,7 @@
 //   )
 // }
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/component/navbar/Navbar";
 import ProgressBar from "@/component/progressbar/ProgressBar";
 import ServiceForm from "@/component/forms/ServiceForm";
@@ -74,12 +74,14 @@ import UserDetailsForm from "@/component/forms/UserDetailsForm";
 import Link from "next/link";
 import Profilepage from "./dashboard/profile";
 import { useSignUpContext } from "@/context/signup";
+import { ApiResponse } from "@cs/types";
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom
 
 export default function Home() {
   const [service, setService] = useState<string>('');
+  const [groups, setGroups] = useState<ApiResponse>({ results: [] });
   const { choice, setChoice, fullName, email, password, confirmPassword } = useSignUpContext();
   const stepDivs = [
     <ServiceForm setService={setService} />,
@@ -92,6 +94,12 @@ export default function Home() {
 
   const { steps, step, next, back, currentIndex, isLastStep, isFirstStep } =
   useMultiSteps(stepDivs);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/api/userauth/groups/")
+      .then((res) => res.json())
+      .then((data) => setGroups(data));
+  }, []);
 
   function isDisabled() {
     if (isFirstStep && choice) {
@@ -116,7 +124,25 @@ export default function Home() {
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (!isLastStep) return next();
-    console.log("finished");
+
+    let choiceURL = groups.results?.filter((group) => group.name.toLowerCase() === choice.toLowerCase())[0]?.url
+
+    fetch("http://localhost:8000/api/userauth/register/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        groups: [choiceURL],
+        username: fullName,
+        email: email,
+        password: password,
+        is_active: true,
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
     // alert('submitted')
   }
 
