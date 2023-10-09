@@ -5,9 +5,9 @@ import { useSignUpContext } from "@/context/signup"
 import { SignUpErrors } from "@cs/types/index"
 
 export default function UserDetailsForm() {
-    const { fullName, setFullName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, address, setAddress } = useSignUpContext();
+    const { fullName, setFullName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, address, setAddress, errors, setErrors } = useSignUpContext();
     // create a errors object state
-    const [errors, setErrors] = useState<SignUpErrors>({});
+    // const [errors, setErrors] = useState<SignUpErrors>({});
 
     // create a useEffect that will check for errors in the form
     useEffect(() => {

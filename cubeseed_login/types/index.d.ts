@@ -24,6 +24,7 @@ export type SignUpErrors = {
   address?: string;
   password?: string;
   confirmPassword?: string;
+  [key: string]: boolean;
 };
 
 export type UserProfileType = {

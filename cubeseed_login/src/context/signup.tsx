@@ -1,4 +1,5 @@
 import React, { useState, createContext, useContext } from "react";
+import { SignUpErrors } from "@cs/types/index";
 
 type props = {
   choice: string;
@@ -7,7 +8,9 @@ type props = {
   address: string;
   password: string;
   confirmPassword: string;
+  errors: SignUpErrors;
   setChoice: (value: string) => void;
+  setErrors: (value: SignUpErrors) => void;
   setFullName: (value: string) => void;
   setEmail: (value: string) => void;
   setAddress: (value: string) => void;
@@ -24,6 +27,7 @@ export const Context = React.createContext<props>({
   address: "",
   password: "",
   confirmPassword: "",
+  errors: {},
 
   setChoice: (value: string) => {},
   setFullName: (value: string) => {},
@@ -31,6 +35,7 @@ export const Context = React.createContext<props>({
   setAddress: (value: string) => {},
   setPassword: (value: string) => {},
   setConfirmPassword: (value: string) => {},
+  setErrors: (value: SignUpErrors) => {},
 });
 
 type contextProps = {
@@ -44,6 +49,7 @@ export const SignUpContextProvider = ({ children }: contextProps) => {
   const [address, setAddress] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [errors, setErrors] = useState<SignUpErrors>({});
 
   const contextProvider: props = {
     choice,
@@ -52,12 +58,14 @@ export const SignUpContextProvider = ({ children }: contextProps) => {
     address,
     password,
     confirmPassword,
+    errors,
     setConfirmPassword,
     setPassword,
     setFullName,
     setEmail,
     setAddress,
     setChoice,
+    setErrors,
   }
 
   return (

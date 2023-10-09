@@ -82,7 +82,7 @@ import { ApiResponse } from "@cs/types";
 export default function Home() {
   const [service, setService] = useState<string>('');
   const [groups, setGroups] = useState<ApiResponse>({ results: [] });
-  const { choice, setChoice, fullName, email, password, confirmPassword } = useSignUpContext();
+  const { choice, setChoice, fullName, email, password, confirmPassword, errors } = useSignUpContext();
   const stepDivs = [
     <ServiceForm setService={setService} />,
     <UserDetailsForm />,
@@ -104,11 +104,16 @@ export default function Home() {
   function isDisabled() {
     if (isFirstStep && choice) {
       return false;
-    } else if (!isFirstStep && fullName && email && password && password === confirmPassword) {
-      return false
-    } else {
-      return true;
     }
+
+    for (let key in errors) {
+      if (errors[key]) {
+        return true;
+      }
+    }
+
+    return false;
+
   }
 
   function renderStepIndicator(step: number) {
