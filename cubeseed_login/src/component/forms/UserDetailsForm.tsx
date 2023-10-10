@@ -6,8 +6,6 @@ import { SignUpErrors } from "@cs/types/index"
 
 export default function UserDetailsForm() {
     const { fullName, setFullName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, address, setAddress, errors, setErrors } = useSignUpContext();
-    // create a errors object state
-    // const [errors, setErrors] = useState<SignUpErrors>({});
 
     // create a useEffect that will check for errors in the form
     useEffect(() => {
@@ -38,11 +36,18 @@ export default function UserDetailsForm() {
         errObj['password'] = ''
       }
 
-      if (password && confirmPassword && password !== confirmPassword) {
+      if(!confirmPassword) {
+        errObj['emptyConfirmPass'] = 'Please confirm your password'
+      } else {
+        errObj['emptyConfirmPass'] = ''
+      }
+
+      if ((password && confirmPassword) && (password !== confirmPassword)) {
         errObj['confirmPassword'] = 'Passwords do not match'
       } else {
         errObj['confirmPassword'] = ''
       }
+
 
       setErrors(errObj)
     }, [fullName, email, password, confirmPassword, address])

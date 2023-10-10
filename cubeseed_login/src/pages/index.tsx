@@ -106,13 +106,15 @@ export default function Home() {
       return false;
     }
 
+    if (!choice) {
+      return true;
+    }
+
     for (let key in errors) {
       if (errors[key]) {
         return true;
       }
     }
-
-    return false;
 
   }
 
@@ -124,7 +126,7 @@ export default function Home() {
     }
   }
 
-  console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
+  // console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -146,7 +148,7 @@ export default function Home() {
       })
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      // .then((data) => console.log(data))
       .catch((err) => console.log(err));
     // alert('submitted')
   }
@@ -175,7 +177,9 @@ export default function Home() {
               <h2>Sign Up</h2>
               <p>Lets get started. Which one of these best describes you?</p>
             </section>
-            {renderStepIndicator(currentIndex)}
+            {(!currentIndex && !choice)? (
+              <p style={{paddingLeft: '40px'}}>*Please choose a service</p>
+            ) : null}
             {step}
             <p className={homeStyles.steps}>
               {currentIndex + 1} / {steps.length}
