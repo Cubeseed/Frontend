@@ -64,11 +64,11 @@ export default function UserDetailsForm() {
             <label htmlFor="first">Email</label>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
          </div>
-         {errors.address && <p className="signup-error">{errors.address}</p>}
+         {/* {errors.address && <p className="signup-error">{errors.address}</p>}
          <div className="input-wrapper">
             <label htmlFor="first">Address</label>
             <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-         </div>
+         </div> */}
           {errors.password && <p className="signup-error">{errors.password}</p>}
          <div className="input-wrapper">
             <label htmlFor="first">Password</label>
