@@ -19,12 +19,13 @@ export type SummaryType = {
   };
 
 export type SignUpErrors = {
-  fullName?: string;
+  username?: string;
   email?: string;
   address?: string;
   password?: string;
   confirmPassword?: string;
   emptyConfirmPass?: string;
+  noSpaces?: string;
   [key: string]: boolean;
 };
 

@@ -82,7 +82,7 @@ import { ApiResponse } from "@cs/types";
 export default function Home() {
   const [service, setService] = useState<string>('');
   const [groups, setGroups] = useState<ApiResponse>({ results: [] });
-  const { choice, setChoice, fullName, email, password, confirmPassword, errors } = useSignUpContext();
+  const { choice, setChoice, username, email, password, confirmPassword, errors } = useSignUpContext();
   const stepDivs = [
     <ServiceForm setService={setService} />,
     <UserDetailsForm />,
@@ -118,15 +118,8 @@ export default function Home() {
 
   }
 
-  function renderStepIndicator(step: number) {
-    if (step === 0 && !choice) {
-      return (
-        <p style={{paddingLeft: '40px'}}>*Please choose a service</p>
-      )
-    }
-  }
-
   // console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
+  // TODO: redirect to login on successfull sign up and clear inputs
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -141,7 +134,7 @@ export default function Home() {
       },
       body: JSON.stringify({
         groups: [choiceURL],
-        username: fullName,
+        username: username,
         email: email,
         password: password,
         is_active: true,
