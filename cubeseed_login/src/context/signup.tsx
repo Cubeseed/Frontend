@@ -14,6 +14,7 @@ type props = {
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
   setConfirmPassword: (value: string) => void;
+  clearInputs: () => void;
 }
 
 export const useSignUpContext = () => useContext(Context);
@@ -32,6 +33,7 @@ export const Context = React.createContext<props>({
   setPassword: (value: string) => {},
   setConfirmPassword: (value: string) => {},
   setErrors: (value: SignUpErrors) => {},
+  clearInputs: () => {},
 });
 
 type contextProps = {
@@ -45,6 +47,14 @@ export const SignUpContextProvider = ({ children }: contextProps) => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [errors, setErrors] = useState<SignUpErrors>({});
+  const clearInputs = () => {
+    setChoice("");
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setErrors({});
+  };
 
   const contextProvider: props = {
     choice,
@@ -59,6 +69,7 @@ export const SignUpContextProvider = ({ children }: contextProps) => {
     setEmail,
     setChoice,
     setErrors,
+    clearInputs,
   }
 
   return (

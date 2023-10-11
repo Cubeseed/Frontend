@@ -59,6 +59,7 @@
 // }
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Navbar from "@/component/navbar/Navbar";
 import ProgressBar from "@/component/progressbar/ProgressBar";
 import ServiceForm from "@/component/forms/ServiceForm";
@@ -80,15 +81,17 @@ import { ApiResponse } from "@cs/types";
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom
 
 export default function Home() {
+  const router = useRouter();
   const [service, setService] = useState<string>('');
   const [groups, setGroups] = useState<ApiResponse>({ results: [] });
-  const { choice, setChoice, username, email, password, confirmPassword, errors } = useSignUpContext();
+  const { choice, setChoice, username, email, password, confirmPassword, errors, clearInputs } = useSignUpContext();
   const stepDivs = [
     <ServiceForm setService={setService} />,
     <UserDetailsForm />,
-    <Confirmation />,
+    // <UserDetailsForm />,
+    // <Confirmation />,
 
-    //<div>three</div>,
+    // <div>three</div>,
     //<div>four</div>,
   ];
 
@@ -119,31 +122,40 @@ export default function Home() {
   }
 
   // console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
-  // TODO: redirect to login on successfull sign up and clear inputs
-
-  function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (!isLastStep) return next();
 
     let choiceURL = groups.results?.filter((group) => group.name.toLowerCase() === choice.toLowerCase())[0]?.url
 
-    fetch("http://localhost:8000/api/userauth/register/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        groups: [choiceURL],
-        username: username,
-        email: email,
-        password: password,
-        is_active: true,
+    // register user is all fields are filled in the form
+    if(username && email && password && confirmPassword) {
+      const res = await fetch("http://localhost:8000/api/userauth/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          groups: [choiceURL],
+          username: username,
+          email: email,
+          password: password,
+          is_active: true,
+        })
       })
-    })
-      .then((res) => res.json())
-      // .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-    // alert('submitted')
+      // if registration is successful, clear inputs and redirect to login page
+      if (res.status === 201) {
+        alert("Registration Successful");
+        clearInputs();
+        router.push("/login_page/login-page")
+      } else {
+      // if registration is unsuccessful, display error messages
+        const error = await res.json();
+        const errorMessages = Object.values(error).join('\n');
+
+        alert(errorMessages);
+      }
+    }
   }
 
   return (
@@ -188,7 +200,10 @@ export default function Home() {
                 next
               </button>
             ) : (
-              <button className={homeStyles.actionbutton}>submit</button>
+              <button className={homeStyles.actionbutton}
+              disabled={isDisabled()}
+              style={isDisabled() ? { backgroundColor: "#D0DAD7" } : {}}
+              >submit</button>
             )}
             <button
               type="button"
