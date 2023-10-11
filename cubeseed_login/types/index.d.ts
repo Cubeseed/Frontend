@@ -19,11 +19,14 @@ export type SummaryType = {
   };
 
 export type SignUpErrors = {
-  fullName?: string;
+  username?: string;
   email?: string;
   address?: string;
   password?: string;
   confirmPassword?: string;
+  emptyConfirmPass?: string;
+  noSpaces?: string;
+  [key: string]: boolean;
 };
 
 export type UserProfileType = {
@@ -38,4 +41,11 @@ export type UserProfileType = {
   about_me: string,
   created_at: Date,
   updated_at: Date
+}
+
+export type ApiResponse = {
+  results: {
+    name: string;
+    url: string;
+  }[];
 }

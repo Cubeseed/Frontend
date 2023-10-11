@@ -1,36 +1,39 @@
 import React, { useState, createContext, useContext } from "react";
+import { SignUpErrors } from "@cs/types/index";
 
 type props = {
   choice: string;
-  fullName: string;
+  username: string;
   email: string;
-  address: string;
   password: string;
   confirmPassword: string;
+  errors: SignUpErrors;
   setChoice: (value: string) => void;
-  setFullName: (value: string) => void;
+  setErrors: (value: SignUpErrors) => void;
+  setUsername: (value: string) => void;
   setEmail: (value: string) => void;
-  setAddress: (value: string) => void;
   setPassword: (value: string) => void;
   setConfirmPassword: (value: string) => void;
+  clearInputs: () => void;
 }
 
 export const useSignUpContext = () => useContext(Context);
 
 export const Context = React.createContext<props>({
   choice: "",
-  fullName: "",
+  username: "",
   email: "",
-  address: "",
   password: "",
   confirmPassword: "",
+  errors: {},
 
   setChoice: (value: string) => {},
-  setFullName: (value: string) => {},
+  setUsername: (value: string) => {},
   setEmail: (value: string) => {},
-  setAddress: (value: string) => {},
   setPassword: (value: string) => {},
   setConfirmPassword: (value: string) => {},
+  setErrors: (value: SignUpErrors) => {},
+  clearInputs: () => {},
 });
 
 type contextProps = {
@@ -39,25 +42,34 @@ type contextProps = {
 
 export const SignUpContextProvider = ({ children }: contextProps) => {
   const [choice, setChoice] = useState<string>("");
-  const [fullName, setFullName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [address, setAddress] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [errors, setErrors] = useState<SignUpErrors>({});
+  const clearInputs = () => {
+    setChoice("");
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setErrors({});
+  };
 
   const contextProvider: props = {
     choice,
-    fullName,
+    username,
     email,
-    address,
     password,
     confirmPassword,
+    errors,
     setConfirmPassword,
     setPassword,
-    setFullName,
+    setUsername,
     setEmail,
-    setAddress,
     setChoice,
+    setErrors,
+    clearInputs,
   }
 
   return (

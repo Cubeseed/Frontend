@@ -58,7 +58,8 @@
 //   )
 // }
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Navbar from "@/component/navbar/Navbar";
 import ProgressBar from "@/component/progressbar/ProgressBar";
 import ServiceForm from "@/component/forms/ServiceForm";
@@ -74,50 +75,87 @@ import UserDetailsForm from "@/component/forms/UserDetailsForm";
 import Link from "next/link";
 import Profilepage from "./dashboard/profile";
 import { useSignUpContext } from "@/context/signup";
+import { ApiResponse } from "@cs/types";
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom
 
 export default function Home() {
+  const router = useRouter();
   const [service, setService] = useState<string>('');
-  const { choice, setChoice, fullName, email, password, confirmPassword } = useSignUpContext();
+  const [groups, setGroups] = useState<ApiResponse>({ results: [] });
+  const { choice, setChoice, username, email, password, confirmPassword, errors, clearInputs } = useSignUpContext();
   const stepDivs = [
     <ServiceForm setService={setService} />,
     <UserDetailsForm />,
-    <Confirmation />,
+    // <UserDetailsForm />,
+    // <Confirmation />,
 
-    //<div>three</div>,
+    // <div>three</div>,
     //<div>four</div>,
   ];
 
   const { steps, step, next, back, currentIndex, isLastStep, isFirstStep } =
   useMultiSteps(stepDivs);
 
+  useEffect(() => {
+    fetch("http://localhost:8000/api/userauth/groups/")
+      .then((res) => res.json())
+      .then((data) => setGroups(data));
+  }, []);
+
   function isDisabled() {
     if (isFirstStep && choice) {
       return false;
-    } else if (!isFirstStep && fullName && email && password && password === confirmPassword) {
-      return false
-    } else {
+    }
+
+    if (!choice) {
       return true;
     }
-  }
 
-  function renderStepIndicator(step: number) {
-    if (step === 0 && !choice) {
-      return (
-        <p style={{paddingLeft: '40px'}}>*Please choose a service</p>
-      )
+    for (let key in errors) {
+      if (errors[key]) {
+        return true;
+      }
     }
+
   }
 
-  console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
-
-  function handleSubmit(event: FormEvent) {
+  // console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (!isLastStep) return next();
-    console.log("finished");
-    // alert('submitted')
+
+    let choiceURL = groups.results?.filter((group) => group.name.toLowerCase() === choice.toLowerCase())[0]?.url
+
+    // register user is all fields are filled in the form
+    if(username && email && password && confirmPassword) {
+      const res = await fetch("http://localhost:8000/api/userauth/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          groups: [choiceURL],
+          username: username,
+          email: email,
+          password: password,
+          is_active: true,
+        })
+      })
+      // if registration is successful, clear inputs and redirect to login page
+      if (res.status === 201) {
+        alert("Registration Successful");
+        clearInputs();
+        router.push("/login_page/login-page")
+      } else {
+      // if registration is unsuccessful, display error messages
+        const error = await res.json();
+        const errorMessages = Object.values(error).join('\n');
+
+        alert(errorMessages);
+      }
+    }
   }
 
   return (
@@ -144,7 +182,9 @@ export default function Home() {
               <h2>Sign Up</h2>
               <p>Lets get started. Which one of these best describes you?</p>
             </section>
-            {renderStepIndicator(currentIndex)}
+            {(!currentIndex && !choice)? (
+              <p style={{paddingLeft: '40px'}}>*Please choose a service</p>
+            ) : null}
             {step}
             <p className={homeStyles.steps}>
               {currentIndex + 1} / {steps.length}
@@ -160,7 +200,10 @@ export default function Home() {
                 next
               </button>
             ) : (
-              <button className={homeStyles.actionbutton}>submit</button>
+              <button className={homeStyles.actionbutton}
+              disabled={isDisabled()}
+              style={isDisabled() ? { backgroundColor: "#D0DAD7" } : {}}
+              >submit</button>
             )}
             <button
               type="button"

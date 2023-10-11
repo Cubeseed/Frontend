@@ -5,20 +5,25 @@ import { useSignUpContext } from "@/context/signup"
 import { SignUpErrors } from "@cs/types/index"
 
 export default function UserDetailsForm() {
-    const { fullName, setFullName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, address, setAddress } = useSignUpContext();
-    // create a errors object state
-    const [errors, setErrors] = useState<SignUpErrors>({});
+    const { username, setUsername, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, errors, setErrors } = useSignUpContext();
 
     // create a useEffect that will check for errors in the form
     useEffect(() => {
       const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
       const errObj: SignUpErrors = {}
 
-      if (fullName.length < 1) {
-        errObj['fullName'] = 'Please enter your full name'
+      if (username.includes(' ')) {
+        errObj['noSpaces'] = 'Username cannot contain spaces'
       } else {
-        errObj['fullName'] = ''
+        errObj['noSpaces'] = ''
       }
+
+      if (username.length < 1) {
+        errObj['username'] = 'Please enter a username'
+      } else {
+        errObj['username'] = ''
+      }
+
 
       if (!emailValidation.test(email)) {
         errObj['email'] = 'Please enter a valid email'
@@ -26,44 +31,41 @@ export default function UserDetailsForm() {
         errObj['email'] = ''
       }
 
-      // if(!address) {
-      //   errObj['address'] = 'Please enter your address'
-      // } else {
-      //   errObj['address'] = ''
-      // }
-
       if (password.length < 8) {
         errObj['password'] = 'Password must be at least 8 characters long'
       } else {
         errObj['password'] = ''
       }
 
-      if (password && confirmPassword && password !== confirmPassword) {
+      if(!confirmPassword) {
+        errObj['emptyConfirmPass'] = 'Please confirm your password'
+      } else {
+        errObj['emptyConfirmPass'] = ''
+      }
+
+      if ((password && confirmPassword) && (password !== confirmPassword)) {
         errObj['confirmPassword'] = 'Passwords do not match'
       } else {
         errObj['confirmPassword'] = ''
       }
 
+
       setErrors(errObj)
-    }, [fullName, email, password, confirmPassword, address])
+    }, [username, email, password, confirmPassword])
 
     return (
        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'50%', margin:'auto' }} className="w-50 " >
-         {errors.fullName && <p className="signup-error">{errors.fullName}</p>}
+         {errors.username && <p className="signup-error">{errors.username}</p>}
+         {errors.noSpaces && <p className="signup-error">{errors.noSpaces}</p>}
          <div className="input-wrapper">
-            <label htmlFor="first">Full Name</label>
-            <input value={fullName} onChange={(e) => setFullName(e.target.value)}  type="text" />
+            <label htmlFor="first">Username</label>
+            <input value={username} onChange={(e) => setUsername(e.target.value)}  type="text" />
          </div>
          {errors.email && <p className="signup-error">{errors.email}</p>}
          <div className="input-wrapper">
             <label htmlFor="first">Email</label>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
          </div>
-         {/* {errors.address && <p className="signup-error">{errors.address}</p>}
-         <div className="input-wrapper">
-            <label htmlFor="first">Address</label>
-            <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-         </div> */}
           {errors.password && <p className="signup-error">{errors.password}</p>}
          <div className="input-wrapper">
             <label htmlFor="first">Password</label>
