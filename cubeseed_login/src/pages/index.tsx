@@ -183,7 +183,7 @@ export default function Home() {
               <p>Lets get started. Which one of these best describes you?</p>
             </section>
             {(!currentIndex && !choice)? (
-              <p style={{paddingLeft: '40px'}}>*Please choose a service</p>
+              <p style={{paddingLeft: '40px', color: 'red'}}>Please choose a service*</p>
             ) : null}
             {step}
             <p className={homeStyles.steps}>
