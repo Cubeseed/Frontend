@@ -9,6 +9,7 @@ import Textarea from "./pieces/textarea"
 import Input from "./pieces/input"
 import InputRadio from "./pieces/input-radio"
 import Link from "next/link"
+import Select from "./pieces/select"
 
 function EditUserProfile() {
   const [src, setSrc] = useState<string | StaticImageData>(() => camera)
@@ -21,21 +22,19 @@ function EditUserProfile() {
   )
   return (
     <div className="mx-auto w-[900px] space-y-6 py-16">
-      <div className="max-w-[590px]">
-        <DashboardHeading heading="Edit profile" text={text()} />
-      </div>
-      <form className="space-y-20">
+      <form className="mx-auto w-[700px] space-y-12">
+        <div className="max-w-[590px]">
+          <DashboardHeading heading="Edit profile" text={text()} />
+        </div>
         <div className="mx-auto w-[700px]">
-          <div className="flex justify-between px-12">
+          <div className="flex justify-between gap-12">
             <ImageBox src={src} setSrc={setSrc} />
-            <div className="w-[70%]">
-              <Textarea
-                label="About me"
-                placeholder=""
-                rows={20}
-                className="min-h-full"
-              />
-            </div>
+            <Textarea
+              label="About me"
+              placeholder=""
+              rows={8}
+              className="min-h-full"
+            />
           </div>
           <hr className="my-8" />
           <div className="space-y-12 px-8">
@@ -45,8 +44,17 @@ function EditUserProfile() {
                 <Input label="Farm Size" placeholder="" required />
               </div>
               <div className="flex justify-between gap-4">
-                <Input className="" label="Crops" placeholder="" required />
-                <Input label="Livestock" placeholder="" required />
+                <Select
+                  options={["Input, Input, Input", ""]}
+                  className=""
+                  label="Crops"
+                  required
+                />
+                <Select
+                  options={["Input, Input, Input"]}
+                  label="Livestock"
+                  required
+                />
               </div>
             </div>
             <p className="text-primary">
