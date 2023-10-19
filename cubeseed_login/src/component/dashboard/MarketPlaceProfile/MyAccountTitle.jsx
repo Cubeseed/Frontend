@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from "@/styles/marketplaceprofile.module.css"
 
-const AccountTitle = () => {
+const MyAccountTitle = ({ title  }) => {
   return (
     <div className={styles.accountTile}>
-    <p>Profile Information</p>
-    <hr />
-  </div>
-  )
-}
+      <p>{title}</p>
+      <hr />
+     </div>
+  );
+};
 
-export default AccountTitle;
+export default MyAccountTitle;

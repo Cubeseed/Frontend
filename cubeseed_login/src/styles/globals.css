@@ -13,6 +13,7 @@
     --clr-secondary: #ffb84c;
     --clr-accent: #886634;
     --clr-neutral-30: #46524E;
+    --clr-neautral-60:#99A19F;
     --clr-neutral-70: #B4BABE;
     --clr-neutral-90: #EBF3F1;
   }
@@ -126,3 +127,10 @@ label {
   background-color: white;
   padding: 0 5px;
 }/*# sourceMappingURL=globals.css.map */
+
+/*===================================
+Label for marketplace profile
+====================================*/
+/* label{
+  background: none;
+} */

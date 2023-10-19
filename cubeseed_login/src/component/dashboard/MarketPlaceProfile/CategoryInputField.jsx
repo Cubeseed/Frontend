@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import styles from "@/styles/marketplaceprofile.module.css"
 import SearchBar from './SearchBar';
 import { BsCart3, BsPersonCircle } from "react-icons/bs";
@@ -10,13 +11,11 @@ const CategoryInputField = () => {
   return (
     <div className={styles.categoryInput}>
    <SearchBar />
-
-
     <div className="flex">
       <ul className={styles.categoryIcons}>
-        <li><BsCart3 /></li>
-        <li><FiMessageSquare /></li>
-        <li><BsPersonCircle /></li>
+        <li><Link href=""><BsCart3 /></Link> </li>
+        <li><Link href=""><FiMessageSquare /></Link></li>
+        <li><Link href=""><BsPersonCircle /></Link></li>
       </ul>
     </div>
 

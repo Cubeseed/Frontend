@@ -1,59 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
-import MarketPlaceProfileImg from '../../../api/marketplaceprofileimg';
 import styles from '@/styles/marketplaceprofile.module.css';
+import useProfilePhoto from './hooks/useProfilePhoto';
 
 const ProfileImg = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const { uploading, selectedImage, handleFileChange, submitImage, errors } = useProfilePhoto();
 
-  const onFileChange = event => {
-    const file = event.target.files[0];
-    if (file) {
-      if (file.size <= 2 * 1024 * 1024) {
-        setSelectedFile(file);
-      } else {
-        alert('Please select a file smaller than 2MB.');
-      }
-    }
-  };
 
-  const onUploadButtonClick = () => {
-    if (selectedFile) {
-      MarketPlaceProfileImg(selectedFile)
-        .then(response => {
-          console.log('Image uploaded successfully:', response);
-          // Additional actions after successful upload
-        })
-        .catch(error => {
-          console.error('Error uploading image:', error.message);
-          // Handle error
-        });
-    } else {
-      alert('Please select a file.');
-    }
-  };
+  useEffect(() => {
+    console.log('Selected Photo:',selectedImage);
+  }, [selectedImage]);
 
   const fileData = () => {
     return (
-      <div>
+      <form>
         <div className={styles.imageContainer}>
-          {selectedFile ? (
-            <Image src={URL.createObjectURL(selectedFile)} alt="Uploaded" width={100} height={100} />
+        {selectedImage ? (
+          <Image
+          src={selectedImage}
+            alt="Uploaded"
+            width={100}
+            height={100}
+          />
           ) : (
             <div className={styles.demoImage}>
               <span className={styles.timesIcon}>×</span>
             </div>
           )}
         </div>
-       
-      <input type="file" id="fileInput" style={{ display: 'none' }} onChange={onFileChange} />
-      <label htmlFor="fileInput" className={styles.uploadButton}>
-        Upload Image
-      </label>
-      
-       
-      </div>
-      
+
+        <input
+          type="file"
+          id="image"
+          name="picture"
+          accept='.png, .jpg, .jpeg'
+          style={{ display: 'none' }}
+          onChange={handleFileChange}
+        />
+        <label htmlFor="image" className={styles.uploadButton} disabled={uploading}>
+         {uploading ? "Uploading.." : "Upload Image"}
+        </label>
+        {/* {errors.picture && <div className={styles.error}>{errors.picture}</div>}
+        <button onClick={submitImage} className="absolute text-black top-10">
+          Submit Image
+        </button> */}
+      </form>
     );
   };
 

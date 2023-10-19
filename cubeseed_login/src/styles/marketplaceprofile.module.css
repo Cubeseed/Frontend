@@ -4,27 +4,43 @@
 this color and style is only applicable to marketplace profile
 ==============================================================*/
 
-
-
 .profileWrapper{
   display: flex;
   max-width: 100%;
   background-color: white;
 }
+
 .sidebar{
-  width: 25%;
-  height: 100vh;
- padding: 4rem;
+  /* width: 25%; */
+  height: 150vh;
+  padding: 4rem;
   background-color: var(--clr-primary-90);
+  position:relative;
+  
 
 
 }
-.home{
+.homeExpanded {
   width: 75%;
   padding: 2rem;
   padding-left: 2rem;
   padding-right: 4rem;
 }
+
+.homeCollapsed {
+  width: 90%;
+  padding: 2rem;
+  padding-left: 8rem;
+  padding-right: 6rem;
+}
+.hrExpanded{
+  width: 100%;
+}
+.hrCollapsed{
+width: 80%;
+}
+
+
 .helpBar{
  display: flex;
   justify-content: flex-end;
@@ -61,9 +77,11 @@ this color and style is only applicable to marketplace profile
   align-items: flex-start;
   gap: 1.5rem;
 }
-.accountLinks a:hover{
+.accountLinks a:hover,
+.accountLinks a:active{
   border-bottom: 2px solid black;
 }
+
 
 .accountTile{
   display: flex;
@@ -79,11 +97,16 @@ this color and style is only applicable to marketplace profile
   color:#000000;
 }
 .accountTile hr {
-  /* border: 1px solid black;  */
   background: #B9B5B5;
-  width:81%;
+  /* width:80%; */
   padding-left: 5rem;
   margin-top: 10px;
+}
+.accountTileHr{
+  width: 80%;
+}
+.accountTileHr2{
+  width:63%;
 }
 
 .mainContent{
@@ -117,6 +140,8 @@ this color and style is only applicable to marketplace profile
   top: 2rem;
   left: -5px;
   color: var(--clr-primary-10);
+  border-bottom: 2px solid var(--clr-primary-10);
+  padding-top: 5px;
 
 }
 
@@ -143,6 +168,7 @@ this color and style is only applicable to marketplace profile
 .uploadBtn{
   margin-top: 6rem;
   cursor: pointer;
+  
 }
 .profileContent{
   width: 80%;
@@ -157,7 +183,17 @@ this color and style is only applicable to marketplace profile
   gap: 2rem;
   
 }
+/* .css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+  width:50%;
+} */
+.docs{
+  width: 100%;
+}
+.docs p{
+  line-height: 1.5rem;
+}
 .profileContent p,
+.formEditTitle,
 .accountTile p,
 .accountLinks{
   color: var(--clr-primary);
@@ -170,14 +206,33 @@ line-height: 20px;
   width: 100%;
   margin-top: 2rem;
 }
+.formContent p{
+  color: var(--clr-primary-10);
+  font-weight: 400;
+  font-size: 14px;
+}
 
 
 .error{
+  font-size:14px;
   color: red;
 }
 
 
+.formEditTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
 
+.formEditTitle:first-child{
+  padding-top: 0;
+}
+.formEditTitle p:last-child{
+  border-bottom: 2px solid black;
+  padding-top: 5px;
+}
 
 
 /*============================
@@ -284,4 +339,50 @@ Search Bar
   color: var(--clr-neutral-70);
   
 }
+
+
+/*====================
+btn
+====================*/
+
+.btn,
+.btnBusiness{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+  padding-top: 6rem;
+}
+.btnBusiness{
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.btnFilled,
+.btnOutlined{
+  border-radius:50px;
+  background-color: var(--clr-secondary);
+  color: var(--clr-primary);
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.btnFilled{
+  width: 20%;
+}
+.btnOutlined{
+  background-color: white;
+  border: 1px solid var(--clr-primary);
+}
+
+.docUpload{
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  width:100%
+
+}
+
+
             

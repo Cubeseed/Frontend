@@ -4,7 +4,7 @@ import styles from "@/styles/marketplaceprofile.module.css";
 import ProfileImg from "./ProfileImg";
 import useProfile from "./hooks/useProfile";
 
-const ProfileContent = () => {
+const PersonalDetailForm = () => {
   const { 
     errors, 
     formData, 
@@ -30,11 +30,11 @@ const ProfileContent = () => {
   return (
     <div className={styles.mainContent}>
       <div className={styles.profileImg}>
-        <ProfileImg />
+      <ProfileImg  />
       </div>
 
       <div className={styles.profileContent}>
-        <form className={styles.personalDetails} onSubmit={handleSubmit}>
+        <form className={styles.personalDetails} >
           <p>Personal Detail</p>
           <div className={styles.inputForm}>
             <TextField
@@ -49,20 +49,21 @@ const ProfileContent = () => {
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
             />
-            {errors.name && <p className="error">{errors.name}</p>}
+            {errors.name && <div className={styles.error}>{errors.name}</div>}
 
             <TextField
               type="tel"
               name="phone_number"
               label="Phone Number"
+              variant="outlined"
               value={formData.phone_number}
               placeholder="Personal Number"
               InputProps={{ style: inputStyles }}
-              InputLabelProps={{ style: labelStyles }}
+              InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
 
             />
-            
+            {errors.phone_number && <div className={styles.error}>{errors.phone_number}</div>}
 
             <TextField
               type="email"
@@ -75,7 +76,7 @@ const ProfileContent = () => {
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
             />
-            {errors.email && <div className="error">{errors.email}</div>}
+            {errors.email && <div className={styles.error}>{errors.email}</div>}
 
             <TextField
               type="text"
@@ -87,7 +88,7 @@ const ProfileContent = () => {
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
             />
-            {errors.location && <div className="error">{errors.location}</div>}
+            {errors.location && <div className={styles.error}>{errors.location}</div>}
           </div>
           <hr />
           <div className={styles.inputForm}>
@@ -115,18 +116,18 @@ const ProfileContent = () => {
               placeholder="At least 8 characters"
               InputProps={{ style: inputStyles }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
-              onChange={handleUserInputs}
-              
-              
+              onChange={handleUserInputs}  
             />
             {errors.new_password && (
               <div className="error">{errors.new_password}</div>
             )}
+
           </div>
+          <button onClick={handleSubmit} className={styles.btn}>Submit </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default ProfileContent;
+export default PersonalDetailForm;
