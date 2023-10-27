@@ -353,10 +353,10 @@ btn
   padding: 2rem;
   padding-top: 6rem;
 }
-.btnBusiness{
+/* .btnBusiness{
   justify-content: flex-end;
   align-items: flex-end;
-}
+} */
 .btnFilled,
 .btnOutlined{
   border-radius:50px;

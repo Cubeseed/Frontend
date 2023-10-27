@@ -1,6 +1,6 @@
 import React from "react";
 import { TextField } from "@mui/material";
-// import  Box  from "@mui/material/Box";
+import Link from "next/link";
 import MenuItem  from "@mui/material/MenuItem";
 import styles from "@/styles/marketplaceprofile.module.css";
 import ProfileImg from "./ProfileImg";
@@ -75,7 +75,7 @@ const BusinessDetailForm = ({ sidebarOpen }) => {
             <TextField
               type="email"
               label="Email"
-              name="company__email"
+              name="company_email"
               variant="outlined"
               value={bizData.company_email}
               placeholder="Company email address"
@@ -87,7 +87,7 @@ const BusinessDetailForm = ({ sidebarOpen }) => {
             
             <TextField
               type="tel"
-              name="phone_number"
+              name="company_phone"
               label="Company Phone"
               variant="outlined"
               value={bizData.company_phone}
@@ -139,7 +139,7 @@ const BusinessDetailForm = ({ sidebarOpen }) => {
               id="custom_fields"
               type="text"
               label="Custom Fields"
-              name="business_address"
+              name="custom_fields"
               variant="outlined"
               value={bizData.custom_fields}
               placeholder="Name of the company"
@@ -149,6 +149,12 @@ const BusinessDetailForm = ({ sidebarOpen }) => {
             />
             {errors.custom_fields && <div className={styles.error}>{errors.custom_fields}</div>}
           </div>
+          <div className={styles.btnBusiness}>
+            <button className={styles.btnOutlined} onClick={handleBusinessSubmit}> Submit </button>
+          {/* <button onClick={handleBusinessSubmit} className={styles.btn}>Submit </button> */}
+      <button className={styles.btnFilled}><Link href="">Next</Link></button>
+      </div>
+         
         </form>
       </div>
     </div>

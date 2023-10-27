@@ -19,7 +19,6 @@ const useProfile = () => {
     new_password: "",
   });
 
-  //handle user input and validation
   const handleUserInputs = (e) => {
     const { name, value } = e.target;
     const newFormData = { ...formData };
@@ -60,7 +59,6 @@ const useProfile = () => {
       if (!response.ok) {
         throw new Error('Failed to submit form data');
       }
-  
       const data = await response.json();
       console.log('Form data submitted successfully:', data);
     } catch (error) {

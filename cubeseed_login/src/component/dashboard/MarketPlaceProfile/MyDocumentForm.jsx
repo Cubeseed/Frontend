@@ -1,5 +1,5 @@
-import React from "react";
-import { TextField } from "@mui/material";
+import React, { useRef } from "react";
+import { TextField, Input } from "@mui/material";
 import { styled } from "@mui/material/styles";
 // import  Box  from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
@@ -9,9 +9,14 @@ import useDocument from "./hooks/useDocument";
 import { PiCaretDownBold } from "react-icons/pi";
 
 const DocumentUploadForm = () => {
-  const { docInfo, error, handleDocumentUpload, handleDocumentSubmit } = useDocument(
-    {}
-  );
+  const { docInfo, errors, handleDocumentUpload, handleDocumentSubmit } = useDocument({});
+  const fileInputRef = useRef(null);
+
+  const openFileInput = () => {
+    if (fileInputRef) {
+      fileInputRef.current.click();
+    }
+  };
 
   const inputStyles = {
     height: "40px",
@@ -64,23 +69,20 @@ const DocumentUploadForm = () => {
               InputProps={{ style: inputStyles }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleDocumentUpload}
-              error={error.business_tax_id}
-              helperText={error.business_tax_id}
-            />
-
+              />
+            {errors.business_tax_id && <div className={styles.error}>{errors.business_tax_id}</div>}
             <TextField
               type="text"
               label="EIN"
               name="EIN"
               variant="outlined"
               value={docInfo.EIN}
-              placeholder="EMployer ID Number"
+              placeholder="Employer ID Number"
               InputProps={{ style: inputStyles }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleDocumentUpload}
-              error={error.EIN}
-              helperText={error.EIN}
             />
+            {errors.EIN && <div className={styles.error}>{errors.EIN}</div>}
 
             <TextField
               type="text"
@@ -88,13 +90,12 @@ const DocumentUploadForm = () => {
               label="SSN"
               variant="outlined"
               value={docInfo.SSN}
-              placeholder="Company phone"
+              placeholder="Social Security Number"
               InputProps={{ style: inputStyles }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleDocumentUpload}
-              error={error.SSN}
-              helperText={error.SSN}
             />
+            {errors.SSN && <div className={styles.error}>{errors.SSN}</div>}
           </div>
           <hr />
           <div className={styles.docs}>
@@ -124,40 +125,27 @@ const DocumentUploadForm = () => {
               </p>
             </div>
             <div className={styles.docUpload}>
-              <TextField
-                id="uploadEIN"
-                name="uploadEIN"
-                label="Document Type 1"
-                value={docInfo.uploadEIN}
-                variant="outlined"
-                placeholder="Select a Document Type"
-                InputProps={{ style: inputStyles }}
-                InputLabelProps={{ style: labelStyles, shrink: true  }}
-                endIcon={<PiCaretDownBold />}
-                onChange={handleDocumentUpload}
-                error={error.uploadEIN}
-                helperText={error.uploadEIN}
-              >
-                <VisuallyHiddenInput type="file" />
-              </TextField>
-
-              <TextField
-                id="uploadSSN"
-                name="uploadSSN"
-                label="Document Type 2"
-                value={docInfo.uploadSSN}
-                variant="outlined"
-                placeholder="Select a Document Type"
-                InputProps={{ style: inputStyles }}
-                InputLabelProps={{ style: labelStyles, shrink: true  }}
-                endIcon={<PiCaretDownBold />}
-                onChange={handleDocumentUpload}
-                error={error.SSN}
-                helperText={error.uploadSSN}
-              >
-                <VisuallyHiddenInput type="file" />
-              </TextField>
+            <TextField
+      id="uploadEIN"
+      name="uploadEIN"
+      label="Upload File"
+      variant="outlined"
+      placeholder="Select a Document Type"
+      InputProps={{ style: inputStyles }}
+      InputLabelProps={{ style: labelStyles, shrink: true }}
+      endIcon={<PiCaretDownBold />}
+      Input={Input}
+      type="file"
+    />
+  
+              {errors.uploadEIN && <div className={styles.error}>{errors.uploadEIN}</div>
+            
             </div>
+            <div className={styles.btnBusiness}>
+            {/* <button className={styles.btnOutlined} onClick={handleBusinessSubmit}> Submit </button> */}
+          {/* <button onClick={handleBusinessSubmit} className={styles.btn}>Submit </button> */}
+      <button className={styles.btnFilled} onClick={handleDocumentSubmit}>Submit</button>
+      </div>
           </div>
         </form>
       </div>

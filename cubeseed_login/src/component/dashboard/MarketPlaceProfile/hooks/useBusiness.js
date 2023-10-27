@@ -20,7 +20,7 @@ const useBusiness = () => {
   });
   
   const handleBizInputs = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
       const { name, value } = e.target;
       const newFormData = { ...bizData };
       const newErrors = { ...errors };
@@ -33,9 +33,10 @@ const useBusiness = () => {
         newErrors[name] = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? 'Enter a valid email' : '';
       } else if (name === 'company_phone') {
         const cleanedValue = value.replace(/\D/g, '');
-        newFormData[name] = cleanedValue.length === 10 ? `+234${cleanedValue}` : value;
-      newErrors[name] = (cleanedValue.length !== 10 && cleanedValue.length !== 0) 
-      || newFormData[name].length !== 13 ? 'Nigerian phone number must have 10 digits' : '';
+        const formattedValue = cleanedValue.length === 10 ? `+234${cleanedValue}` : value;
+        newFormData[name] = formattedValue;
+        newErrors[name] = (cleanedValue.length !== 10 && cleanedValue.length !== 0) 
+          || (formattedValue.length !== 13) ? 'Nigerian phone number must have 10 digits' : '';      
       } else if (e.target.id === "outlined-select-category") {
         newFormData["category"] = value;
         newErrors["category"] = value === "Select" ? "Select a category" : "";

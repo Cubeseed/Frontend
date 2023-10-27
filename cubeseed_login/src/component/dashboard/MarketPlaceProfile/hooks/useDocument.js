@@ -5,41 +5,61 @@ const useDocument = () => {
     business_tax_id: "",
     EIN: "",
     SSN: "",
-    category: "",
     uploadEIN: "",
     uploadSSN: ""
   });
-  const [error, setError] = useState({});
+  const [errors, setErrors] = useState({
+    business_tax_id: "",
+    EIN: "",
+    SSN: "",
+    uploadEIN: "",
+    uploadSSN: ""
+  });
 
   // Handle user input and validation
   const handleDocumentUpload = (e) => {
-    // Validation for the document types here
-    const { name, value } = e.target;
+    const { name, value, type, files } = e.target;
 
-    if (name === "business_tax_id" && !/^[0-9]{9}$/.test(value)) {
-      setError("business_tax_id", "Enter a Biz ID");
+    if (name === "business_tax_id") {
+      if (!/^[0-9A-Za-z]+$/.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          business_tax_id: "Should contain both letters and numbers"
+        }));
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, business_tax_id: "" }));
+      }
     }
 
-    if (name === "EIN" && !/^[0-9]{9}$/.test(value)) {
-      setError("EIN", "Enter a your EIN")
+    if (name === "EIN" || name === "SSN") {
+      if (!/^\d+$/.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [name]: "Should be purely numbers"
+        }));
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+      }
     }
 
-    if (name === "uploadEIN" && !["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(file.type)) {
-      error.uploadEIN = "Invalid file type. Please upload a PDF, DOC, or DOCX file.";
-      return;
-    }
-
-    if (name === "uploadEIN" && file.size > 2097152) {
-      error.uploadEIN = "File size too large. Please upload a file that is less than 2 MB.";
-      return;
-    }if (name === "uploadSSN" && !["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(file.type)) {
-      error.uploadSSN = "Invalid file type. Please upload a PDF, DOC, or DOCX file.";
-      return;
-    }
-
-    if (name === "uploadSSN" && file.size > 2097152) {
-      error.uploadSSN = "File size too large. Please upload a file that is less than 2 MB.";
-      return;
+    if (name === "uploadEIN" || name === "uploadSSN") {
+      const allowedFileTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+      if (files.length > 0) {
+        const file = files[0];
+        if (!allowedFileTypes.includes(file.type)) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: "Invalid file type. Please upload a PDF, DOC, or DOCX file."
+          }));
+        } else if (file.size > 2097152) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: "File size too large. Please upload a file that is less than 2 MB."
+          }));
+        } else {
+          setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+        }
+      }
     }
 
     setDocInfo((prev) => ({ ...prev, [name]: value }));
@@ -52,7 +72,7 @@ const useDocument = () => {
 
   return {
     docInfo,
-    error,
+    errors,
     handleDocumentUpload,
     handleDocumentSubmit,
   };
