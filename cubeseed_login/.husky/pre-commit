@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd cubeseed_login
+# npx pretty-quick --staged
+# npm run pre-commit
