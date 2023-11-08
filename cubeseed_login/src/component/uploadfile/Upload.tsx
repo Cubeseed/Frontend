@@ -1,44 +1,39 @@
-import upload from '@/assets/upload.png';
-import { useEffect, useState } from "react";
-import styles from '@/styles/upload.module.scss'
+import upload from "@/assets/upload.png"
+import { useEffect, useState } from "react"
+import styles from "@/styles/upload.module.scss"
+import Image from "next/image"
 
 export default function Upload() {
-    const [selectedFile, setSelectedFile] = useState("");
-    
+  const [selectedFile, setSelectedFile] = useState("")
 
-    useEffect(() => {}, [selectedFile]);
+  useEffect(() => {}, [selectedFile])
 
-
-    return (
+  return (
     <div className={styles.main}>
-        <form className={styles.verificationContainer}>
+      <form className={styles.verificationContainer}>
         <div className={styles.verification}>
-            <div className={styles.uploadCertificate}>
-                <div className={styles.formGroup}>
-                <img src={upload.src} alt="" />
-                <div className={styles.selectedFile}>
-                    <p className={styles.p}>
-                    {selectedFile ? `Selected File: ${selectedFile}` : " "}
-                    </p>
-                </div>
-                <span>Supports: JPG, PNG, PDF</span>
-                <label
-                    htmlFor="upload-cert"
-                    className={styles.uploadLabel}
-                >
-                    Upload from Device
-                    <input
-                    type="file"
-                    id="upload-cert"
-                    accept="image/*,.pdf"
-                    onChange={(e) => setSelectedFile(e.target.value)}
-                    />
-                </label>
-                </div>
+          <div className={styles.uploadCertificate}>
+            <div className={styles.formGroup}>
+              <Image src={upload.src} alt="" />
+              <div className={styles.selectedFile}>
+                <p className={styles.p}>
+                  {selectedFile ? `Selected File: ${selectedFile}` : " "}
+                </p>
+              </div>
+              <span>Supports: JPG, PNG, PDF</span>
+              <label htmlFor="upload-cert" className={styles.uploadLabel}>
+                Upload from Device
+                <input
+                  type="file"
+                  id="upload-cert"
+                  accept="image/*,.pdf"
+                  onChange={(e) => setSelectedFile(e.target.value)}
+                />
+              </label>
             </div>
+          </div>
         </div>
       </form>
     </div>
-    )
-
+  )
 }
