@@ -58,7 +58,26 @@
 //   )
 // }
 
-import Navbar from "@/component/navbar/Navbar"
+
+import React, { useEffect, useState } from "react";
+import Navbar from "@/component/navbar/Navbar";
+import ProgressBar from "@/component/progressbar/ProgressBar";
+import ServiceForm from "@/component/forms/ServiceForm";
+//import Confirmation from './confirmation_page/Confirmation'
+import Confirmation from "./confirmation_page/Confirmation";
+import { useMultiSteps } from "@/hooks/useMultiSteps";
+import Head from "next/head";
+import { FormEvent } from "react";
+import homeStyles from "@/styles/home.module.scss";
+import styles from "../styles/Login.module.scss";
+import Carousel from "@/component/carousel/Carousel";
+import UserDetailsForm from "@/component/forms/UserDetailsForm";
+import Link from "next/link";
+import Profilepage from "./dashboard/profile";
+import { useSignUpContext } from "@/context/signup";
+import { ApiResponse } from "@cs/types";
+
+<!-- import Navbar from "@/component/navbar/Navbar"
 import ProgressBar from "@/component/progressbar/ProgressBar"
 import ServiceForm from "@/component/forms/ServiceForm"
 //import Confirmation from './confirmation_page/Confirmation'
@@ -73,14 +92,24 @@ import UserDetailsForm from "@/component/forms/UserDetailsForm"
 import Link from "next/link"
 import React from "react"
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Profilepage from "./dashboard/profile"
+import Profilepage from "./dashboard/profile" -->
+
 
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
+// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom
+
 export default function Home() {
+  const [service, setService] = useState<string>('');
+  const [groups, setGroups] = useState<ApiResponse>({ results: [] });
+  const { choice, setChoice, fullName, email, password, confirmPassword, errors } = useSignUpContext();
   const stepDivs = [
+
+    <ServiceForm setService={setService} />,
+
     /* eslint-disable react/jsx-key */
-    <ServiceForm />,
+<!--     <ServiceForm />, -->
+
     <UserDetailsForm />,
     <Confirmation />,
     /* eslint-enable react/jsx-key */
@@ -89,14 +118,71 @@ export default function Home() {
   ]
 
   const { steps, step, next, back, currentIndex, isLastStep, isFirstStep } =
-    useMultiSteps(stepDivs)
+
+  useMultiSteps(stepDivs);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/api/userauth/groups/")
+      .then((res) => res.json())
+      .then((data) => setGroups(data));
+  }, []);
+
+  function isDisabled() {
+    if (isFirstStep && choice) {
+      return false;
+    }
+
+    for (let key in errors) {
+      if (errors[key]) {
+        return true;
+      }
+    }
+
+    return false;
+
+  }
+
+  function renderStepIndicator(step: number) {
+    if (step === 0 && !choice) {
+      return (
+        <p style={{paddingLeft: '40px'}}>*Please choose a service</p>
+      )
+    }
+  }
+
+<!--     useMultiSteps(stepDivs) -->
+
 
   console.log(`first ${isFirstStep}`, `last ${isLastStep}`)
 
   function handleSubmit(event: FormEvent) {
-    event.preventDefault()
+
+    event.preventDefault();
+    if (!isLastStep) return next();
+
+    let choiceURL = groups.results?.filter((group) => group.name.toLowerCase() === choice.toLowerCase())[0]?.url
+
+    fetch("http://localhost:8000/api/userauth/register/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        groups: [choiceURL],
+        username: fullName,
+        email: email,
+        password: password,
+        is_active: true,
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+
+<!--     event.preventDefault()
     if (!isLastStep) return next()
-    console.log("finished")
+    console.log("finished") -->
+
     // alert('submitted')
   }
 
@@ -124,6 +210,7 @@ export default function Home() {
               <h2>Sign Up</h2>
               <p>Lets get started. Which one of these best describes you?</p>
             </section>
+            {renderStepIndicator(currentIndex)}
             {step}
             <p className={homeStyles.steps}>
               {currentIndex + 1} / {steps.length}
@@ -131,6 +218,8 @@ export default function Home() {
             {!isLastStep ? (
               <button
                 type="button"
+                style={isDisabled() ? { backgroundColor: "#D0DAD7" } : {}}
+                disabled={isDisabled()}
                 onClick={next}
                 className={homeStyles.actionbutton}
               >

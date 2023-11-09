@@ -1,3 +1,4 @@
+"use client"; //use client side rendering when using state
 import Image from "next/image";
 import icon from "@/assets/agriculture.svg";
 import serviceStyles from "@/styles/service.module.scss";
@@ -8,20 +9,31 @@ import {
   useRef,
   useState,
 } from "react";
+import { useSignUpContext } from "@/context/signup";
 
 type value = {
   value: string;
+  setService?: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function Service({ value }: value) {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+export default function Service({ value, setService }: value) {
+  // const [isChecked, setIsChecked] = useState<boolean>(false); // unused state
+  const { choice, setChoice } = useSignUpContext();
 
   //const radioRef = useRef<InputHTMLAttributes<HTMLInputElement>>(null)
   const radioRef = useRef<HTMLInputElement>(null);
+
   const selectOption = () => {
-    setIsChecked(!isChecked);
-    radioRef.current?.checked === true;
-    console.log(radioRef.current?.value);
+    if (setService) setService(value);
+    if (value === radioRef.current?.value) {
+      radioRef.current?.checked === true;
+      setChoice(value);
+    } else {
+      // setIsChecked(false);
+      // radioRef.current?.checked === false;
+    }
+    // radioRef.current?.checked === true;
+
   };
 
   // useEffect(()=>{
@@ -43,7 +55,7 @@ export default function Service({ value }: value) {
         type="radio"
         id="radio"
         name="service"
-        checked={isChecked}
+        checked={choice === value}
         value={value}
         readOnly={true}
         ref={radioRef}
