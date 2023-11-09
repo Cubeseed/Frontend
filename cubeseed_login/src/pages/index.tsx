@@ -58,6 +58,7 @@
 //   )
 // }
 
+
 import React, { useEffect, useState } from "react";
 import Navbar from "@/component/navbar/Navbar";
 import ProgressBar from "@/component/progressbar/ProgressBar";
@@ -75,6 +76,25 @@ import Link from "next/link";
 import Profilepage from "./dashboard/profile";
 import { useSignUpContext } from "@/context/signup";
 import { ApiResponse } from "@cs/types";
+
+<!-- import Navbar from "@/component/navbar/Navbar"
+import ProgressBar from "@/component/progressbar/ProgressBar"
+import ServiceForm from "@/component/forms/ServiceForm"
+//import Confirmation from './confirmation_page/Confirmation'
+import Confirmation from "./confirmation_page/Confirmation"
+import { useMultiSteps } from "@/hooks/useMultiSteps"
+import Head from "next/head"
+import { FormEvent } from "react"
+import homeStyles from "@/styles/home.module.scss"
+import styles from "../styles/Login.module.scss"
+import Carousel from "@/component/carousel/Carousel"
+import UserDetailsForm from "@/component/forms/UserDetailsForm"
+import Link from "next/link"
+import React from "react"
+// import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Profilepage from "./dashboard/profile" -->
+
+
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom
@@ -84,15 +104,21 @@ export default function Home() {
   const [groups, setGroups] = useState<ApiResponse>({ results: [] });
   const { choice, setChoice, fullName, email, password, confirmPassword, errors } = useSignUpContext();
   const stepDivs = [
+
     <ServiceForm setService={setService} />,
+
+    /* eslint-disable react/jsx-key */
+<!--     <ServiceForm />, -->
+
     <UserDetailsForm />,
     <Confirmation />,
-
+    /* eslint-enable react/jsx-key */
     //<div>three</div>,
     //<div>four</div>,
-  ];
+  ]
 
   const { steps, step, next, back, currentIndex, isLastStep, isFirstStep } =
+
   useMultiSteps(stepDivs);
 
   useEffect(() => {
@@ -124,9 +150,13 @@ export default function Home() {
     }
   }
 
-  console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
+<!--     useMultiSteps(stepDivs) -->
+
+
+  console.log(`first ${isFirstStep}`, `last ${isLastStep}`)
 
   function handleSubmit(event: FormEvent) {
+
     event.preventDefault();
     if (!isLastStep) return next();
 
@@ -148,6 +178,11 @@ export default function Home() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
+
+<!--     event.preventDefault()
+    if (!isLastStep) return next()
+    console.log("finished") -->
+
     // alert('submitted')
   }
 
@@ -213,5 +248,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  );
+  )
 }

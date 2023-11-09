@@ -1,18 +1,19 @@
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from "react"
+import Link from "next/link"
 
-import AccountVerifiedStyles from "@/styles/AccountVerified.module.scss";
-import verifiedCheck from "../../assets/icons/verifiedCheck.svg";
+import AccountVerifiedStyles from "@/styles/AccountVerified.module.scss"
+import verifiedCheck from "../../assets/icons/verifiedCheck.svg"
+import Image from "next/image"
 
 const AccountVerified = () => {
-  const [customerName, setCustomerName] = useState("John Doe");
+  const [customerName, setCustomerName] = useState("John Doe")
   return (
     <div className={AccountVerifiedStyles.verifiedContainer}>
       <div className={AccountVerifiedStyles.circle}></div>
       <h2 className={AccountVerifiedStyles.verifiedTitle}>
         Your Account Was Approved
       </h2>
-      <img src={verifiedCheck.src} alt="" />
+      <Image src={verifiedCheck.src} alt="" />
       <div className={AccountVerifiedStyles.messageContainer}>
         <p>Dear {`${customerName},`}</p>
         <p>
@@ -27,7 +28,7 @@ const AccountVerified = () => {
         </button>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default AccountVerified;
+export default AccountVerified
