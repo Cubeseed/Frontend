@@ -1,12 +1,12 @@
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from "react"
+import Link from "next/link"
 
-import ChooseCourseStyle from "@/styles/ChooseCourse.module.scss";
-import verifiedCheck from "../../assets/icons/verifiedCheck.svg";
-import ProgressBar from "@/component/progressbar/ProgressBar";
+import ChooseCourseStyle from "@/styles/ChooseCourse.module.scss"
+import verifiedCheck from "../../assets/icons/verifiedCheck.svg"
+import ProgressBar from "@/component/progressbar/ProgressBar"
 
 const ChooseCourse = () => {
-  const courseOptions = ["Option 1", "Option 2", "Option 3"];
+  const courseOptions = ["Option 1", "Option 2", "Option 3"]
   return (
     <div className={ChooseCourseStyle.container}>
       <ProgressBar index={1} length={[]} />
@@ -22,7 +22,8 @@ const ChooseCourse = () => {
           <h4>Cubeseed Course Option</h4>
           <ul>
             {courseOptions.map((item) => {
-              return <li>{item}</li>;
+              // eslint-disable-next-line react/jsx-key
+              return <li>{item}</li>
             })}
           </ul>
           <Link href="/dashboard/course_verification" legacyBehavior>
@@ -34,7 +35,8 @@ const ChooseCourse = () => {
           <h4>Outside Source Option</h4>
           <ul>
             {courseOptions.map((item) => {
-              return <li>{item}</li>;
+              // eslint-disable-next-line react/jsx-key
+              return <li>{item}</li>
             })}
           </ul>
           <a href="https://www.google.com/" target="blank">
@@ -43,7 +45,7 @@ const ChooseCourse = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChooseCourse;
+export default ChooseCourse

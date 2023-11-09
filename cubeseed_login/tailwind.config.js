@@ -16,7 +16,10 @@ module.exports = {
         primary: {
           DEFAULT: "var(--clr-primary)",
           100: "var(--clr-primary-10)",
-          200: "var(--clr-primary-20)"
+          200: "var(--clr-primary-20)",
+          400: "var(--clr-primary-40)",
+          700: "var(--clr-primary-70)",
+          900: "var(--clr-primary-90)",
         },
         secondary: {
           DEFAULT: "var(--clr-secondary)",
