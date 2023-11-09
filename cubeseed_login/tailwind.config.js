@@ -1,4 +1,4 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -30,9 +30,10 @@ module.exports = {
         csneutral: {
           DEFAULT: "var(--clr-neutral)",
           300: "var(--clr-neutral-30)",
+          600: "var(--clr-neutral-60)",
           700: "var(--clr-neutral-70)",
           900: "var(--clr-neutral-90)",
-        }
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
@@ -40,4 +41,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+}

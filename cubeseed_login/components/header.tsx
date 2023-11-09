@@ -1,6 +1,6 @@
 interface DashboardHeadingProps {
   heading: string
-  text?: string
+  text?: string | React.ReactNode
   subheading?: string
   status?: React.ReactNode
 }
