@@ -1,28 +1,30 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from "react"
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-    label: string
-  }
+  label: string
+}
 
-const Input = forwardRef<HTMLInputElement, InputProps>(({ label, className, type, ...props }, ref) => {
-  return (
-    <div className="w-full relative">
-      <input
-        type={type}
-        className={`peer h-[48px] px-3 py-2.5 font-sans text-sm font-normal w-full border rounded-[4px] border-[#99A19F] text-[#002629] placeholder-transparent focus:outline-none focus:border-[#002629] ${className}`}
-        {...props}
-      />
-      <label
-        htmlFor="date"
-        className="absolute left-1.5 z-10 -top-1.5 text-gray-600 leading-tight text-[11px] bg-transparent font-normal transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.4 peer-focus:text-[#002629] peer-focus:text-[11px]"
-      >
-        {label}
-      </label>
-    </div>
-  );
-});
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ label, className, type, ...props }, ref) => {
+    return (
+      <div className="w-72">
+        <div className="relative h-12 w-full min-w-[200px]">
+          <input
+            type={type}
+            className="peer h-full w-full rounded-[4px] border border-[#99A19F] border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-primary outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-[#99A19F] focus:border-2 focus:border-primary-100 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-[#99A19F]"
+            {...props}
+          />
+          <label className="before:content[' '] after:content[' '] pointer-events-none absolute -top-1.5 left-0 flex h-full w-full select-none text-[12px] leading-[1.1] transition-all before:mr-1 before:mt-[6.5px] before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-[4px] before:border-l before:border-t before:transition-all after:ml-1 after:mt-[6.5px] after:box-border after:block after:h-1.5 after:w-2.5 after:grow after:rounded-tr-[4px] after:border-r after:border-t after:border-indigo-900 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-[#03656B] peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[12px] peer-focus:leading-tight peer-focus:text-[#151919] peer-focus:before:border-l-2 peer-focus:before:border-t-2  peer-focus:before:border-[#03656B] peer-focus:after:border-r-2 peer-focus:after:border-t-2 peer-focus:after:border-[#03656B]">
+            {props.required && <span className="mx-0.5 text-secondary">*</span>}
+            {label}
+          </label>
+        </div>
+      </div>
+    )
+  }
+)
 
 Input.displayName = "Input"
 
-export default Input;
+export default Input
