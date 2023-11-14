@@ -2,6 +2,7 @@ import { useState } from "react"
 import MarketPlaceSideBarStyle from "@/styles/MarketPlaceSideBar.module.css"
 import logo from "../../../assets/icons/TransparentCubeseed.png"
 import smallLogo from "../../../assets/icons/TransparentSmallCubeseed.png"
+import Image from "next/image"
 
 const MarketPlaceSideBar = () => {
   const [selected, setSelected] = useState<boolean>(false);
@@ -42,7 +43,7 @@ const MarketPlaceSideBar = () => {
             fill="black"
           />
         </svg>
-        <img src={selected ? smallLogo.src : logo.src} onClick={toggleSideBar}></img>
+        {selected ? <Image alt="small-logo" width={56} height={56} src={smallLogo.src} onClick={toggleSideBar}/> : <Image alt="small-logo" width={236} height={56} src={logo.src} onClick={toggleSideBar}/> }
       </div>
       <div className={selected ? MarketPlaceSideBarStyle.dividerClosed : MarketPlaceSideBarStyle.dividerOpen}></div>
       <div className={MarketPlaceSideBarStyle.mainOptionsContainer}>
