@@ -98,32 +98,40 @@ const PersonalDetailForm = () => {
               label="Old password"
               name="old_password"
               variant="outlined"
-              value={formData.password}
+              value={formData.old_password}
               placeholder="Enter old password"
               InputProps={{ style: inputStyles }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
             />
             {errors.old_password && (
-              <div className="error">{errors.old_password}</div>
+              <div className={styles.error}>{errors.old_password}</div>
             )}
 
             <TextField 
               type={"password"}
               label="New Password"
               name="new_password"
-              value={formData.password}
+              value={formData.new_password}
               placeholder="At least 8 characters"
               InputProps={{ style: inputStyles }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}  
             />
             {errors.new_password && (
-              <div className="error">{errors.new_password}</div>
+              <div className={styles.error}>{errors.new_password}</div>
             )}
 
           </div>
-          <button onClick={handleSubmit} className={styles.btn}>Submit </button>
+          <div className={styles.btnBusiness}>
+            {/* <button className={styles.btnOutlined} onClick={handleBusinessSubmit}> Submit </button> */}
+          {/* <button onClick={handleBusinessSubmit} className={styles.btn}>Submit </button> */}
+          <button style={{ marginLeft: 'auto' }} className={styles.btnFilled} onClick={handleSubmit}>
+  Next
+</button>
+
+      
+      </div>
         </form>
       </div>
     </div>

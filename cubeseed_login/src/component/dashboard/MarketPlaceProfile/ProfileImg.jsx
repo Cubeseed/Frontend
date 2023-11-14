@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import styles from '@/styles/marketplaceprofile.module.css';
-import useProfilePhoto from './hooks/useProfilePhoto';
-
-const ProfileImg = () => {
-  const { uploading, selectedImage, handleFileChange, submitImage, errors } = useProfilePhoto();
 
 
-  useEffect(() => {
-    console.log('Selected Photo:',selectedImage);
-  }, [selectedImage]);
+const ProfileImg = ({ uploading,
+  selectedImage,
+  handleFileChange }) => {
+ ;
 
   const fileData = () => {
     return (

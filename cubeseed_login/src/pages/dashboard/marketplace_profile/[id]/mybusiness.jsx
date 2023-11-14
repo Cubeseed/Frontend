@@ -1,13 +1,13 @@
 import React from 'react';
-import DashboardLayout from "../layout"
+import IdDashboardLayout from './layout';
 import MyBusinessFormEdit from '../../../../component/dashboard/MarketPlaceProfile/MyBusinessFormEdit';
 
 
 const MyBusiness = ({ title, sidebarOpen }) => {
   return (
-  <DashboardLayout title="Business Information">
+  <IdDashboardLayout title="Business Information">
        <MyBusinessFormEdit sidebarOpen={sidebarOpen} />
-       </DashboardLayout>
+       </IdDashboardLayout>
   )
 }
 

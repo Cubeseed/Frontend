@@ -44,8 +44,9 @@ const MyBusinessFormEdit = ()  => {
       {/* <button className={styles.btnOutlined}>
         <Link href="">Delete Account</Link>
       </button> */}
-      <button className={styles.btnFilled}>
-        <Link href="">Next</Link>
+      
+      <button className={styles.btnFilled} style={{ marginLeft: 'auto' }} >
+        <Link href="/dashboard/marketplace_profile/mydocumentformedit">Next</Link>
       </button>
 
 

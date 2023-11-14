@@ -101,10 +101,12 @@ const BusinessDetailForm = ({ sidebarOpen }) => {
             <TextField
               id="outlined-select-category"
               select
+              name="category"
               label="Type of Business"
-              defaultValue="catering"
+              defaultValue="Select"
               InputProps={{ style: inputStyles }}
               InputLabelProps={{ style: labelStyles }}
+              onChange={handleBizInputs}
               
             >
               {category.map((option) => (

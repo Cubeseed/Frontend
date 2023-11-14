@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import { useState } from "react";
 
 const useBusiness = () => {
   const [bizData, setBizData] = useState({
@@ -37,9 +37,9 @@ const useBusiness = () => {
         newFormData[name] = formattedValue;
         newErrors[name] = (cleanedValue.length !== 10 && cleanedValue.length !== 0) 
           || (formattedValue.length !== 13) ? 'Nigerian phone number must have 10 digits' : '';      
-      } else if (e.target.id === "outlined-select-category") {
-        newFormData["category"] = value;
-        newErrors["category"] = value === "Select" ? "Select a category" : "";
+      } else if (name === 'category') {
+        newFormData[name] = value;
+        newErrors[name] = value === "Select" ? "Select a category" : "";
       }  else if (name === 'business_address') {
         newFormData[name] = value;
         newErrors[name] = value.length > 128 ? 'Business Address should be 128 characters long' : '';
@@ -59,11 +59,11 @@ const useBusiness = () => {
 
    try {
      const response = await fetch('/api/mybusiness', {
-       method: 'POST',
-       body: JSON.stringify({ bizData }),
-       headers: {
-         'Content-Type': 'application/json'
-       }
+      method: 'POST',
+        body: JSON.stringify({ bizData }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
      });
  
      if (!response.ok) {

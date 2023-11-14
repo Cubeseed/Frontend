@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 const useProfile = () => {
-  
+
+  const phoneRegex = /^\+234[789]\d{9}$/;
+
   const [formData, setFormData] = useState({
     name: "",
     phone_number: "",
@@ -30,14 +32,16 @@ const useProfile = () => {
     } else if (name === 'phone_number') {
       const cleanedValue = value.replace(/\D/g, '');
       newFormData[name] = cleanedValue.length === 10 ? `+234${cleanedValue}` : value;
-    newErrors[name] = (cleanedValue.length !== 10 && cleanedValue.length !== 0) 
-    || newFormData[name].length !== 13 ? 'Nigerian phone number must have 10 digits' : '';
+      newErrors[name] =!phoneRegex.test(newFormData[name]) ? 'Do not inlcude the first 0 digit' : '';
     } else if (name === 'email') {
       newFormData[name] = value;
       newErrors[name] = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? 'Enter a valid email' : '';
     } else if (name === 'location') {
       newFormData[name] = value;
       newErrors[name] = !/^[a-zA-Z]+$/.test(value) ? 'Enter a valid Country' : '';
+    }else if (name === 'old_password' || name === 'new_password') {
+      newFormData[name] = value;
+      newErrors[name] = value.length < 8 ? 'Password must be at least 8 characters' : '';
     }
   
     setFormData(newFormData);

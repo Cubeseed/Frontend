@@ -46,7 +46,7 @@ const MyAccountFormEdit = ()  => {
         <Link href="">Delete Account</Link>
       </button>
       <button className={styles.btnFilled}>
-        <Link href="">Next</Link>
+        <Link href="/dashboard/marketplace_profile/mybusinessformedit">Next</Link>
       </button>
 
 

@@ -1,14 +1,13 @@
 import React from 'react';
-import DashboardLayout from "../layout"
-import MyAccountTitle from '../../../../component/dashboard/MarketPlaceProfile/MyAccountTitle';
+import IdDashboardLayout from './layout';
 import MyDocumentFormEdit from '../../../../component/dashboard/MarketPlaceProfile/MyDocumentFormEdit';
 
 
 const MyDocument = ({ title, sidebarOpen}) => {
   return (
-  <DashboardLayout title="Document Information">
-       <MyDocumentFormEdit sidebarOpen={sidebarOpen} />
-</DashboardLayout>
+  <IdDashboardLayout title="Document Information">
+  <MyDocumentFormEdit sidebarOpen={sidebarOpen} />
+</IdDashboardLayout>
   )
 }
 
