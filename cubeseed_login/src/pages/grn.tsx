@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext } from "react"
 
-import Button from "@/comps/Button/button";
-import { Context } from "@/context/context";
-import ActivateModal from "./../comps/modal/modal";
+import Button from "@/comps/Button/button"
+import { FarmContext } from "@/context/context"
+import ActivateModal from "./../comps/modal/modal"
 
 export default function Grn() {
-  const { open, handleShowModal } = useContext(Context);
+  const { open, handleShowModal } = useContext(FarmContext)
 
   return (
     <>
@@ -21,5 +21,5 @@ export default function Grn() {
         </span>
       </Button>
     </>
-  );
+  )
 }

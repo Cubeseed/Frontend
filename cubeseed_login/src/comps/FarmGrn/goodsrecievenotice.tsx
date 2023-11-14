@@ -1,14 +1,14 @@
-import GoodsRecievedNotice from "@/styles/goodsrecievenotice.module.scss";
-import UserCardinfo from "../userCardInfo/userCardinfo";
-import Button from "../Button/button";
-import Textarea from "../textarea/textarea";
-import { Context } from "@/context/context";
-import { useContext } from "react";
+import GoodsRecievedNotice from "@/styles/goodsrecievenotice.module.scss"
+import UserCardinfo from "../userCardInfo/userCardinfo"
+import Button from "../Button/button"
+import Textarea from "../textarea/textarea"
+import { FarmContext } from "@/context/context"
+import { useContext } from "react"
 
-const limitNumber = 200;
+const limitNumber = 200
 export default function GoodsRecievedNote() {
-  const { inputValue, handleChangeInputValues, handleCongrateMeaasge } =
-    useContext(Context);
+  const { inputValue, handleChangeInputValues, handleCongrateMessage } =
+    useContext(FarmContext)
 
   return (
     <main className={GoodsRecievedNotice.overallWrapper}>
@@ -76,12 +76,12 @@ export default function GoodsRecievedNote() {
           <Button className={GoodsRecievedNotice.save}>Save as Draft</Button>
           <Button
             className={GoodsRecievedNotice.send}
-            onClick={handleCongrateMeaasge}
+            onClick={handleCongrateMessage}
           >
             Send GRN
           </Button>
         </div>
       </div>
     </main>
-  );
+  )
 }

@@ -1,20 +1,20 @@
-import React, { useContext, useState } from "react";
-import { Context } from "@/context/context";
+import React, { useContext, useState } from "react"
+import { FarmContext } from "@/context/context"
 type TextAreaProps = {
-  limit: number;
-};
+  limit: number
+}
 
 function Textarea({ limit }: TextAreaProps) {
-  const { setText, text } = useContext(Context);
+  const { setText, text } = useContext(FarmContext)
 
   // const [content, setContent] = React.useState<string>();
 
   const handleTextArea = React.useCallback(
     (text: string) => {
-      setText(text.slice(0, limit));
+      setText(text.slice(0, limit))
     },
     [limit, setText]
-  );
+  )
 
   return (
     <>
@@ -25,7 +25,7 @@ function Textarea({ limit }: TextAreaProps) {
       ></textarea>
       <span> {limit} character limit left</span>
     </>
-  );
+  )
 }
 
-export default Textarea;
+export default Textarea
