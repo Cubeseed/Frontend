@@ -1,11 +1,12 @@
-import CourseVerificationStyle from "@/styles/CourseVerification.module.scss";
-import upload from "../../assets/icons/upload.png";
-import { useEffect, useState } from "react";
+import CourseVerificationStyle from "@/styles/CourseVerification.module.scss"
+import upload from "../../assets/icons/upload.png"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 
 const CourseVerification = () => {
-  const [selectedFile, setSelectedFile] = useState("");
+  const [selectedFile, setSelectedFile] = useState("")
 
-  useEffect(() => {}, [selectedFile]);
+  useEffect(() => {}, [selectedFile])
 
   return (
     <div className={CourseVerificationStyle.main}>
@@ -44,7 +45,7 @@ const CourseVerification = () => {
           <div className={CourseVerificationStyle.uploadCertificate}>
             <p>Upload Certification</p>
             <div className={CourseVerificationStyle.formGroup}>
-              <img src={upload.src} alt="" />
+              <Image src={upload.src} alt="" />
               <div className={CourseVerificationStyle.selectedFile}>
                 <p className={CourseVerificationStyle.p}>
                   {selectedFile ? `Selected File: ${selectedFile}` : " "}
@@ -71,7 +72,7 @@ const CourseVerification = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default CourseVerification;
+export default CourseVerification

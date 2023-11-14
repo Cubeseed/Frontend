@@ -1,31 +1,32 @@
-"use client";
+"use client"
 
-import Image, { StaticImageData } from "next/image";
-import star from "@cs/public/star.svg";
-import farmer from "@cs/public/farmer1.png";
-import { UserProfileType } from "@cs/types";
-import ReviewCard from "./pieces/review-card";
-import { useState } from "react";
-import ImageBox from "./pieces/image-box";
+import Image, { StaticImageData } from "next/image"
+import star from "@cs/public/star.svg"
+import farmer from "@cs/public/farmer1.png"
+import { UserProfileType } from "@cs/types"
+import ReviewCard from "./pieces/review-card"
+import { useState } from "react"
+import ImageBox from "./pieces/image-box"
+import Link from "next/link"
 // import place from "@cs/assets/svg/place_24px.svg";
 
 interface UserProfile {
-  profile: UserProfileType;
+  profile: UserProfileType
 }
 
 function UserProfile({ profile }: UserProfile) {
-  const [src, setSrc] = useState<string | StaticImageData>(() => farmer);
+  const [src, setSrc] = useState<string | StaticImageData>(() => farmer)
 
-  console.log({ profile });
+  console.log({ profile })
 
   return (
     <div>
-      <h1 className="font-semibold text-[32px]">My Profile</h1>
-      <section className="flex gap-6 mt-8">
+      <h1 className="text-[32px] font-semibold">My Profile</h1>
+      <section className="mt-8 flex gap-6">
         <ImageBox src={src} setSrc={setSrc} />
         <div className="flex flex-col gap-6">
-          <div className="font-medium text-xl space-y-1">
-            <h2 className="flex items-center gap-4 font-bold text-5xl">
+          <div className="space-y-1 text-xl font-medium">
+            <h2 className="flex items-center gap-4 text-5xl font-bold">
               {profile.full_name}
               <span className="flex">
                 {[...Array(5)].map((el) => (
@@ -63,9 +64,9 @@ function UserProfile({ profile }: UserProfile) {
             </p>
           </div>
           <div className="space-x-3">
-            <a href="#" className="underline">
+            <Link href="dashboard/profiles?edit=true" className="underline">
               Edit Profile
-            </a>
+            </Link>
             <a href="#" className="underline">
               Documents Profile
             </a>
@@ -73,10 +74,10 @@ function UserProfile({ profile }: UserProfile) {
         </div>
       </section>
 
-      <div className="flex justify-between gap-16 mt-16">
+      <div className="mt-16 flex justify-between gap-16">
         <div className="space-y-12">
-          <section className="w-full bg-primary-900 p-6 rounded-[10px] space-y-8">
-            <h3 className="text-black text-2xl font-semibold">About Me</h3>
+          <section className="w-full space-y-8 rounded-[10px] bg-primary-900 p-6">
+            <h3 className="text-2xl font-semibold text-black">About Me</h3>
             <p className="text-primary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -86,17 +87,17 @@ function UserProfile({ profile }: UserProfile) {
               dolor in reprehenderit in voluptate...
             </p>
           </section>
-          <section className="w-full bg-primary-400 p-4 text-white space-y-6 min-h-[205px] rounded-[15px]">
+          <section className="min-h-[205px] w-full space-y-6 rounded-[15px] bg-primary-400 p-4 text-white">
             <h4 className="text-xl font-medium">Past activity</h4>
             <div className="flex justify-between">
               <div>
-                <p className="text-[22px] leading-[36px] font-medium">
+                <p className="text-[22px] font-medium leading-[36px]">
                   Order #0000020
                 </p>
                 <p>5/2/23</p>
               </div>
               <div className="text-right">
-                <p className="text-[22px] leading-[36px] font-medium">
+                <p className="text-[22px] font-medium leading-[36px]">
                   $200.02
                 </p>
                 <p>5/2/23</p>
@@ -112,7 +113,7 @@ function UserProfile({ profile }: UserProfile) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default UserProfile;
+export default UserProfile

@@ -1,14 +1,14 @@
-import style from "@/styles/grn.module.scss";
-import Image from "next/image";
-import Button from "../Button/button";
-import { Context } from "@/context/context";
-import { useContext } from "react";
+import style from "@/styles/grn.module.scss"
+import Image from "next/image"
+import Button from "../Button/button"
+import { Context } from "@/context/context"
+import { useContext } from "react"
 
 type WayBillProps = {
-  time: string;
-};
+  time: string
+}
 export default function FarmWayBill() {
-  const { inputValue } = useContext(Context);
+  const { inputValue } = useContext(Context)
   return (
     <>
       <div className={style.wrapper}>
@@ -48,7 +48,7 @@ export default function FarmWayBill() {
                 <p>Address</p>
               </div>
               <div className={style.farmIn}>
-                <p>Farmer's Name</p>
+                <p>Farmer&apos;s Name</p>
                 <p>Farme Name</p>
                 <p>
                   +2345567778
@@ -85,7 +85,7 @@ export default function FarmWayBill() {
                 <p>Address</p>
               </div>
               <div className={style.farmIn}>
-                <p>Farmer's Name</p>
+                <p>Farmer&apos;s Name</p>
                 <p>Farme Name</p>
                 <p>
                   +2345567778
@@ -233,5 +233,5 @@ export default function FarmWayBill() {
         </div>
       </section>
     </>
-  );
+  )
 }

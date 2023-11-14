@@ -5,15 +5,16 @@
 @layer base {
   :root {
     --clr-primary: #002629;
-    --clr-primary-10: #03656B;
-    --clr-primary-20: #27797E;
-    --clr-primary-40: #51A1A6;
-    --clr-primary-70: #BEE8E5;
-    --clr-primary-90: #F1FCFD;
+    --clr-primary-10: #03656b;
+    --clr-primary-20: #27797e;
+    --clr-primary-40: #51a1a6;
+    --clr-primary-70: #bee8e5;
+    --clr-primary-90: #f1fcfd;
     --clr-secondary: #ffb84c;
     --clr-accent: #886634;
-    --clr-neutral-30: #46524E;
-    --clr-neutral-70: #B4BABE;
-    --clr-neutral-90: #EBF3F1;
+    --clr-neutral-30: #46524e;
+    --clr-neutral-60: #99a19f;
+    --clr-neutral-70: #b4babe;
+    --clr-neutral-90: #ebf3f1;
   }
 }
