@@ -78,9 +78,9 @@ import Profilepage from "./dashboard/profile"
 
 export default function Home() {
   const stepDivs = [
-    <ServiceForm />,
-    <UserDetailsForm />,
-    <Confirmation />,
+    <ServiceForm key={"service"} />,
+    <UserDetailsForm key={"userdetail"} />,
+    <Confirmation key={"confirmation"} />,
 
     //<div>three</div>,
     //<div>four</div>,
