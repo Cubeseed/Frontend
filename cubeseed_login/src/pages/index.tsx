@@ -57,25 +57,24 @@
 //     </>
 //   )
 // }
-
-import Navbar from "@/component/navbar/Navbar";
-import ProgressBar from "@/component/progressbar/ProgressBar";
-import ServiceForm from "@/component/forms/ServiceForm";
-//import Confirmation from './confirmation_page/Confirmation'
-import Confirmation from "./confirmation_page/Confirmation";
-import { useMultiSteps } from "@/hooks/useMultiSteps";
-import Head from "next/head";
-import { FormEvent } from "react";
-import homeStyles from "@/styles/home.module.scss";
-import styles from "../styles/Login.module.scss";
-import Carousel from "@/component/carousel/Carousel";
-import UserDetailsForm from "@/component/forms/UserDetailsForm";
-import Link from "next/link";
-import React from "react";
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Profilepage from "./dashboard/profile";
-
 // import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+// import Confirmation from './confirmation_page/Confirmation'
+
+import Navbar from "@/component/navbar/Navbar"
+import ProgressBar from "@/component/progressbar/ProgressBar"
+import ServiceForm from "@/component/forms/ServiceForm"
+import Confirmation from "./confirmation_page/Confirmation"
+import { useMultiSteps } from "@/hooks/useMultiSteps"
+import Head from "next/head"
+import { FormEvent } from "react"
+import homeStyles from "@/styles/home.module.scss"
+import styles from "../styles/Login.module.scss"
+import Carousel from "@/component/carousel/Carousel"
+import UserDetailsForm from "@/component/forms/UserDetailsForm"
+import Link from "next/link"
+import React from "react"
+import Profilepage from "./dashboard/profile"
 
 export default function Home() {
   const stepDivs = [
@@ -85,17 +84,17 @@ export default function Home() {
 
     //<div>three</div>,
     //<div>four</div>,
-  ];
+  ]
 
   const { steps, step, next, back, currentIndex, isLastStep, isFirstStep } =
-    useMultiSteps(stepDivs);
+    useMultiSteps(stepDivs)
 
-  console.log(`first ${isFirstStep}`, `last ${isLastStep}`);
+  console.log(`first ${isFirstStep}`, `last ${isLastStep}`)
 
   function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    if (!isLastStep) return next();
-    console.log("finished");
+    event.preventDefault()
+    if (!isLastStep) return next()
+    console.log("finished")
     // alert('submitted')
   }
 
@@ -158,5 +157,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  );
+  )
 }
