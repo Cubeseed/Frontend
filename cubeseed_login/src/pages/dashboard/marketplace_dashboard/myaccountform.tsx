@@ -10,14 +10,10 @@ interface MyAccountFormProps {
   handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const MyAccountForm: React.FC<MyAccountFormProps> = ({ title, uploading,
-  selectedImage,
-  handleFileChange,}) => {
+const MyAccountForm: React.FC<MyAccountFormProps> = ({ title, uploading, selectedImage, handleFileChange }) => {
   return (
     <DashboardLayout title="Personal Information">
-      <PersonalDetailForm  uploading={uploading}
-  selectedImage={selectedImage}
-  handleFileChange={handleFileChange} />
+      <PersonalDetailForm uploading={uploading} selectedImage={selectedImage} handleFileChange={handleFileChange} />
     </DashboardLayout>
   );
 };

@@ -144,7 +144,7 @@ const BusinessDetailForm: React.FC<BusinessDetailFormProps> = ({
           </div>
           <div className={styles.btnBusiness}>
             <button className={styles.btnOutlined} onClick={handleBusinessSubmit}> Submit </button>
-            <button className={styles.btnFilled}><Link href="">Next</Link></button>
+            <button className={styles.btnFilled}><Link href="/dashboard/marketplace_dashboard/mydocumentform">Next</Link></button>
           </div>
         </form>
       </div>

@@ -138,10 +138,10 @@ const PersonalDetailForm: React.FC<PersonalDetailFormProps> = ({
             )}
           </div>
           <div className={styles.btnBusiness}>
-          <button style={{ marginLeft: "auto" }} className={styles.btnFilled} onClick={handleSubmit}>Next </button>
-            <button className={styles.btnFilled}>
-              <Link href="/dashboard/marketplace_profile/mydocumentform">Next</Link></button>
+            <button className={styles.btnOutlined} onClick={handleSubmit}> Submit </button>
+            <button className={styles.btnFilled}><Link href="/dashboard/marketplace_dashboard/mybusinessform">Next</Link></button>
           </div>
+          
         </form>
       </div>
     </div>
