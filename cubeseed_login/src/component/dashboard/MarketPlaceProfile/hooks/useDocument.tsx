@@ -1,19 +1,45 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, ChangeEvent } from "react";
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 const allowedDocumentTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
 
+interface DocumentInfo {
+  business_tax_id: string;
+  EIN: string;
+  SSN: string;
+  uploadEIN: string;
+  uploadSSN: string;
+}
 
-const useDocument = () => {
-  const [docInfo, setDocInfo] = useState({
+interface DocumentErrors {
+  business_tax_id: string;
+  EIN: string;
+  SSN: string;
+  uploadEIN: string;
+  uploadSSN: string;
+}
+
+interface DocumentHook {
+  docInfo: DocumentInfo;
+  errors: DocumentErrors;
+  uploading: boolean;
+  selectedImage: string;
+  photoErrors: { picture: string };
+  handleDocumentUpload: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleFileChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleDocumentSubmit: (e: React.FormEvent) => Promise<void>;
+}
+
+const useDocument = (): DocumentHook => {
+  const [docInfo, setDocInfo] = useState<DocumentInfo>({
     business_tax_id: "",
     EIN: "",
     SSN: "",
     uploadEIN: "",
     uploadSSN: ""
   });
-  const [errors, setErrors] = useState({
+
+  const [errors, setErrors] = useState<DocumentErrors>({
     business_tax_id: "",
     EIN: "",
     SSN: "",
@@ -21,13 +47,12 @@ const useDocument = () => {
     uploadSSN: ""
   });
 
+  const [uploading, setUploading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [photoErrors, setPhotoErrors] = useState({ picture: '' });
 
-const [uploading, setUploading] = useState(false);
-const [selectedImage, setSelectedImage] = useState('');
-const [selectedFile, setSelectedFile] = useState(null);
-const [photoErrors, setPhotoErrors] = useState({ picture: '' });
-
-  const handleDocumentUpload = (e) => {
+  const handleDocumentUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, files } = e.target;
 
     if (name === "business_tax_id") {
@@ -54,7 +79,7 @@ const [photoErrors, setPhotoErrors] = useState({ picture: '' });
 
     if (name === "uploadEIN" || name === "uploadSSN") {
       const allowedFileTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
-      if (files.length > 0) {
+      if (files && files.length > 0) {
         const file = files[0];
         if (!allowedFileTypes.includes(file.type)) {
           setErrors((prevErrors) => ({
@@ -75,11 +100,11 @@ const [photoErrors, setPhotoErrors] = useState({ picture: '' });
     setDocInfo((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const file = e.target.files[0];
+    const file = e.target.files && e.target.files[0];
 
-    if (file.type.match(imageMimeType)) {
+    if (file && file.type.match(imageMimeType)) {
       if (file.size <= 2 * 1024 * 1024) {
         setSelectedImage(URL.createObjectURL(file));
         setSelectedFile(file);
@@ -87,7 +112,7 @@ const [photoErrors, setPhotoErrors] = useState({ picture: '' });
       } else {
         setPhotoErrors({ picture: 'Photo size must be smaller than 2MB.' });
       }
-    } else if (allowedDocumentTypes.includes(file.type)) {
+    } else if (file && allowedDocumentTypes.includes(file.type)) {
       const name = e.target.name;
       if (file.size > 2097152) {
         setErrors((prevErrors) => ({
@@ -102,10 +127,9 @@ const [photoErrors, setPhotoErrors] = useState({ picture: '' });
     }
   };
 
-
-  const handleDocumentSubmit = async (e) => {
+  const handleDocumentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-     
+
     if (Object.values(errors).some((error) => error !== "")) {
       console.error("Document form has validation errors. Please fix them before submitting.");
       return;
@@ -115,24 +139,22 @@ const [photoErrors, setPhotoErrors] = useState({ picture: '' });
       return;
     }
     try {
-      
       const documentResponse = await fetch("https://ec2-16-171-43-115.eu-north-1.compute.amazonaws.com:8000/businessprofile", {
-        method: "POST", 
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(docInfo), 
+        body: JSON.stringify(docInfo),
       });
 
       if (!documentResponse.ok) {
         console.error("Failed to update user profile details");
-        console.log(docInfo)
+        console.log(docInfo);
         return;
       }
 
-     
       const photoFormData = new FormData();
-      photoFormData.append('myImage', selectedFile);
+      photoFormData.append('myImage', selectedFile as Blob);
       const photoResponse = await fetch('https://ec2-16-171-43-115.eu-north-1.compute.amazonaws.com:8000/userprofilephoto', {
         method: 'POST',
         body: photoFormData,
@@ -140,7 +162,7 @@ const [photoErrors, setPhotoErrors] = useState({ picture: '' });
 
       if (!photoResponse.ok) {
         console.error("Failed to update profile picture");
-        console.log(photoFormData)
+        console.log(photoFormData);
         return;
       }
 
@@ -150,14 +172,12 @@ const [photoErrors, setPhotoErrors] = useState({ picture: '' });
     }
   };
 
- 
   useEffect(() => {
     console.log('Selected Photo:', selectedImage);
   }, [selectedImage]);
 
-
   return {
-   docInfo,
+    docInfo,
     errors,
     uploading,
     selectedImage,

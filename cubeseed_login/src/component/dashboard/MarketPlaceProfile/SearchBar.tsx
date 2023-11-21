@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { PiCaretDownBold } from "react-icons/pi";
-import { AiOutlineSearch } from "react-icons/ai";
-import styles from "@/styles/marketplaceprofile.module.css"
+import { PiCaretDownBold } from 'react-icons/pi';
+import { AiOutlineSearch } from 'react-icons/ai';
+import styles from '@/styles/marketplaceprofile.module.css';
 
 const categories = ['Apps', 'eBooks', 'Games', 'Music', 'Videos'];
 
-const SearchBar = () => {
+const SearchBar: React.FC = () => {
   const [dropdownListVisibility, setDropdownListVisibility] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Category');
 
   useEffect(() => {
     const dropdownListElement = document.getElementById('list');
     if (dropdownListVisibility) {
-      dropdownListElement.classList.add(styles.listShow);
+      dropdownListElement?.classList.add(styles.listShow);
     } else {
-      dropdownListElement.classList.remove(styles.listShow);
+      dropdownListElement?.classList.remove(styles.listShow);
     }
   }, [dropdownListVisibility]);
 
   useEffect(() => {
     const searchInputElement = document.getElementById('searchInput');
-    searchInputElement.placeholder = `Enter Products/ services to search...  ${selectedCategory}...`;
+    searchInputElement?.setAttribute('placeholder', `Enter Products/ services to search...  ${selectedCategory}...`);
   }, [selectedCategory]);
 
   const handleDropdownButtonClick = () => {
     setDropdownListVisibility(!dropdownListVisibility);
   };
 
-  const handleDropdownListItemClick = (e) => {
-    setSelectedCategory(e.target.innerText);
+  const handleDropdownListItemClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    setSelectedCategory(e.currentTarget.innerText);
   };
 
   return (
@@ -52,7 +52,12 @@ const SearchBar = () => {
       </button>
 
       <div className={styles.searchBox}>
-        <input type="text" id="searchInput" placeholder={`Enter Products/ services to search... ${selectedCategory}...`} className={styles.input} />
+        <input
+          type="text"
+          id="searchInput"
+          placeholder={`Enter Products/ services to search... ${selectedCategory}...`}
+          className={styles.input}
+        />
         <AiOutlineSearch className={styles.searchIcon} />
       </div>
     </div>

@@ -2,11 +2,16 @@ import React from 'react';
 import IdDashboardLayout from './layout';
 import MyDocumentFormEdit from '../../../../component/dashboard/MarketPlaceProfile/MyDocumentFormEdit';
 
+interface MyDocumentProps {
+  title: string;
+  userId: string
+  // sidebarOpen: boolean;
+}
 
-const MyDocument = ({ title, sidebarOpen}) => {
+const MyDocument: React.FC<MyDocumentProps> = ({ title,userId }) => {
   return (
   <IdDashboardLayout title="Document Information">
-  <MyDocumentFormEdit sidebarOpen={sidebarOpen} />
+ <MyDocumentFormEdit userId={userId} />
 </IdDashboardLayout>
   )
 }

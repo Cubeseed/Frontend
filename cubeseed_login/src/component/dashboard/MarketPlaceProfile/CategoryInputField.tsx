@@ -5,21 +5,19 @@ import SearchBar from './SearchBar';
 import { BsCart3, BsPersonCircle } from "react-icons/bs";
 import { FiMessageSquare } from "react-icons/fi";
 
-
-
-const CategoryInputField = () => {
+const CategoryInputField: React.FC = () => {
   return (
     <div className={styles.categoryInput}>
-   <SearchBar />
-    <div className="flex">
-      <ul className={styles.categoryIcons}>
-        <li><Link href=""><BsCart3 /></Link> </li>
-        <li><Link href=""><FiMessageSquare /></Link></li>
-        <li><Link href=""><BsPersonCircle /></Link></li>
-      </ul>
+      <SearchBar />
+      <div className="flex">
+        <ul className={styles.categoryIcons}>
+          <li><Link href=""><BsCart3 /></Link></li>
+          <li><Link href=""><FiMessageSquare /></Link></li>
+          <li><Link href=""><BsPersonCircle /></Link></li>
+        </ul>
+      </div>
     </div>
+  );
+};
 
-  </div>
-  )
-}
 export default CategoryInputField;

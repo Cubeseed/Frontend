@@ -1,15 +1,12 @@
-import React from "react";
-import { TextField,Input } from "@mui/material";
-import { styled } from "@mui/material/styles";
-// import  Box  from "@mui/material/Box";
-import MenuItem from "@mui/material/MenuItem";
-import styles from "@/styles/marketplaceprofile.module.css";
-import ProfileImg from "./ProfileImg";
-import useDocument from "./hooks/useDocument";
-// import { PiCaretDownBold } from "react-icons/pi";
+import React from 'react';
+import { TextField } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import styles from '@/styles/marketplaceprofile.module.css';
+import ProfileImg from './ProfileImg';
+import useDocument from './hooks/useDocument';
 
-const DocumentUploadForm = () => {
-  const { 
+const DocumentUploadForm: React.FC = () => {
+  const {
     docInfo,
     errors,
     uploading,
@@ -18,49 +15,43 @@ const DocumentUploadForm = () => {
     handleFileChange,
     photoErrors,
     handleDocumentSubmit,
-   } = useDocument({});
+  } = useDocument();
 
-  const inputStyles = {
-    height: "40px",
-    fontSize: "12px",
-    borderColor: "#002629",
-    color: "#99A19F",
-    paddingTop: "18px",
-    paddingBottom: "18px",
-    opacity: "0.5px",
+  const inputStyles: React.CSSProperties = {
+    height: '40px',
+    fontSize: '12px',
+    borderColor: '#002629',
+    color: '#99A19F',
+    paddingTop: '18px',
+    paddingBottom: '18px',
+    opacity: '0.5px',
   };
 
-  const labelStyles = {
-    color: "#002629",
-    fontWeight: "400",
-    fontSize: "1rem",
+  const labelStyles: React.CSSProperties = {
+    color: '#002629',
+    fontWeight: '400',
+    fontSize: '1rem',
   };
 
-  const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
+  const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
     height: 1,
-    overflow: "hidden",
-    position: "absolute",
+    overflow: 'hidden',
+    position: 'absolute',
     bottom: 0,
     left: 0,
-    whiteSpace: "nowrap",
+    whiteSpace: 'nowrap',
     width: 1,
   });
 
   return (
     <div className={styles.mainContent}>
       <div className={styles.profileImg}>
-        <ProfileImg uploading={uploading} 
-        selectedImage={selectedImage}
-          handleFileChange={  handleFileChange}
-         photoErrors={photoErrors} />
+        <ProfileImg uploading={uploading} selectedImage={selectedImage} handleFileChange={handleFileChange} photoErrors={photoErrors} />
       </div>
       <div className={styles.profileContent}>
-        <form
-          className={styles.personalDetails}
-          onSubmit={handleDocumentSubmit}
-        >
+        <form className={styles.personalDetails} onSubmit={handleDocumentSubmit}>
           <p>Basic Information</p>
           <div className={styles.inputForm}>
             <TextField
@@ -71,10 +62,10 @@ const DocumentUploadForm = () => {
               variant="outlined"
               value={docInfo.business_tax_id}
               placeholder="Enter your Tax ID"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleDocumentUpload}
-              />
+            />
             {errors.business_tax_id && <div className={styles.error}>{errors.business_tax_id}</div>}
             <TextField
               type="text"
@@ -83,7 +74,7 @@ const DocumentUploadForm = () => {
               variant="outlined"
               value={docInfo.EIN}
               placeholder="Employer ID Number"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleDocumentUpload}
             />
@@ -96,7 +87,7 @@ const DocumentUploadForm = () => {
               variant="outlined"
               value={docInfo.SSN}
               placeholder="Social Security Number"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleDocumentUpload}
             />
@@ -104,7 +95,7 @@ const DocumentUploadForm = () => {
           </div>
           <hr />
           <div className={styles.docs}>
-          <p>
+            <p>
               <strong>Official Documents</strong>
             </p>
             <div className="pt-2 ">
@@ -130,8 +121,6 @@ const DocumentUploadForm = () => {
               </p>
             </div>
             <div className={styles.docUpload}>
-            
-
               <TextField
                 id="uploadEIN"
                 name="uploadEIN"
@@ -139,14 +128,10 @@ const DocumentUploadForm = () => {
                 value={docInfo.uploadEIN}
                 variant="outlined"
                 type="file"
-                // placeholder="Select a Document Type"
                 InputProps={{ style: inputStyles }}
-                InputLabelProps={{ style: labelStyles, shrink: true  }}
-                // endIcon={<PiCaretDownBold />}
+                InputLabelProps={{ style: labelStyles, shrink: true }}
                 onChange={handleDocumentUpload}
-              >
-              
-              </TextField>
+              />
               {errors.uploadEIN && <div className={styles.error}>{errors.uploadEIN}</div>}
 
               <TextField
@@ -156,21 +141,17 @@ const DocumentUploadForm = () => {
                 value={docInfo.uploadSSN}
                 variant="outlined"
                 type="file"
-                // placeholder="Select a Document Type"
                 InputProps={{ style: inputStyles }}
-                InputLabelProps={{ style: labelStyles, shrink: true  }}
-                // endIcon={<PiCaretDownBold />}
+                InputLabelProps={{ style: labelStyles, shrink: true }}
                 onChange={handleDocumentUpload}
-                >
-                 
-              </TextField>
+              />
               {errors.uploadSSN && <div className={styles.error}>{errors.uploadSSN}</div>}
             </div>
             <div className={styles.btnBusiness}>
-            {/* <button className={styles.btnOutlined} onClick={handleBusinessSubmit}> Submit </button> */}
-          {/* <button onClick={handleBusinessSubmit} className={styles.btn}>Submit </button> */}
-     <button className={styles.btnFilled} style={{ marginLeft: 'auto' }} onClick={handleDocumentSubmit}>Submit</button>
-      </div>
+              <button className={styles.btnFilled} style={{ marginLeft: 'auto' }} onClick={handleDocumentSubmit}>
+                Submit
+              </button>
+            </div>
           </div>
         </form>
       </div>

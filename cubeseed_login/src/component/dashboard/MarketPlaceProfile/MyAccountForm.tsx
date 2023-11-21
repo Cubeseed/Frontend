@@ -1,27 +1,34 @@
 import React from "react";
+import Link from "next/link";
 import { TextField } from "@mui/material";
 import styles from "@/styles/marketplaceprofile.module.css";
 import ProfileImg from "./ProfileImg";
 import useProfile from "./hooks/useProfile";
 
-const PersonalDetailForm = () => {
-  const { 
-    errors, 
-    formData, 
-    handleUserInputs, 
-    handleSubmit } = useProfile({});
+interface PersonalDetailFormProps {
+  uploading: boolean;
+  selectedImage: string | null;
+  handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const inputStyles = {
+const PersonalDetailForm: React.FC<PersonalDetailFormProps> = ({
+  uploading,
+  selectedImage,
+  handleFileChange,
+}) => {
+  const { errors, formData, handleUserInputs, handleSubmit } = useProfile();
+
+  const inputStyles: React.CSSProperties = {
     height: "40px",
     fontSize: "12px",
     borderColor: "#002629",
     color: "#99A19F",
     paddingTop: "18px",
     paddingBottom: "18px",
-    opacity: "0.5px",
+    opacity: "0.5",
   };
 
-  const labelStyles = {
+  const labelStyles: React.CSSProperties = {
     color: "#002629",
     fontWeight: "400",
     fontSize: "1rem",
@@ -30,11 +37,15 @@ const PersonalDetailForm = () => {
   return (
     <div className={styles.mainContent}>
       <div className={styles.profileImg}>
-      <ProfileImg  />
+        <ProfileImg
+          uploading={uploading}
+          selectedImage={selectedImage}
+          handleFileChange={handleFileChange}
+        />
       </div>
 
       <div className={styles.profileContent}>
-        <form className={styles.personalDetails} >
+        <form className={styles.personalDetails}>
           <p>Personal Detail</p>
           <div className={styles.inputForm}>
             <TextField
@@ -45,9 +56,10 @@ const PersonalDetailForm = () => {
               variant="outlined"
               value={formData.name}
               placeholder="Name of the user"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
+          
             />
             {errors.name && <div className={styles.error}>{errors.name}</div>}
 
@@ -58,12 +70,13 @@ const PersonalDetailForm = () => {
               variant="outlined"
               value={formData.phone_number}
               placeholder="Personal Number"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
-
             />
-            {errors.phone_number && <div className={styles.error}>{errors.phone_number}</div>}
+            {errors.phone_number && (
+              <div className={styles.error}>{errors.phone_number}</div>
+            )}
 
             <TextField
               type="email"
@@ -72,7 +85,7 @@ const PersonalDetailForm = () => {
               variant="outlined"
               value={formData.email}
               placeholder="amanda@gmail.com"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
             />
@@ -84,23 +97,25 @@ const PersonalDetailForm = () => {
               name="location"
               value={formData.location}
               placeholder="Enter your location"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
             />
-            {errors.location && <div className={styles.error}>{errors.location}</div>}
+            {errors.location && (
+              <div className={styles.error}>{errors.location}</div>
+            )}
           </div>
           <hr />
           <div className={styles.inputForm}>
             <p>Password</p>
             <TextField
-              type={"password"}
+              type="password"
               label="Old password"
               name="old_password"
               variant="outlined"
               value={formData.old_password}
               placeholder="Enter old password"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off"}}
               InputLabelProps={{ style: labelStyles, shrink: true }}
               onChange={handleUserInputs}
             />
@@ -108,30 +123,25 @@ const PersonalDetailForm = () => {
               <div className={styles.error}>{errors.old_password}</div>
             )}
 
-            <TextField 
-              type={"password"}
+            <TextField
+              type="password"
               label="New Password"
               name="new_password"
               value={formData.new_password}
               placeholder="At least 8 characters"
-              InputProps={{ style: inputStyles }}
+              InputProps={{ style: inputStyles, autoComplete: "off" }}
               InputLabelProps={{ style: labelStyles, shrink: true }}
-              onChange={handleUserInputs}  
+              onChange={handleUserInputs}
             />
             {errors.new_password && (
               <div className={styles.error}>{errors.new_password}</div>
             )}
-
           </div>
           <div className={styles.btnBusiness}>
-            {/* <button className={styles.btnOutlined} onClick={handleBusinessSubmit}> Submit </button> */}
-          {/* <button onClick={handleBusinessSubmit} className={styles.btn}>Submit </button> */}
-          <button style={{ marginLeft: 'auto' }} className={styles.btnFilled} onClick={handleSubmit}>
-  Next
-</button>
-
-      
-      </div>
+          <button style={{ marginLeft: "auto" }} className={styles.btnFilled} onClick={handleSubmit}>Next </button>
+            <button className={styles.btnFilled}>
+              <Link href="/dashboard/marketplace_profile/mydocumentform">Next</Link></button>
+          </div>
         </form>
       </div>
     </div>
