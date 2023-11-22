@@ -35,6 +35,9 @@ module.exports = {
           700: "var(--clr-neutral-70)",
           900: "var(--clr-neutral-90)",
         },
+        cstetiary: {
+          900: "var(--clr-tetiary-90)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
