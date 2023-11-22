@@ -6,6 +6,7 @@ module.exports = {
     "./app/**/*.{ts,tsx}",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./stories/**/*.{ts,tsx}",
 
     // Or if using `src` directory:
     "./src/**/*.{ts,tsx}",
@@ -33,6 +34,9 @@ module.exports = {
           600: "var(--clr-neutral-60)",
           700: "var(--clr-neutral-70)",
           900: "var(--clr-neutral-90)",
+        },
+        cstetiary: {
+          900: "var(--clr-tetiary-90)",
         },
       },
       fontFamily: {

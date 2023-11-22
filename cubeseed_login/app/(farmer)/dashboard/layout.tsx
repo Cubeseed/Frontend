@@ -1,6 +1,7 @@
-import Navbar from "@/component/navbar/Navbar"
-import DashboardNavbar from "@/component/dashboard/DashboardNavbar/DashboardNavbar"
-import DashboardSidePannel from "@/component/dashboard/DashboardSidePannel"
+import { DashboardSideNav } from "@cs/components/sidenav"
+import { siteConfig } from "@cs/config/site"
+import { Icons } from "@cs/components/icons"
+import { TopNav } from "@cs/components/topnav"
 
 export const metadata = {
   title: "Next.js",
@@ -14,14 +15,21 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky inset-0 ">
-        <Navbar />
-      </header>
       <div>
-        <aside className="fixed inset-0 h-screen w-[250px] bg-white shadow-2xl">
-          <DashboardSidePannel />
+        <aside className="fixed inset-0 h-screen w-[80px] bg-cstetiary-900 transition-all md:w-[280px]">
+          <div className="h-full px-2 py-6">
+            <Icons.logo className="hidden h-[42px] md:block" />
+            <Icons.mlogo className="h-[42px] md:hidden" />
+            <hr className="my-4" />
+            <DashboardSideNav items={siteConfig.dashSideNav} />
+          </div>
         </aside>
-        <main className="ml-[250px]">{children}</main>
+        <main className="ml-[80px] transition-all md:ml-[280px]">
+          <header className="sticky inset-0 ">
+            <TopNav />
+          </header>
+          {children}
+        </main>
       </div>
     </div>
   )
