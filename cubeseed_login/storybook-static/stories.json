@@ -1,0 +1,234 @@
+{
+  "v": 3,
+  "stories": {
+    "welcome--docs": {
+      "id": "welcome--docs",
+      "title": "Welcome",
+      "name": "Docs",
+      "importPath": "./stories/Configure.mdx",
+      "storiesImports": [],
+      "tags": ["unattached-mdx", "docs"],
+      "kind": "Welcome",
+      "story": "Docs",
+      "parameters": {
+        "__id": "welcome--docs",
+        "docsOnly": true,
+        "fileName": "./stories/Configure.mdx"
+      }
+    },
+    "inputs-input--docs": {
+      "id": "inputs-input--docs",
+      "title": "Inputs/Input",
+      "name": "Docs",
+      "importPath": "./stories/Input.stories.tsx",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": [],
+      "kind": "Inputs/Input",
+      "story": "Docs",
+      "parameters": {
+        "__id": "inputs-input--docs",
+        "docsOnly": true,
+        "fileName": "./stories/Input.stories.tsx"
+      }
+    },
+    "inputs-input--primary": {
+      "id": "inputs-input--primary",
+      "name": "Primary",
+      "title": "Inputs/Input",
+      "importPath": "./stories/Input.stories.tsx",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Input",
+      "story": "Primary",
+      "parameters": {
+        "__id": "inputs-input--primary",
+        "docsOnly": false,
+        "fileName": "./stories/Input.stories.tsx"
+      }
+    },
+    "inputs-input--focused": {
+      "id": "inputs-input--focused",
+      "name": "Focused",
+      "title": "Inputs/Input",
+      "importPath": "./stories/Input.stories.tsx",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Input",
+      "story": "Focused",
+      "parameters": {
+        "__id": "inputs-input--focused",
+        "docsOnly": false,
+        "fileName": "./stories/Input.stories.tsx"
+      }
+    },
+    "inputs-input--required": {
+      "id": "inputs-input--required",
+      "name": "Required",
+      "title": "Inputs/Input",
+      "importPath": "./stories/Input.stories.tsx",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Input",
+      "story": "Required",
+      "parameters": {
+        "__id": "inputs-input--required",
+        "docsOnly": false,
+        "fileName": "./stories/Input.stories.tsx"
+      }
+    },
+    "inputs-radio--docs": {
+      "id": "inputs-radio--docs",
+      "title": "Inputs/Radio",
+      "name": "Docs",
+      "importPath": "./stories/Radio.stories.ts",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": [],
+      "kind": "Inputs/Radio",
+      "story": "Docs",
+      "parameters": {
+        "__id": "inputs-radio--docs",
+        "docsOnly": true,
+        "fileName": "./stories/Radio.stories.ts"
+      }
+    },
+    "inputs-radio--primary": {
+      "id": "inputs-radio--primary",
+      "name": "Primary",
+      "title": "Inputs/Radio",
+      "importPath": "./stories/Radio.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Radio",
+      "story": "Primary",
+      "parameters": {
+        "__id": "inputs-radio--primary",
+        "docsOnly": false,
+        "fileName": "./stories/Radio.stories.ts"
+      }
+    },
+    "inputs-radio--focused": {
+      "id": "inputs-radio--focused",
+      "name": "Focused",
+      "title": "Inputs/Radio",
+      "importPath": "./stories/Radio.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Radio",
+      "story": "Focused",
+      "parameters": {
+        "__id": "inputs-radio--focused",
+        "docsOnly": false,
+        "fileName": "./stories/Radio.stories.ts"
+      }
+    },
+    "inputs-radio--required": {
+      "id": "inputs-radio--required",
+      "name": "Required",
+      "title": "Inputs/Radio",
+      "importPath": "./stories/Radio.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Radio",
+      "story": "Required",
+      "parameters": {
+        "__id": "inputs-radio--required",
+        "docsOnly": false,
+        "fileName": "./stories/Radio.stories.ts"
+      }
+    },
+    "inputs-select--docs": {
+      "id": "inputs-select--docs",
+      "title": "Inputs/Select",
+      "name": "Docs",
+      "importPath": "./stories/Select.stories.ts",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": [],
+      "kind": "Inputs/Select",
+      "story": "Docs",
+      "parameters": {
+        "__id": "inputs-select--docs",
+        "docsOnly": true,
+        "fileName": "./stories/Select.stories.ts"
+      }
+    },
+    "inputs-select--primary": {
+      "id": "inputs-select--primary",
+      "name": "Primary",
+      "title": "Inputs/Select",
+      "importPath": "./stories/Select.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Select",
+      "story": "Primary",
+      "parameters": {
+        "__id": "inputs-select--primary",
+        "docsOnly": false,
+        "fileName": "./stories/Select.stories.ts"
+      }
+    },
+    "inputs-select--focused": {
+      "id": "inputs-select--focused",
+      "name": "Focused",
+      "title": "Inputs/Select",
+      "importPath": "./stories/Select.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Select",
+      "story": "Focused",
+      "parameters": {
+        "__id": "inputs-select--focused",
+        "docsOnly": false,
+        "fileName": "./stories/Select.stories.ts"
+      }
+    },
+    "inputs-select--required": {
+      "id": "inputs-select--required",
+      "name": "Required",
+      "title": "Inputs/Select",
+      "importPath": "./stories/Select.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Select",
+      "story": "Required",
+      "parameters": {
+        "__id": "inputs-select--required",
+        "docsOnly": false,
+        "fileName": "./stories/Select.stories.ts"
+      }
+    },
+    "inputs-textarea--docs": {
+      "id": "inputs-textarea--docs",
+      "title": "Inputs/Textarea",
+      "name": "Docs",
+      "importPath": "./stories/Textarea.stories.ts",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": [],
+      "kind": "Inputs/Textarea",
+      "story": "Docs",
+      "parameters": {
+        "__id": "inputs-textarea--docs",
+        "docsOnly": true,
+        "fileName": "./stories/Textarea.stories.ts"
+      }
+    },
+    "inputs-textarea--primary": {
+      "id": "inputs-textarea--primary",
+      "name": "Primary",
+      "title": "Inputs/Textarea",
+      "importPath": "./stories/Textarea.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Textarea",
+      "story": "Primary",
+      "parameters": {
+        "__id": "inputs-textarea--primary",
+        "docsOnly": false,
+        "fileName": "./stories/Textarea.stories.ts"
+      }
+    },
+    "inputs-textarea--focused": {
+      "id": "inputs-textarea--focused",
+      "name": "Focused",
+      "title": "Inputs/Textarea",
+      "importPath": "./stories/Textarea.stories.ts",
+      "tags": ["autodocs", "story"],
+      "kind": "Inputs/Textarea",
+      "story": "Focused",
+      "parameters": {
+        "__id": "inputs-textarea--focused",
+        "docsOnly": false,
+        "fileName": "./stories/Textarea.stories.ts"
+      }
+    }
+  }
+}

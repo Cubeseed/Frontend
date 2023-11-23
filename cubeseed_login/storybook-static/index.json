@@ -1,0 +1,138 @@
+{
+  "v": 4,
+  "entries": {
+    "welcome--docs": {
+      "id": "welcome--docs",
+      "title": "Welcome",
+      "name": "Docs",
+      "importPath": "./stories/Configure.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": ["unattached-mdx", "docs"]
+    },
+    "inputs-input--docs": {
+      "id": "inputs-input--docs",
+      "title": "Inputs/Input",
+      "name": "Docs",
+      "importPath": "./stories/Input.stories.tsx",
+      "type": "docs",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": []
+    },
+    "inputs-input--primary": {
+      "type": "story",
+      "id": "inputs-input--primary",
+      "name": "Primary",
+      "title": "Inputs/Input",
+      "importPath": "./stories/Input.stories.tsx",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-input--focused": {
+      "type": "story",
+      "id": "inputs-input--focused",
+      "name": "Focused",
+      "title": "Inputs/Input",
+      "importPath": "./stories/Input.stories.tsx",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-input--required": {
+      "type": "story",
+      "id": "inputs-input--required",
+      "name": "Required",
+      "title": "Inputs/Input",
+      "importPath": "./stories/Input.stories.tsx",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-radio--docs": {
+      "id": "inputs-radio--docs",
+      "title": "Inputs/Radio",
+      "name": "Docs",
+      "importPath": "./stories/Radio.stories.ts",
+      "type": "docs",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": []
+    },
+    "inputs-radio--primary": {
+      "type": "story",
+      "id": "inputs-radio--primary",
+      "name": "Primary",
+      "title": "Inputs/Radio",
+      "importPath": "./stories/Radio.stories.ts",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-radio--focused": {
+      "type": "story",
+      "id": "inputs-radio--focused",
+      "name": "Focused",
+      "title": "Inputs/Radio",
+      "importPath": "./stories/Radio.stories.ts",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-radio--required": {
+      "type": "story",
+      "id": "inputs-radio--required",
+      "name": "Required",
+      "title": "Inputs/Radio",
+      "importPath": "./stories/Radio.stories.ts",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-select--docs": {
+      "id": "inputs-select--docs",
+      "title": "Inputs/Select",
+      "name": "Docs",
+      "importPath": "./stories/Select.stories.ts",
+      "type": "docs",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": []
+    },
+    "inputs-select--primary": {
+      "type": "story",
+      "id": "inputs-select--primary",
+      "name": "Primary",
+      "title": "Inputs/Select",
+      "importPath": "./stories/Select.stories.ts",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-select--focused": {
+      "type": "story",
+      "id": "inputs-select--focused",
+      "name": "Focused",
+      "title": "Inputs/Select",
+      "importPath": "./stories/Select.stories.ts",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-select--required": {
+      "type": "story",
+      "id": "inputs-select--required",
+      "name": "Required",
+      "title": "Inputs/Select",
+      "importPath": "./stories/Select.stories.ts",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-textarea--docs": {
+      "id": "inputs-textarea--docs",
+      "title": "Inputs/Textarea",
+      "name": "Docs",
+      "importPath": "./stories/Textarea.stories.ts",
+      "type": "docs",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": []
+    },
+    "inputs-textarea--primary": {
+      "type": "story",
+      "id": "inputs-textarea--primary",
+      "name": "Primary",
+      "title": "Inputs/Textarea",
+      "importPath": "./stories/Textarea.stories.ts",
+      "tags": ["autodocs", "story"]
+    },
+    "inputs-textarea--focused": {
+      "type": "story",
+      "id": "inputs-textarea--focused",
+      "name": "Focused",
+      "title": "Inputs/Textarea",
+      "importPath": "./stories/Textarea.stories.ts",
+      "tags": ["autodocs", "story"]
+    }
+  }
+}
