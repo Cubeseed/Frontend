@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "cd .. && husky install cubeseed_login/.husky",
-    "pre-commit": "next lint"
+    "pre-commit": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@material-tailwind/html": "^2.0.0",
@@ -22,20 +24,36 @@
     "sass": "^1.62.1"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.5.1",
+    "@storybook/addon-interactions": "^7.5.1",
+    "@storybook/addon-links": "^7.5.1",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-styling-webpack": "^0.0.5",
+    "@storybook/blocks": "^7.5.1",
+    "@storybook/manager-api": "^7.5.1",
+    "@storybook/nextjs": "^7.5.1",
+    "@storybook/react": "^7.5.1",
+    "@storybook/testing-library": "^0.2.2",
+    "@storybook/theming": "^7.5.1",
     "@types/node": "20.1.4",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
     "autoprefixer": "^10.4.14",
+    "chromatic": "^7.4.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "husky": "^8.0.0",
     "postcss": "^8.4.25",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "pretty-quick": "^3.1.3",
+    "storybook": "^7.5.1",
     "tailwindcss": "^3.3.2",
     "typescript": "5.0.4"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "cubeseed_login@0.1.0"
 }
