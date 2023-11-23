@@ -15,7 +15,7 @@ export default function CreateSucess({
   if (!isSuccess) return null
   return (
     <div className="fixed inset-0 grid h-screen w-screen items-center backdrop-brightness-[30%]">
-      <div className="text-primary-100 relative mx-auto grid max-h-[90%] w-[60%] place-items-center rounded-[25px] bg-white p-8 shadow-lg">
+      <div className="relative mx-auto grid max-h-[90%] w-[60%] place-items-center rounded-[25px] bg-white p-8 text-primary-100 shadow-lg">
         <span
           className="absolute right-[3%] top-[1%] z-10 grid cursor-pointer items-center"
           onClick={() => setSuccess(false)}
@@ -32,12 +32,12 @@ export default function CreateSucess({
         <div className="mt-20 flex w-full justify-between font-medium">
           <button
             onClick={() => setSuccess(false)}
-            className="text-accent border-secondary flex h-[44px] items-center rounded-[100px] border-2 bg-transparent px-6 py-3"
+            className="flex h-[44px] items-center rounded-[100px] border-2 border-secondary bg-transparent px-6 py-3 text-accent"
           >
             Close
           </button>
           <Link
-            className="bg-secondary flex h-[44px] items-center rounded-[100px] px-6 py-3 text-black"
+            className="flex h-[44px] items-center rounded-[100px] bg-secondary px-6 py-3 text-black"
             href="dashboard/invoice"
           >
             View Invoice

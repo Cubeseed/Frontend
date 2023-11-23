@@ -1,5 +1,5 @@
-import ViewInvoice from "@cs/components/view-invoice";
-import CreateInvoice from "../../../../components/create-invoice";
+import ViewInvoice from "@/component/Invoice/view-invoice"
+import CreateInvoice from "../../../../src/component/Invoice/create-invoice"
 
 export default async function InvoicePage() {
   return (
