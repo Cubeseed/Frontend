@@ -1,4 +1,4 @@
-import "@/styles/sidebar.css"
+import "@/styles/moderatorsidebar.css"
 import Image from "next/image"
 import cubeseedLogo from "@/assets/icons/logo1.png"
 import supportIcon from "@/assets/icons/Contact support.png"
