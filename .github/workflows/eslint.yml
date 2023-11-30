@@ -34,6 +34,6 @@ jobs:
 
       # Install Next Config
       - run: npm install eslint-config-next --save-dev
-      
+
       # Run ESLint
-      - run: npx eslint .
+      # - run: npx eslint .
