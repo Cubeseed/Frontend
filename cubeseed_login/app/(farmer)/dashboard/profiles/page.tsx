@@ -1,4 +1,4 @@
-import UserProfile from "@cs/components/profile"
+import UserProfile from "@/component/Profile/profile"
 import React from "react"
 import EditProfilePage from "./edit/page"
 const base64 = require("base-64")

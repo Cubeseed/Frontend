@@ -4,9 +4,9 @@ import Image, { StaticImageData } from "next/image"
 import star from "@cs/public/star.svg"
 import farmer from "@cs/public/farmer1.png"
 import { UserProfileType } from "@cs/types"
-import ReviewCard from "./pieces/review-card"
+import ReviewCard from "../../comps/userCardInfo/review-card"
 import { useState } from "react"
-import ImageBox from "./pieces/image-box"
+import ImageBox from "../../comps/ImageBox/image-box"
 import Link from "next/link"
 // import place from "@cs/assets/svg/place_24px.svg";
 

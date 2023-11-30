@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import Congratesms from "@/styles/congratesms.module.scss";
-import Image from "next/image";
-import PopUp from "@/assets/Group 1000001020.png";
-import Button from "./../Button/button";
-import Link from "next/link";
+import React, { useContext } from "react"
+import Congratesms from "@/styles/congratesms.module.scss"
+import Image from "next/image"
+import PopUp from "@assets/Group 1000001020.png"
+import Button from "./../Button/button"
+import Link from "next/link"
 
 export default function CongratulationSms() {
   return (
@@ -26,5 +26,5 @@ export default function CongratulationSms() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

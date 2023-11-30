@@ -1,12 +1,12 @@
 import React from "react"
-import { DashboardHeading } from "./header"
-import Table from "./pieces/table"
+import { DashboardHeading } from "../header"
+import Table from "../../comps/Table/table"
 import { BillType, OrderType, SummaryType } from "@cs/types"
 import Image from "next/image"
 import Link from "next/link"
-import face from "@cs/assets/svg/face.svg"
-import cal from "@cs/assets/svg/cal.svg"
-import dload from "@cs/assets/svg/download.svg"
+import face from "@assets/face.svg"
+import cal from "@assets/cal.svg"
+import dload from "@assets/download.svg"
 
 export default function ViewInvoice() {
   const senderData = [
@@ -71,7 +71,7 @@ export default function ViewInvoice() {
 
   const renderOrder = (item: OrderType) => (
     <>
-      <tr className="border-primary-100 border bg-[#F9FFFF]">
+      <tr className="border border-primary-100 bg-[#F9FFFF]">
         <td className="p-4">{item.service}</td>
         <td className="p-4">{item.details}</td>
         <td className="p-4">{item.quantity}</td>
@@ -101,7 +101,7 @@ export default function ViewInvoice() {
         heading="Invoice"
         subheading="Order ID > Invoice #"
         status={
-          <span className="bg-csneutral-900 border-csneutral-700 text-csneutral-300 flex h-[22px] items-center gap-1 rounded-[4px] border px-2 text-xs font-medium">
+          <span className="flex h-[22px] items-center gap-1 rounded-[4px] border border-csneutral-700 bg-csneutral-900 px-2 text-xs font-medium text-csneutral-300">
             <svg
               width="10"
               height="11"
@@ -117,36 +117,36 @@ export default function ViewInvoice() {
       />
       <div className="px-8">
         <section className="mt-8 flex justify-between divide-x-2 divide-solid">
-          <div className="text-primary px-4">
+          <div className="px-4 text-primary">
             <div className="flex justify-between border-b-2 border-[#D0DAD7] py-3">
               <h5 className="text-sm font-semibold">Sent by</h5>
               <p className="flex items-center gap-1">
                 <Image src={face} alt="face" width={15} height={15} />
-                <span className="text-primary-200 text-[11px]">
+                <span className="text-[11px] text-primary-200">
                   View Profile
                 </span>
               </p>
             </div>
             <Table className="" items={senderData} render={renderSender} />
           </div>
-          <div className="text-primary px-4">
+          <div className="px-4 text-primary">
             <div className="flex justify-between border-b-2 border-[#D0DAD7] py-3">
               <h5 className="text-sm font-semibold">Delivered to</h5>
               <p className="flex items-center gap-1">
                 <Image src={face} alt="face" width={15} height={15} />
-                <span className="text-primary-200 text-[11px]">
+                <span className="text-[11px] text-primary-200">
                   View Profile
                 </span>
               </p>
             </div>
             <Table className="" items={senderData} render={renderSender} />
           </div>
-          <div className="text-primary px-4">
+          <div className="px-4 text-primary">
             <div className="flex justify-between border-b-2 border-[#D0DAD7] py-3">
               <h5 className="text-sm font-semibold">Important dates</h5>
               <p className="flex items-center gap-1">
                 <Image src={cal} alt="face" width={15} height={15} />
-                <span className="text-primary-200 text-[11px]">
+                <span className="text-[11px] text-primary-200">
                   View Calendar
                 </span>
               </p>
@@ -159,26 +159,26 @@ export default function ViewInvoice() {
             headers={orderHeaders}
             items={orderData}
             render={renderOrder}
-            className="border-primary-100 w-full rounded-[4px] border text-left text-sm font-normal"
+            className="w-full rounded-[4px] border border-primary-100 text-left text-sm font-normal"
             thStyle="border border-primary-100"
           />
         </section>
         <section className="mt-8 flex items-stretch justify-between gap-2">
           <div className="flex-2 w-full rounded-[4px] bg-[#7DB7BB] p-4">
             <h5 className="font-semibold">Notes</h5>
-            <p className="text-primary mt-4 text-xs">
+            <p className="mt-4 text-xs text-primary">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Adipisci, praesentium!
             </p>
           </div>
           <div className="w-full">
-            <div className="border-primary-100 rounded-[4px] border bg-[#F9FFFF] px-8 py-4">
+            <div className="rounded-[4px] border border-primary-100 bg-[#F9FFFF] px-8 py-4">
               <Table
                 items={summmaryData}
                 render={renderSummary}
-                className="text-primary-100 w-full text-sm font-normal"
+                className="w-full text-sm font-normal text-primary-100"
                 extra={
-                  <tr className="border-primary-100 border-t text-black">
+                  <tr className="border-t border-primary-100 text-black">
                     <td className="text-right">Total Estimate:</td>
                     <td className="p-1 text-right">₦ 0,000.00</td>
                   </tr>
@@ -190,12 +190,12 @@ export default function ViewInvoice() {
       </div>
       <section className="mt-14 flex justify-between">
         <Link
-          className="bg-primary-100 flex h-[44px] items-center rounded-[100px] px-6 py-3 text-white"
+          className="flex h-[44px] items-center rounded-[100px] bg-primary-100 px-6 py-3 text-white"
           href="dashboard"
         >
           Close
         </Link>
-        <button className="bg-secondary text-primary flex h-[44px] items-center rounded-[100px] px-6 py-3 font-medium">
+        <button className="flex h-[44px] items-center rounded-[100px] bg-secondary px-6 py-3 font-medium text-primary">
           Download PDF <Image src={dload} alt="download" />
         </button>
       </section>

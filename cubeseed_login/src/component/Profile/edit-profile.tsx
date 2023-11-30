@@ -1,15 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { DashboardHeading } from "./header"
-import ImageBox from "./pieces/image-box"
+import { DashboardHeading } from "../header"
+import ImageBox from "../../comps/ImageBox/image-box"
 import camera from "@cs/public/camera.png"
 import { StaticImageData } from "next/image"
-import Textarea from "./pieces/textarea"
-import Input from "./pieces/input"
-import InputRadio from "./pieces/input-radio"
+import Textarea from "../../comps/textarea/textarea2"
+import Input from "../../comps/Input/input"
+import InputRadio from "../../comps/Input-radio/input-radio"
 import Link from "next/link"
-import Select from "./pieces/select"
+import Select from "../../comps/Select/select"
 
 function EditUserProfile() {
   const [src, setSrc] = useState<string | StaticImageData>(() => camera)

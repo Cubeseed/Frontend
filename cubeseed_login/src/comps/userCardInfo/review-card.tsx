@@ -8,7 +8,7 @@ interface ReviewCard {
 
 const ReviewCard = ({ src }: ReviewCard) => {
   return (
-    <div className="bg-primary-700 rounded-[20px] p-4">
+    <div className="rounded-[20px] bg-primary-700 p-4">
       <div className="flex gap-4">
         <div className="aspect-square h-[62px] w-[62px]">
           <Image
