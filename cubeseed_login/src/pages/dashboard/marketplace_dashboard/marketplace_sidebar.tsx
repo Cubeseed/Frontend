@@ -1,15 +1,15 @@
 import { useState } from "react"
 import MarketPlaceSideBarStyle from "@/styles/MarketPlaceSideBar.module.css"
-import logo from "../../../assets/icons/TransparentCubeseed.png"
-import smallLogo from "../../../assets/icons/TransparentSmallCubeseed.png"
+import logo from "@assets/icons/TransparentCubeseed.png"
+import smallLogo from "@assets/icons/TransparentSmallCubeseed.png"
 import Image from "next/image"
 
 const MarketPlaceSideBar = () => {
-  const [selected, setSelected] = useState<boolean>(false);
-  const [id, setId] = useState("Home");
+  const [selected, setSelected] = useState<boolean>(false)
+  const [id, setId] = useState("Home")
 
   const toggleSideBar = () => {
-    setSelected((prev) => !prev);
+    setSelected((prev) => !prev)
   }
 
   const customSelect = (selectedName: string) => {
@@ -27,8 +27,21 @@ const MarketPlaceSideBar = () => {
   }
 
   return (
-    <div className={selected ? MarketPlaceSideBarStyle.sideBarClosedContainer : MarketPlaceSideBarStyle.sideBarOpenContainer} data-collapse={selected}>
-      <div className={selected ? MarketPlaceSideBarStyle.logoClosed : MarketPlaceSideBarStyle.logoOpen}>
+    <div
+      className={
+        selected
+          ? MarketPlaceSideBarStyle.sideBarClosedContainer
+          : MarketPlaceSideBarStyle.sideBarOpenContainer
+      }
+      data-collapse={selected}
+    >
+      <div
+        className={
+          selected
+            ? MarketPlaceSideBarStyle.logoClosed
+            : MarketPlaceSideBarStyle.logoOpen
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -43,13 +56,42 @@ const MarketPlaceSideBar = () => {
             fill="black"
           />
         </svg>
-        {selected ? <Image alt="small-logo" width={56} height={56} src={smallLogo.src} onClick={toggleSideBar}/> : <Image alt="small-logo" width={236} height={56} src={logo.src} onClick={toggleSideBar}/> }
+        {selected ? (
+          <Image
+            alt="small-logo"
+            width={56}
+            height={56}
+            src={smallLogo.src}
+            onClick={toggleSideBar}
+          />
+        ) : (
+          <Image
+            alt="small-logo"
+            width={236}
+            height={56}
+            src={logo.src}
+            onClick={toggleSideBar}
+          />
+        )}
       </div>
-      <div className={selected ? MarketPlaceSideBarStyle.dividerClosed : MarketPlaceSideBarStyle.dividerOpen}></div>
+      <div
+        className={
+          selected
+            ? MarketPlaceSideBarStyle.dividerClosed
+            : MarketPlaceSideBarStyle.dividerOpen
+        }
+      ></div>
       <div className={MarketPlaceSideBarStyle.mainOptionsContainer}>
         <div
-          className={`${selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen} ${
-            id === "Home" && (selected ? MarketPlaceSideBarStyle.selectedClosed : MarketPlaceSideBarStyle.selectedOpen)
+          className={`${
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          } ${
+            id === "Home" &&
+            (selected
+              ? MarketPlaceSideBarStyle.selectedClosed
+              : MarketPlaceSideBarStyle.selectedOpen)
           }`}
           onClick={() => customSelect("Home")}
         >
@@ -73,15 +115,24 @@ const MarketPlaceSideBar = () => {
             <g mask="url(#mask0_5682_66037)">
               <path
                 d="M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z"
-                fill={id === "Home" ? "#f0f0f0": "#002629"}
+                fill={id === "Home" ? "#f0f0f0" : "#002629"}
               />
             </g>
           </svg>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Home</p>
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Home
+          </p>
         </div>
         <div
-          className={`${selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen} ${
-            id === "Purchase" && (selected ? MarketPlaceSideBarStyle.selectedClosed : MarketPlaceSideBarStyle.selectedOpen)
+          className={`${
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          } ${
+            id === "Purchase" &&
+            (selected
+              ? MarketPlaceSideBarStyle.selectedClosed
+              : MarketPlaceSideBarStyle.selectedOpen)
           }`}
           onClick={() => customSelect("Purchase")}
         >
@@ -105,15 +156,24 @@ const MarketPlaceSideBar = () => {
             <g mask="url(#mask0_5682_66044)">
               <path
                 d="M9.25 18.4258V16.5924H20.25V18.4258H9.25ZM9.25 12.9258V11.0924H20.25V12.9258H9.25ZM9.25 7.42578V5.59245H20.25V7.42578H9.25ZM5.58333 19.3424C5.07917 19.3424 4.64757 19.1629 4.28854 18.8039C3.92951 18.4449 3.75 18.0133 3.75 17.5091C3.75 17.0049 3.92951 16.5734 4.28854 16.2143C4.64757 15.8553 5.07917 15.6758 5.58333 15.6758C6.0875 15.6758 6.5191 15.8553 6.87813 16.2143C7.23715 16.5734 7.41667 17.0049 7.41667 17.5091C7.41667 18.0133 7.23715 18.4449 6.87813 18.8039C6.5191 19.1629 6.0875 19.3424 5.58333 19.3424ZM5.58333 13.8424C5.07917 13.8424 4.64757 13.6629 4.28854 13.3039C3.92951 12.9449 3.75 12.5133 3.75 12.0091C3.75 11.5049 3.92951 11.0734 4.28854 10.7143C4.64757 10.3553 5.07917 10.1758 5.58333 10.1758C6.0875 10.1758 6.5191 10.3553 6.87813 10.7143C7.23715 11.0734 7.41667 11.5049 7.41667 12.0091C7.41667 12.5133 7.23715 12.9449 6.87813 13.3039C6.5191 13.6629 6.0875 13.8424 5.58333 13.8424ZM5.58333 8.34245C5.07917 8.34245 4.64757 8.16293 4.28854 7.80391C3.92951 7.44488 3.75 7.01328 3.75 6.50911C3.75 6.00495 3.92951 5.57335 4.28854 5.21432C4.64757 4.8553 5.07917 4.67578 5.58333 4.67578C6.0875 4.67578 6.5191 4.8553 6.87813 5.21432C7.23715 5.57335 7.41667 6.00495 7.41667 6.50911C7.41667 7.01328 7.23715 7.44488 6.87813 7.80391C6.5191 8.16293 6.0875 8.34245 5.58333 8.34245Z"
-                fill={id === "Purchase" ? "#f0f0f0": "#002629"}
+                fill={id === "Purchase" ? "#f0f0f0" : "#002629"}
               />
             </g>
           </svg>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Purchase Orders</p>
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Purchase Orders
+          </p>
         </div>
         <div
-          className={`${selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen} ${
-            id === "Quotes" && (selected ? MarketPlaceSideBarStyle.selectedClosed : MarketPlaceSideBarStyle.selectedOpen)
+          className={`${
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          } ${
+            id === "Quotes" &&
+            (selected
+              ? MarketPlaceSideBarStyle.selectedClosed
+              : MarketPlaceSideBarStyle.selectedOpen)
           }`}
           onClick={() => customSelect("Quotes")}
         >
@@ -137,15 +197,24 @@ const MarketPlaceSideBar = () => {
             <g mask="url(#mask0_5682_66053)">
               <path
                 d="M4.82613 20.0029C4.30004 20.0029 3.84968 19.8071 3.47504 19.4154C3.1004 19.0238 2.91309 18.5529 2.91309 18.0029V6.00293C2.91309 5.45293 3.1004 4.9821 3.47504 4.59043C3.84968 4.19876 4.30004 4.00293 4.82613 4.00293H10.5653L12.4783 6.00293H20.1305C20.6566 6.00293 21.1069 6.19876 21.4816 6.59043C21.8562 6.9821 22.0435 7.45293 22.0435 8.00293V10.8029H20.1305V8.00293H4.82613V18.0029H12.4783V20.0029H4.82613ZM18.5044 14.5279L19.5326 15.6029L15.8261 19.4529V20.5029H16.8305L20.537 16.6529L21.5413 17.7029L17.4283 22.0029H14.3913V18.8279L18.5044 14.5279ZM21.5413 17.7029L18.5044 14.5279L19.8913 13.0779C20.0667 12.8946 20.2899 12.8029 20.5609 12.8029C20.8319 12.8029 21.0551 12.8946 21.2305 13.0779L22.9283 14.8529C23.1037 15.0363 23.1913 15.2696 23.1913 15.5529C23.1913 15.8363 23.1037 16.0696 22.9283 16.2529L21.5413 17.7029Z"
-                fill={id === "Quotes" ? "#f0f0f0": "#002629"}
+                fill={id === "Quotes" ? "#f0f0f0" : "#002629"}
               />
             </g>
           </svg>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Quotations</p>
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Quotations
+          </p>
         </div>
         <div
-          className={`${selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen} ${
-            id === "Favorite" && (selected ? MarketPlaceSideBarStyle.selectedClosed : MarketPlaceSideBarStyle.selectedOpen)
+          className={`${
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          } ${
+            id === "Favorite" &&
+            (selected
+              ? MarketPlaceSideBarStyle.selectedClosed
+              : MarketPlaceSideBarStyle.selectedOpen)
           }`}
           onClick={() => customSelect("Favorite")}
         >
@@ -158,14 +227,23 @@ const MarketPlaceSideBar = () => {
           >
             <path
               d="M21.2302 9.81863L14.2918 9.22033L11.5802 2.83203L8.86853 9.22998L1.93018 9.81863L7.19908 14.3831L5.61648 21.167L11.5802 17.5676L17.5439 21.167L15.9709 14.3831L21.2302 9.81863ZM11.5802 15.763L7.95178 17.9536L8.91678 13.8234L5.71298 11.0442L9.93968 10.6775L11.5802 6.78853L13.2303 10.6871L17.457 11.0538L14.2532 13.833L15.2182 17.9632L11.5802 15.763Z"
-              fill={id === "Favorite" ? "#f0f0f0": "#002629"}
+              fill={id === "Favorite" ? "#f0f0f0" : "#002629"}
             />
           </svg>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Favorites</p>
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Favorites
+          </p>
         </div>
         <div
-          className={`${selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen} ${
-            id === "Profile" && (selected ? MarketPlaceSideBarStyle.selectedClosed : MarketPlaceSideBarStyle.selectedOpen)
+          className={`${
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          } ${
+            id === "Profile" &&
+            (selected
+              ? MarketPlaceSideBarStyle.selectedClosed
+              : MarketPlaceSideBarStyle.selectedOpen)
           }`}
           onClick={() => customSelect("Profile")}
         >
@@ -180,15 +258,23 @@ const MarketPlaceSideBar = () => {
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4ZM14 8C14 6.9 13.1 6 12 6C10.9 6 10 6.9 10 8C10 9.1 10.9 10 12 10C13.1 10 14 9.1 14 8ZM18 17C17.8 16.29 14.7 15 12 15C9.3 15 6.2 16.29 6 17.01V18H18V17ZM4 17C4 14.34 9.33 13 12 13C14.67 13 20 14.34 20 17V20H4V17Z"
-              fill={id === "Profile" ? "#f0f0f0": "#002629"}
+              fill={id === "Profile" ? "#f0f0f0" : "#002629"}
             />
           </svg>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Profiles</p>
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Profiles
+          </p>
         </div>
       </div>
 
       <div className={MarketPlaceSideBarStyle.userSettingContainer}>
-        <div className={selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen}>
+        <div
+          className={
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -203,9 +289,17 @@ const MarketPlaceSideBar = () => {
               fill="#002629"
             />
           </svg>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Settings</p>
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Settings
+          </p>
         </div>
-        <div className={selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen}>
+        <div
+          className={
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22"
@@ -218,10 +312,20 @@ const MarketPlaceSideBar = () => {
               fill="#002629"
             />
           </svg>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Support</p>
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Support
+          </p>
         </div>
-        <div className={selected ? MarketPlaceSideBarStyle.mainOptionsClosedContainer : MarketPlaceSideBarStyle.mainOptionsOpen}>
-          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>Sign Out</p>
+        <div
+          className={
+            selected
+              ? MarketPlaceSideBarStyle.mainOptionsClosedContainer
+              : MarketPlaceSideBarStyle.mainOptionsOpen
+          }
+        >
+          <p className={selected ? `${MarketPlaceSideBarStyle.hidden}` : ""}>
+            Sign Out
+          </p>
         </div>
       </div>
     </div>

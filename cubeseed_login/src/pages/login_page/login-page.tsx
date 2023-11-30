@@ -1,81 +1,65 @@
-// import React from 'react';
-
-// const LoginPage = () => {
-//   return (
-//     <div>
-//       <h1>Login Page</h1>
-//       {/* Add your login form and other components here */}
-//     </div>
-//   );
-// };
-
-// export default LoginPage;
-
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import Image from "next/image";
-// import { AiFillGoogleCircle } from "react-icons/ai";
-// import { BsFacebook } from "react-icons/bs";
-// import { AiFillTwitterCircle } from "react-icons/ai";
-import loginoptions from "@/assets/loginoptions.png";
-import logo from "@/assets/cubeseed.png";
-import styles from "@/styles/loginpage.module.scss";
+import React, { useState } from "react"
+import { useRouter } from "next/router"
+import Link from "next/link"
+import Image from "next/image"
+import loginoptions from "@assets/loginoptions.png"
+import logo from "@assets/cubeseed.png"
+import styles from "@/styles/loginpage.module.scss"
 
 interface LoginFormProps {
-  onSubmit: (email: string, password: string, rememberMe: boolean) => void;
-  onForgotPassword: () => void;
+  onSubmit: (email: string, password: string, rememberMe: boolean) => void
+  onForgotPassword: () => void
 }
 
 const LoginPage: React.FC<LoginFormProps> = ({
   onSubmit,
   onForgotPassword,
 }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const router = useRouter();
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [rememberMe, setRememberMe] = useState(false)
+  const [emailError, setEmailError] = useState("")
+  const [passwordError, setPasswordError] = useState("")
+  const router = useRouter()
 
   const handleLogin = () => {
     if (email === "") {
-      setEmailError("Please enter valid email address");
+      setEmailError("Please enter valid email address")
     } else {
-      setEmailError("");
+      setEmailError("")
     }
 
     if (password === "") {
-      setPasswordError("Wrong password");
+      setPasswordError("Wrong password")
     } else {
-      setPasswordError("");
+      setPasswordError("")
     }
 
     // if (email !== '' && password !== '') {
     //   // Perform login logic
     //   router.push('/farm-verification');
     // }
-  };
+  }
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
+    setEmail(event.target.value)
+  }
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+    setPassword(event.target.value)
+  }
 
   const handleRememberMeChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setRememberMe(event.target.checked);
-  };
+    setRememberMe(event.target.checked)
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault()
     //onSubmit(email, password, rememberMe);
-    login(email, password);
-  };
+    login(email, password)
+  }
 
   const login = async (username: string, password: string) => {
     try {
@@ -86,23 +70,23 @@ const LoginPage: React.FC<LoginFormProps> = ({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, password }),
-      });
+      })
 
       if (response.ok) {
-        const data = await response.json();
+        const data = await response.json()
         // Login successful
         // Redirect the user to the desired page or perform any other actions
-        console.log("Login successful:", data);
+        console.log("Login successful:", data)
       } else {
         // Login failed
         // Handle the error, e.g., show an error message to the user
-        console.log("Login failed");
+        console.log("Login failed")
       }
     } catch (error) {
       // Handle network errors or other exceptions
-      console.error("Login failed", error);
+      console.error("Login failed", error)
     }
-  };
+  }
 
   return (
     <div className={styles.container}>
@@ -212,7 +196,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage

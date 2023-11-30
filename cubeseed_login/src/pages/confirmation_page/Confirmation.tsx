@@ -1,6 +1,6 @@
 import React from "react"
 import style from "@/styles/confirmation.module.scss"
-import envelop from "../../../public/assets/envelop.png"
+import envelop from "@assets/envelop.png"
 import Image from "next/image"
 
 export default function Confirmation() {
