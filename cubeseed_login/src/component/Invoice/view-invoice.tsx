@@ -4,9 +4,9 @@ import Table from "../../comps/Table/table"
 import { BillType, OrderType, SummaryType } from "@cs/types"
 import Image from "next/image"
 import Link from "next/link"
-import face from "@cs/assets/svg/face.svg"
-import cal from "@cs/assets/svg/cal.svg"
-import dload from "@cs/assets/svg/download.svg"
+import face from "@assets/face.svg"
+import cal from "@assets/cal.svg"
+import dload from "@assets/download.svg"
 
 export default function ViewInvoice() {
   const senderData = [
