@@ -5,6 +5,7 @@ import Image from "next/image"
 import loginoptions from "@assets/loginoptions.png"
 import logo from "@assets/cubeseed.png"
 import styles from "@/styles/loginpage.module.scss"
+import MobileNavbar from "@/component/MobileComponents/MobileNavbar"
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void
@@ -89,113 +90,123 @@ const LoginPage: React.FC<LoginFormProps> = ({
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.background}></div>
-      <div className={styles.logincontainer}>
-        <div className={styles.logo}>
-          <Image src={logo} alt="Logo" className={styles.logoimg} />
-        </div>
-        <div className={styles.title}>
-          <h1 className={styles.titletext}>Login</h1>
-        </div>
-        <form onSubmit={handleSubmit} className={styles.loginform}>
-          <div className={styles.inputwrap}>
-            <label className={styles.emaillabel}>Email:</label>
-
-            <input
-              className={styles.emailinput}
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-            {emailError && (
-              <div className={styles.emailerror}>{emailError}</div>
-            )}
+    <>
+      <div className={styles.container}>
+        <div className={styles.background}></div>
+        <div className={styles.logincontainer}>
+          <div className={styles.logo}>
+            <Image src={logo} alt="Logo" className={styles.logoimg} />
           </div>
-
-          <div className={styles.inputwrap}>
-            <label className={styles.passwordlabel}>Password:</label>
-            <input
-              className={styles.passwordinput}
-              type="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-            />
-            {passwordError && (
-              <div className={styles.passworderror}>{passwordError}</div>
-            )}
+          <div className={styles.title}>
+            <h1 className={styles.titletext}>Login</h1>
           </div>
+          <form onSubmit={handleSubmit} className={styles.loginform}>
+            <div className={styles.inputwrap}>
+              <label className={styles.emaillabel}>Email:</label>
 
-          <div className={styles.after_input}>
-            <div className={styles.inputwrap_check}>
-              <label className={styles.checklabel}>
-                <input
-                  className={styles.checkinput}
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={handleRememberMeChange}
-                />
-                Remember me
-              </label>
+              <input
+                className={styles.emailinput}
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+              {emailError && (
+                <div className={styles.emailerror}>{emailError}</div>
+              )}
             </div>
 
-            <div className={styles.forgotpassword}>
-              <a
-                href="#"
-                onClick={onForgotPassword}
-                className={styles.forgotlink}
-              >
-                Forgot password?
+            <div className={styles.inputwrap}>
+              <label className={styles.passwordlabel}>Password:</label>
+              <input
+                className={styles.passwordinput}
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+              {passwordError && (
+                <div className={styles.passworderror}>{passwordError}</div>
+              )}
+            </div>
+
+            <div className={styles.after_input}>
+              <div className={styles.inputwrap_check}>
+                <label className={styles.checklabel}>
+                  <input
+                    className={styles.checkinput}
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={handleRememberMeChange}
+                  />
+                  Remember me
+                </label>
+              </div>
+
+              <div className={styles.forgotpassword}>
+                <a
+                  href="#"
+                  onClick={onForgotPassword}
+                  className={styles.forgotlink}
+                >
+                  Forgot password?
+                </a>
+              </div>
+            </div>
+
+            <Link href="#" legacyBehavior className={styles.loginbtn}>
+              <a>
+                <button
+                  className={styles.button}
+                  type="submit"
+                  onClick={handleLogin}
+                >
+                  Login
+                </button>
+              </a>
+            </Link>
+            <div className={styles.line}>
+              <hr />
+            </div>
+
+            <div className={styles.or}>OR</div>
+            <div className={styles.loginoptions}>
+              <Link href="/redirect_page/redirect-page">
+                <Image
+                  src={loginoptions}
+                  alt="loginoptions"
+                  className={styles.optionsimg}
+                />
+              </Link>
+            </div>
+
+            <div className={styles.new}>
+              <p className={styles.new_text}>New to CubeSeed? Get Started</p>
+            </div>
+
+            <div className={styles.links}>
+              <a href="#help" className={styles.helplink}>
+                Help
+              </a>
+              <a href="#privacy" className={styles.privacylink}>
+                Privacy
+              </a>
+              <a href="#terms" className={styles.termslink}>
+                Terms
               </a>
             </div>
-          </div>
-
-          <Link href="#" legacyBehavior className={styles.loginbtn}>
-            <a>
-              <button
-                className={styles.button}
-                type="submit"
-                onClick={handleLogin}
-              >
-                Login
-              </button>
-            </a>
-          </Link>
-          <div className={styles.line}>
-            <hr />
-          </div>
-
-          <div className={styles.or}>OR</div>
-          <div className={styles.loginoptions}>
-            <Link href="/redirect_page/redirect-page">
-              <Image
-                src={loginoptions}
-                alt="loginoptions"
-                className={styles.optionsimg}
-              />
-            </Link>
-          </div>
-
-          <div className={styles.new}>
-            <p className={styles.new_text}>New to CubeSeed? Get Started</p>
-          </div>
-
-          <div className={styles.links}>
-            <a href="#help" className={styles.helplink}>
-              Help
-            </a>
-            <a href="#privacy" className={styles.privacylink}>
-              Privacy
-            </a>
-            <a href="#terms" className={styles.termslink}>
-              Terms
-            </a>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
+      <div className={styles.mobileContainer}>
+        <div className={styles.mobileInner}>
+           <MobileNavbar />
+           <div className={styles.mobileLanding}>
+                <h1>LANDING</h1>
+           </div>
+        </div>
+      </div>
+    </>
   )
 }
 

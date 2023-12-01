@@ -1,0 +1,18 @@
+.mobileNavbarContainer {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+}
+
+.mobileNavbarContainer > img {
+    margin-left: 1.2rem;
+}
+
+.mobileNavbarButtons {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1.2rem;
+}
