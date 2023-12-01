@@ -198,14 +198,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
           </form>
         </div>
       </div>
-      <div className={styles.mobileContainer}>
-        <div className={styles.mobileInner}>
-           <MobileNavbar />
-           <div className={styles.mobileLanding}>
-                <h1>LANDING</h1>
-           </div>
-        </div>
-      </div>
+
     </>
   )
 }
