@@ -1,7 +1,7 @@
 import DashboardSidePannelStyle from "@/styles/DashboardSidePannel.module.scss"
 import DashboardSidePannelButtonContainerStyle from "@/styles/DashboardSidePannelButtonContainer.module.scss"
-import cubeseed from "../../assets/icons/cubeseed.png"
-import Home from "../../assets/icons/home.jpg"
+import cubeseed from "../../../public/cubeseed.png"
+import Home from "../../../public/assets/icons/home.jpg"
 
 import Image from "next/image"
 

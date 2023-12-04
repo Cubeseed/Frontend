@@ -1,7 +1,7 @@
-import React from "react";
-import userCardInfo from "@/styles/usercardinfo.module.scss";
-import Farmer from "@/assets/farmer image 1.png";
-import Image from "next/image";
+import React from "react"
+import userCardInfo from "@/styles/usercardinfo.module.scss"
+import Farmer from "@assets/farmer image 1.png"
+import Image from "next/image"
 
 export default function UserCardinfo() {
   return (
@@ -15,7 +15,7 @@ export default function UserCardinfo() {
           <li>Address</li>
         </ul>
         <ul className={userCardInfo.list}>
-          <li>Famer'sName</li>
+          <li>Famer&apos;sName</li>
           <li> Farm Name</li>
           <li>
             +234986464654
@@ -30,5 +30,5 @@ export default function UserCardinfo() {
         </ul>
       </div>
     </section>
-  );
+  )
 }
