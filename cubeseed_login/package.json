@@ -16,7 +16,7 @@
     "@material-tailwind/html": "^2.0.0",
     "@radix-ui/react-dialog": "^1.0.4",
     "base-64": "^1.0.0",
-    "next": "13.3.0",
+    "next": "13.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-responsive-modal": "^6.4.2",
