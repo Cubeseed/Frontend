@@ -1,5 +1,5 @@
 import CourseVerificationStyle from "@/styles/CourseVerification.module.scss"
-import upload from "../../assets/icons/upload.png"
+import upload from "@assets/icons/upload.png"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 

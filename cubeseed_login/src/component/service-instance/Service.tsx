@@ -1,40 +1,39 @@
-"use client"; //use client side rendering when using state
-import Image from "next/image";
-import icon from "@/assets/agriculture.svg";
-import serviceStyles from "@/styles/service.module.scss";
+"use client" //use client side rendering when using state
+import Image from "next/image"
+import icon from "../../../public/assets/agriculture.svg"
+import serviceStyles from "@/styles/service.module.scss"
 import {
   FormEvent,
   InputHTMLAttributes,
   useEffect,
   useRef,
   useState,
-} from "react";
-import { useSignUpContext } from "@/context/signup";
+} from "react"
+import { useSignUpContext } from "@/context/signup"
 
 type value = {
-  value: string;
-  setService?: React.Dispatch<React.SetStateAction<string>>;
-};
+  value: string
+  setService?: React.Dispatch<React.SetStateAction<string>>
+}
 
 export default function Service({ value, setService }: value) {
   // const [isChecked, setIsChecked] = useState<boolean>(false); // unused state
-  const { choice, setChoice } = useSignUpContext();
+  const { choice, setChoice } = useSignUpContext()
 
   //const radioRef = useRef<InputHTMLAttributes<HTMLInputElement>>(null)
-  const radioRef = useRef<HTMLInputElement>(null);
+  const radioRef = useRef<HTMLInputElement>(null)
 
   const selectOption = () => {
-    if (setService) setService(value);
+    if (setService) setService(value)
     if (value === radioRef.current?.value) {
-      radioRef.current?.checked === true;
-      setChoice(value);
+      radioRef.current?.checked === true
+      setChoice(value)
     } else {
       // setIsChecked(false);
       // radioRef.current?.checked === false;
     }
     // radioRef.current?.checked === true;
-
-  };
+  }
 
   // useEffect(()=>{
   //     setIsChecked(!isChecked)
@@ -61,5 +60,5 @@ export default function Service({ value, setService }: value) {
         ref={radioRef}
       />
     </div>
-  );
+  )
 }

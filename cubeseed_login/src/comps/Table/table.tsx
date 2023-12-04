@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
 
 export interface TableProps<TItem>
   extends React.TableHTMLAttributes<HTMLTableElement> {
-  headers?: string[];
-  items: TItem[];
-  render: (item: TItem) => React.ReactNode;
-  thStyle?: string;
-  extra?: React.ReactNode;
+  headers?: string[]
+  items: TItem[]
+  render: (item: TItem) => React.ReactNode
+  thStyle?: string
+  extra?: React.ReactNode
 }
 
 const Table = <TItem,>({
@@ -33,9 +33,9 @@ const Table = <TItem,>({
         {items.map((item) => render(item))} {props.extra && props.extra}
       </tbody>
     </table>
-  );
-};
+  )
+}
 
 Table.displayName = "Table"
 
-export default Table;
+export default Table

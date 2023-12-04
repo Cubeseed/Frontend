@@ -1,4 +1,4 @@
-import upload from "@/assets/upload.png"
+import upload from "@assets/upload.png"
 import { useEffect, useState } from "react"
 import styles from "@/styles/upload.module.scss"
 import Image from "next/image"
