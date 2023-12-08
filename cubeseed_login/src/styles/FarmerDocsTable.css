@@ -1,0 +1,48 @@
+.table {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  margin: 0 3rem 0 3rem;
+  padding: 1.25rem;
+  width: 100%;
+}
+
+.title-row {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.data-row {
+  border-width: 1px;
+  border-style: dotted;
+  border-color: #a7c9cb;
+  margin-bottom: 1.25rem;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.pagination-active {
+  border: 1px solid #a0aec0;
+  border-radius: 9999px;
+}
+
+.pagination-page {
+  color: #a0aec0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-arrow {
+  color: #a0aec0;
+}
