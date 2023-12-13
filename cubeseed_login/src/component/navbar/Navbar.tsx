@@ -1,13 +1,15 @@
 import Link from "next/link"
 import navStyles from "@/styles/navbar.module.scss"
 import React from "react"
-import LoginPage from "@/pages/login_page/login-page"
+import cubeseed from "@assets/cubeseed.png"
+import Image from "next/image"
+// import LoginPage from "@/pages/login_page/login-page"
 
 export default function Navbar() {
   return (
     <nav className={navStyles.nav}>
-      <h1>CubeSeed</h1>
-      <div className={navStyles.navlinkgroup}>
+      <Image src={cubeseed} alt="cubeseed logo" width={200} />
+      {/* <div className={navStyles.navlinkgroup}>
         <ul className={navStyles.navlinks}>
           <li className={navStyles.navlink}>
             <Link href="/about">About</Link>
@@ -19,7 +21,7 @@ export default function Navbar() {
             <Link href="/contact_us">Contact Us</Link>
           </li>
         </ul>
-      </div>
+      </div> */}
       <div className={navStyles.navbuttongroup}>
         <Link
           href="/login_page/login-page"
