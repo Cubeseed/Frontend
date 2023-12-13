@@ -49,7 +49,7 @@ This repository contains the Frontend development workflow for CubeSeed.
  * [Saas](https://sass-lang.com/)
  * [React Query](https://tanstack.com/query/v3/)
  * [Context API](https://react.dev/reference/react/useContext)
- * [Farmer motion or Gsap for animation](https://www.framer.com/motion/)
+ * [Framer motion or Gsap for animation](https://www.framer.com/motion/)
  * [Node JS](https://nodejs.org/en/docs)
  * [Express JS](https://expressjs.com/en/guide/routing.html)
 
