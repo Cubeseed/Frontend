@@ -6,6 +6,7 @@ module.exports = {
     "./app/**/*.{ts,tsx}",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./stories/**/*.{ts,tsx}",
 
     // Or if using `src` directory:
     "./src/**/*.{ts,tsx}",

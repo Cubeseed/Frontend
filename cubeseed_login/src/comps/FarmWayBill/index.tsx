@@ -1,14 +1,14 @@
 import style from "@/styles/grn.module.scss"
 import Image from "next/image"
 import Button from "../Button/button"
-import { Context } from "@/context/context"
+import { FarmContext } from "@/context/context"
 import { useContext } from "react"
 
 type WayBillProps = {
   time: string
 }
 export default function FarmWayBill() {
-  const { inputValue } = useContext(Context)
+  const { inputValue } = useContext(FarmContext)
   return (
     <>
       <div className={style.wrapper}>

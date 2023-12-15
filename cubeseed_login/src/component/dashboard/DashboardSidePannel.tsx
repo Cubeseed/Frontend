@@ -1,16 +1,9 @@
-import DashboardSidePannelStyle from "@/styles/DashboardSidePannel.module.scss"
-import DashboardSidePannelButtonContainerStyle from "@/styles/DashboardSidePannelButtonContainer.module.scss"
-//import cubeseed from "../../assets/icons/cubeseed.png"
-//import Home from "../../assets/icons/home.jpg"
-import logo from "@/assets/cubeseed_logo.svg"
-import homeIcon from "@/assets/icons/home_icon.svg"
-import framPlannerIcon from "@/assets/icons/farmPlanner_icon.svg"
-import purchaseOrderIcon from "@/assets/icons/purchaseOrder.svg"
-import porfileIcon from "@/assets/icons/profile_icon.svg"
-import settingIcon from "@/assets/icons/setting_icon.svg"
-import supportIcon from "@/assets/icons/support_icon.svg"
+import DashboardSidePannelStyle from "@/styles/DashboardSidePannel.module.scss";
+import DashboardSidePannelButtonContainerStyle from "@/styles/DashboardSidePannelButtonContainer.module.scss";
+import cubeseed from "../../../public/cubeseed.png";
+import Home from "../../../public/assets/icons/home.jpg";
 
-import Image from "next/image"
+import Image from "next/image";
 
 const DashboardSidePannel = () => {
   return (
@@ -116,7 +109,7 @@ const DashboardSidePannel = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardSidePannel
+export default DashboardSidePannel;

@@ -2,7 +2,7 @@ import { useState } from "react"
 import Link from "next/link"
 
 import AccountVerifiedStyles from "@/styles/AccountVerified.module.scss"
-import verifiedCheck from "../../assets/icons/verifiedCheck.svg"
+import verifiedCheck from "@assets/icons/verifiedCheck.svg"
 import Image from "next/image"
 
 const AccountVerified = () => {

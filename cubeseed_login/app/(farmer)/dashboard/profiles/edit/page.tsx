@@ -1,5 +1,5 @@
-import EditUserProfile from "@cs/components/edit-profile"
-import { Icons } from "@cs/components/icons"
+import EditUserProfile from "@/component/Profile/edit-profile"
+import { Icons } from "@/component/Icons/icons"
 
 function EditProfilePage() {
   return (

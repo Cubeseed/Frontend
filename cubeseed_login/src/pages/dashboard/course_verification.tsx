@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 =======
 import CourseVerificationStyle from "@/styles/CourseVerification.module.scss"
-import upload from "../../assets/icons/upload.png"
+import upload from "@assets/icons/upload.png"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 >>>>>>> 436da8f0ca752a533eb898f0a5ab836ac23bdd00
