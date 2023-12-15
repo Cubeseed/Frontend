@@ -1,0 +1,84 @@
+.sidenav{
+    all: unset;
+    background: #D9D9D9;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2rem;
+    width: 396px;
+    height: 982px;
+    flex-shrink: 0;
+    
+}
+h1{
+    margin: 3rem 0 2rem 3rem;
+    width: 312px;
+    height: 36px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 275%;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    color: #002629;
+}
+.sidenav-nav{
+    
+    list-style: none;
+    padding: 0.6rem;
+    margin: 0;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    cursor: pointer;
+}
+.sidenav-nav-item{
+    width: 100%;
+    margin-bottom: 0.06rem;
+}
+
+.sidenav-nav-link{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    color: #5c5c5c;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.icon{
+    width: 100px;
+    margin-right: 8px;
+}
+.sidenav-link-text{
+    
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 82px; /* 341.667% */
+}
+
+.sidenav-nav-item:hover{   
+    border-radius: 100px;
+    background: #002629;
+    width: 120%;
+    
+}
+.sidenav-nav-link:hover{
+    color: #FFF;
+    font-weight: 500;
+   
+}
+.active{
+    background-color: #002629 ;
+    border-radius: 10px;
+    color:#16436b;
+    font-weight: 500;
+}
+.support{
+    margin-top: 100%;
+    margin-left: 25px;
+}
