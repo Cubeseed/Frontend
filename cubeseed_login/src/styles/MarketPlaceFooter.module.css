@@ -1,0 +1,20 @@
+.marketPlaceFooterContainer {
+    border-top: 2px solid #BED6CD;
+    padding: 1rem 3.5rem;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #03656B;
+    font-weight: 500;
+}
+
+.marketPlaceFooterContainer > div > p:hover {
+    cursor: pointer;
+}
+
+.marketPlaceFooterLinks{
+    display: flex;
+    gap: 1rem;
+}

@@ -1,0 +1,45 @@
+.marketPlaceDashboardContainer {
+    display: flex;
+}
+
+.marketPlaceQuotationsContainer {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.marketPlaceDashboard {
+    margin-top: 72px;
+    border: 1px solid green;
+    padding: 1rem 1.5rem;
+}
+
+.marketPlaceHeader {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.marketPlaceHeader > h1 {
+    font-size: 32px;
+}
+
+.marketPlaceHeader > button {
+    background-color: #03656B;
+    color: white;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 0;
+    border-radius: 100px;
+}
+
+.marketPlaceQuotations {
+    display: flex;
+    border: 1px solid red;
+    
+}
