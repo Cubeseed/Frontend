@@ -1,3 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --clr-primary: #002629;
+    --clr-primary-10: #03656B;
+    --clr-primary-20: #27797E;
+    --clr-primary-40: #51A1A6;
+    --clr-primary-70: #BEE8E5;
+    --clr-primary-90: #F1FCFD;
+    --clr-secondary: #ffb84c;
+    --clr-accent: #886634;
+    --clr-neutral-30: #46524E;
+    --clr-neutral-70: #B4BABE;
+    --clr-neutral-90: #EBF3F1;
+  }
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 body{
