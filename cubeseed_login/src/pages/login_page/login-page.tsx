@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
 import loginoptions from "@assets/loginoptions.png"
-import logo from "@assets/cubeseed.png"
+import logo from "@assets/cubeseedlogo.svg"
 import styles from "@/styles/loginpage.module.scss"
 
 interface LoginFormProps {

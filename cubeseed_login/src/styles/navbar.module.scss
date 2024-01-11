@@ -1,153 +1,52 @@
-// .nav {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 0.2rem;
-//   // position: sticky;
-//   // top: 0px;
-//   // z-index: 1;
-//   width: 100%;
-//   background-color: white;
-//   box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-//   -webkit-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-//   -moz-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-
-//   ul {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin-left: 0rem;
-
-//     li {
-//       padding: 22px 40px;
-//       margin: 0.5rem 0rem;
-//     }
-//   }
-
-//   .links{
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin-left: 0;
-//   }
-// }
-
-// :export {
-//   myClass: string;
-// }
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap");
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2rem;
-  // position: sticky;
-  // top: 0px;
-  // z-index: 1;
+  padding: 12px 32px 12px 32px;
   width: 100%;
-  background-color: white;
-  box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-  -webkit-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-  -moz-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
+  background: linear-gradient(0deg, #f0f7f7, #f0f7f7);
+  border-bottom: 1px solid #bed6cd;
 
-  .navlinkgroup{
+  .navlinkgroup {
     display: flex;
     flex-direction: row;
-    margin-left: 30rem;
+    margin-left: 35rem;
 
-    .navlinks{
-      display:flex;
-      gap:40px;
+    .navlinks {
+      display: flex;
+      gap: 30px;
     }
 
     .navlink {
-      color: #002629;
+      color: #03656b;
       text-decoration: none;
       padding: 10px;
       border-radius: 5px;
-      font-family: "Inter";
+      font-family: "Inter Tight", sans-serif;
       font-style: normal;
       font-weight: 500;
-      font-size: 20px;
-      line-height: 40px;
+      font-size: 18px;
+      line-height: 20px;
       display: flex;
       flex-direction: row;
       align-items: center;
       text-align: center;
     }
-    
+
     .navlink:hover {
       background-color: green;
       color: #333;
     }
-  }
 
-  .button{
-    width: 161px;
-    background-color: #fff;
-    color: #333;
-    border: 2px solid #ffb84c;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 12px 26px;
-    gap: 10px;
-    border-radius: 100px;
-  }
-
-  .button:hover {
-    background-color: #333;
-    color: #fff;
-  }
-  .navbuttongroup{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    margin-right: 7rem;
-
-    .loginbutton{
+    .loginbutton {
       display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      padding: 12px 26px;
-      gap: 10px;
-      margin-right: 20px;
-    }
-    .signupbutton{
-      display: flex;
-      background-color: #ffb84c;
-      flex-direction: row;
-      align-items: flex-start;
-      padding: 12px 26px;
-      gap: 10px;
-    }
-
-  }
-
-/*
-  ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 0rem;
-
-    li {
-      padding: 22px 40px;
-      margin: 0.5rem 0rem;
+      align-items: center;
+      justify-content: center;
     }
   }
-
-  .links{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 0;
-  }
-*/
-
 }
-
 
 :export {
   myClass: string;

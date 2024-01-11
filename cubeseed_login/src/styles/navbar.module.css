@@ -2,16 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0px, 32px, 0px, 32px;
   width: 100%;
-  background-color: white;
-  box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-  -webkit-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-  -moz-box-shadow: 3px 8px 5px -2px rgba(0, 0, 0, 0.21);
-  overflow: hidden;
+  background: linear-gradient(0deg, #bed6cd, #bed6cd),
+    linear-gradient(0deg, #f0f7f7, #f0f7f7);
 }
 
-/* .nav .navlinkgroup {
+.nav .navlinkgroup {
   display: flex;
   flex-direction: row;
   margin-left: 30rem;
@@ -38,11 +35,10 @@
 .nav .navlinkgroup .navlink:hover {
   background-color: green;
   color: #333;
-} */
+}
 .nav.button {
   background-color: #fff;
   color: #333;
-  border: 2px solid #ffb84c;
   display: flex;
   justify-content: center;
   padding: 12px 26px;
@@ -52,30 +48,15 @@
 .nav .button:hover {
   background-color: #333;
   color: #fff;
+
+  /* linear-gradient(0deg, #F0F7F7, #F0F7F7); */
 }
-/* .nav .navbuttongroup {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  margin-right: 7rem;
-}
-.nav .navbuttongroup .loginbutton {
+
+/* .nav .navbuttongroup .loginbutton {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 12px 26px;
   gap: 10px;
   margin-right: 20px;
-}
-.nav .navbuttongroup .signupbutton {
-  display: flex;
-  background-color: #ffb84c;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 12px 26px;
-  gap: 10px;
 } */
-
-:export {
-  myClass: string;
-} /*# sourceMappingURL=navbar.module.css.map */

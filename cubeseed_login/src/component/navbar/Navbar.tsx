@@ -1,15 +1,20 @@
 import Link from "next/link"
 import navStyles from "@/styles/navbar.module.scss"
 import React from "react"
-import cubeseed from "@assets/cubeseed.png"
+import cubeseed from "@assets/cubeseedlogo.svg"
+import loginIcon from "@assets/icons/loginIcon.svg"
 import Image from "next/image"
-// import LoginPage from "@/pages/login_page/login-page"
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
   return (
     <nav className={navStyles.nav}>
-      <Image src={cubeseed} alt="cubeseed logo" width={200} />
-      {/* <div className={navStyles.navlinkgroup}>
+      <Image
+        src={cubeseed}
+        alt="cubeseed logo"
+        width={200}
+        className={navStyles.navlogo}
+      />
+      <div className={navStyles.navlinkgroup}>
         <ul className={navStyles.navlinks}>
           <li className={navStyles.navlink}>
             <Link href="/about">About</Link>
@@ -18,22 +23,20 @@ export default function Navbar() {
             <Link href="/features">Features</Link>
           </li>
           <li className={navStyles.navlink}>
-            <Link href="/contact_us">Contact Us</Link>
+            <Link href="/contact_us">Testimonials</Link>
+          </li>
+          <li className={navStyles.navlink}>
+            <div className={navStyles.loginbutton}>
+              <Image src={loginIcon} alt="icon indicating user login option" />
+              <Link href="/login_page/login-page" legacyBehavior>
+                <a>Login</a>
+              </Link>
+            </div>
           </li>
         </ul>
-      </div> */}
-      <div className={navStyles.navbuttongroup}>
-        <Link
-          href="/login_page/login-page"
-          legacyBehavior
-          className={navStyles.loginbutton}
-        >
-          <a className={navStyles.button}>Login</a>
-        </Link>
-        <Link href="/signup" legacyBehavior className={navStyles.signupbutton}>
-          <a className={navStyles.button}>Signup</a>
-        </Link>
       </div>
     </nav>
   )
 }
+
+export default Navbar
