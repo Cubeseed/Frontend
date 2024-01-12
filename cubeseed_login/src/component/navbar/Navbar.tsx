@@ -1,7 +1,7 @@
-import Link from "next/link"
-import navStyles from "@/styles/navbar.module.scss"
-import React from "react"
-import LoginPage from "@/pages/login_page/login-page"
+import Link from "next/link";
+import navStyles from "@/styles/navbar.module.scss";
+import React from "react";
+import LoginPage from "@/pages/login_page/login-page";
 
 export default function Navbar() {
   return (
@@ -18,6 +18,11 @@ export default function Navbar() {
           <li className={navStyles.navlink}>
             <Link href="/contact_us">Contact Us</Link>
           </li>
+          <li className={navStyles.navlink}>
+            <Link href="/moderator/users" legacyBehavior>
+              Admin
+            </Link>
+          </li>
         </ul>
       </div>
       <div className={navStyles.navbuttongroup}>
@@ -33,5 +38,5 @@ export default function Navbar() {
         </Link>
       </div>
     </nav>
-  )
+  );
 }

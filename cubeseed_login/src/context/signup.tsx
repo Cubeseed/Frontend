@@ -5,6 +5,7 @@ type props = {
   choice: string;
   fullName: string;
   email: string;
+  groupurl: string;
   address: string;
   password: string;
   confirmPassword: string;
@@ -13,10 +14,11 @@ type props = {
   setErrors: (value: SignUpErrors) => void;
   setFullName: (value: string) => void;
   setEmail: (value: string) => void;
+  setGroupurl: (value: string) => void;
   setAddress: (value: string) => void;
   setPassword: (value: string) => void;
   setConfirmPassword: (value: string) => void;
-}
+};
 
 export const useSignUpContext = () => useContext(Context);
 
@@ -24,6 +26,7 @@ export const Context = React.createContext<props>({
   choice: "",
   fullName: "",
   email: "",
+  groupurl: "",
   address: "",
   password: "",
   confirmPassword: "",
@@ -33,6 +36,7 @@ export const Context = React.createContext<props>({
   setFullName: (value: string) => {},
   setEmail: (value: string) => {},
   setAddress: (value: string) => {},
+  setGroupurl: (value: string) => {},
   setPassword: (value: string) => {},
   setConfirmPassword: (value: string) => {},
   setErrors: (value: SignUpErrors) => {},
@@ -46,6 +50,7 @@ export const SignUpContextProvider = ({ children }: contextProps) => {
   const [choice, setChoice] = useState<string>("");
   const [fullName, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [groupurl, setGroupurl] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -55,6 +60,7 @@ export const SignUpContextProvider = ({ children }: contextProps) => {
     choice,
     fullName,
     email,
+    groupurl,
     address,
     password,
     confirmPassword,
@@ -63,14 +69,13 @@ export const SignUpContextProvider = ({ children }: contextProps) => {
     setPassword,
     setFullName,
     setEmail,
+    setGroupurl,
     setAddress,
     setChoice,
     setErrors,
-  }
+  };
 
   return (
-    <Context.Provider value={contextProvider}>
-      {children}
-    </Context.Provider>
+    <Context.Provider value={contextProvider}>{children}</Context.Provider>
   );
-}
+};
