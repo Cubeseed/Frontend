@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react"
-import "@/styles/FarmerDocsTable.css"
+import "@/styles/AcceptedUsersTable.css"
 import "tailwindcss/tailwind.css"
 import ReactPaginate from "react-paginate"
 import Link from "next/link"
 import SearchBar from "../moderator_searchbar/searchbar"
 import Filter from "../moderator_filter/filter"
 
-interface FarmerDocsTableProps {}
+interface AcceptedUsersTableProps {}
 
-const FarmerDocsTable: React.FC<FarmerDocsTableProps> = () => {
+const AcceptedUsersTable: React.FC<AcceptedUsersTableProps> = () => {
   //sample data for testing -- replace with 'farmers' variable//
   const sampleFarmers = [
     {
@@ -191,6 +191,7 @@ const FarmerDocsTable: React.FC<FarmerDocsTableProps> = () => {
 
   return (
     <div className="holder">
+      <p className="accepted-user-title">All Accepted Users</p>
       <div className="flex items-center">
         <SearchBar />
         <Filter />
@@ -207,7 +208,7 @@ const FarmerDocsTable: React.FC<FarmerDocsTableProps> = () => {
               <Link
                 key={farmer.id}
                 href={{
-                  pathname: "FarmerDocsCard/[card]",
+                  pathname: "AcceptedUserCard/[card]",
                   query: { card: farmer.id },
                 }}
               >
@@ -243,4 +244,4 @@ const FarmerDocsTable: React.FC<FarmerDocsTableProps> = () => {
   )
 }
 
-export default FarmerDocsTable
+export default AcceptedUsersTable

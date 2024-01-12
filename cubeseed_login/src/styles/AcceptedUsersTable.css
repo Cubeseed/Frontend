@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+.accepted-user-title {
+  padding: 0rem 0rem 7rem 3rem;
+  font-size: 2.9rem;
+  font-weight: bold;
+}
+
 .table {
   border-width: 1px;
   border-style: solid;

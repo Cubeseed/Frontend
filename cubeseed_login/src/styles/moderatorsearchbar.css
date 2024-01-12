@@ -1,0 +1,40 @@
+.search-box {
+  width: 50%;
+  height: 45px;
+  background: #fafffd;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px #bed6cd solid;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  display: inline-flex;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+.search {
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border: none;
+  font-weight: 100;
+  color: #16436b;
+  background: transparent;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.search-Leading-icon {
+  padding-left: 18px;
+  cursor: pointer;
+}
+.search-trailing-icons {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.iconI {
+  padding-right: 28px;
+}
+.iconII {
+  padding-right: 25px;
+}

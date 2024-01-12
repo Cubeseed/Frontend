@@ -9,69 +9,69 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 const SideBar = () => {
-    const router = useRouter()
-    const currentRoute = router.pathname
+  const router = useRouter()
+  const currentRoute = router.pathname
 
-    return(
-      <div className="sidenav" >
+  return (
+    <div className="sidenav">
       <div>
-          <Image 
-          src={cubeseedLogo}
-          alt="icon"
-          />      
+        <Image src={cubeseedLogo} alt="icon" />
       </div>
       {/* insert user name from api here in the place of Admin */}
-      <h1>Hello Admin</h1>
+      <div className="admin-title">Hello Admin</div>
       <ul className="sidenav-nav">
-          <li className="sidenav-nav-item">
-              <Link href={"/moderator/users"} className={currentRoute == "/moderator/users" ? "active":"sidenav-nav-link"}>
-              <div className='sidenav-link-icon'>
-              <Image 
-          src={usersIcon}
-          alt="icon"
-          /> 
-              </div>
-                  <span className="sidenav-link-text" >Users</span>      
-              </Link>            
-          </li>
-          <li className="sidenav-nav-item">
-              <Link href={"/moderator/farmer_documents"} className={currentRoute == "/moderator/farmer_documents" ? "active":"sidenav-nav-link"}>
-                  <div className='sidenav-link-icon'>
-                  <Image 
-          src={folderIcon}
-          alt="icon"
-          /> 
-                  </div>
-                  <span className="sidenav-link-text" >Farmers documents</span>      
-              </Link>            
-          </li>
-          <li className="sidenav-nav-item">
-          <Link href={"/moderator/certificates"} className={currentRoute == "/moderator/certificates" ? "active":"sidenav-nav-link"}>
-                  <div className='sidenav-link-icon'>
-                  <Image 
-          src={textIcon}
-          alt="icon"
-          /> 
-                  </div>
-                  <span className="sidenav-link-text" >Certificates/Codes</span>      
-          </Link>             
-         </li>
+        <li className="sidenav-nav-item">
+          <Link
+            href={"/moderator/users/new_users"}
+            className={
+              currentRoute.includes("users") ? "active" : "sidenav-nav-link"
+            }
+          >
+            <Image src={usersIcon} alt="icon" />
+            <span className="sidenav-link-text">Users</span>
+          </Link>
+        </li>
+        <li className="sidenav-nav-item">
+          <Link
+            href={"/moderator/farmer_documents/farmer_documents"}
+            className={
+              currentRoute.includes("farmer") ? "active" : "sidenav-nav-link"
+            }
+          >
+            <div className="sidenav-link-icon">
+              <Image src={folderIcon} alt="icon" />
+            </div>
+            <span className="sidenav-link-text">Farmers documents</span>
+          </Link>
+        </li>
+        <li className="sidenav-nav-item">
+          <Link
+            href={"/moderator/certificates"}
+            className={
+              currentRoute == "/moderator/certificates"
+                ? "active"
+                : "sidenav-nav-link"
+            }
+          >
+            <div className="sidenav-link-icon">
+              <Image src={textIcon} alt="icon" />
+            </div>
+            <span className="sidenav-link-text">Certificates/Codes</span>
+          </Link>
+        </li>
 
-         <div className="support">
+        <div className="support">
           <li>
-          <Link href={""} className="sidenav-nav-link">
-                  <div className='sidenav-link-icon'>
-                  <Image 
-          src={supportIcon}
-          alt="icon"
-          /> 
-                  </div>
-                  <span className="sidenav-link-text" >support</span>      
-          </Link>            
-         </li>
-         </div>
-     </ul>
-  </div>
-)
+            <Link href={""} className="sidenav-nav-link">
+              <div className="sidenav-link-icon">
+                <Image src={supportIcon} alt="icon" />
+              </div>
+              <span className="sidenav-link-text">support</span>
+            </Link>
+          </li>
+        </div>
+      </ul>
+    </div>
+  )
 }
 export default SideBar

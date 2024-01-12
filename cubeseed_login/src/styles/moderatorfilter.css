@@ -1,0 +1,23 @@
+.filter-box {
+  display: inline-flex;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  /* align-items: center; */
+}
+.filter-icon {
+  padding-right: 8px;
+}
+.filter-dropdown {
+  width: 80%;
+  height: 40px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  background: white;
+  border-radius: 5px;
+  /* overflow: hidden;  */
+  border: 1px #7db7bb solid;
+  align-items: center;
+  /* display: inline-flex; */
+  outline: none;
+}

@@ -1,3 +1,7 @@
+.holder {
+  width: 100%;
+}
+
 .table {
   border-width: 1px;
   border-style: solid;

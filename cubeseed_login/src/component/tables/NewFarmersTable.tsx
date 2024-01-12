@@ -7,6 +7,9 @@ import {
   CheckmarkCircleOutline,
   CloseCircleOutline,
 } from "react-ionicons"
+import Filter from "../moderator_filter/filter"
+import SearchBar from "../moderator_searchbar/searchbar"
+import Link from "next/link"
 
 interface Farmer {
   id: number
@@ -228,69 +231,79 @@ const NewFarmersTable: React.FC<NewFarmersTableProps> = () => {
   }
 
   return (
-    <div className="table">
-      <div className="m-5">
-        <div className="title-row">
-          <p className="ms-1 w-5/12">Name</p>
-          <p className="w-5/12">Email</p>
-          <p className="w-2/12">Time</p>
-        </div>
-        <div>
-          {displayedFarmers.map((farmer) => (
-            <div key={farmer.id} className="data-row">
-              <div className="flex flex-row">
-                <p className="ms-2 w-5/12">{farmer.name}</p>
-                <p className="w-5/12">{farmer.email}</p>
-                <p className="w-1/12">{farmer.time}</p>
-                <button
-                  className="arrow-button"
-                  onClick={() => handleButtons(farmer)}
-                >
-                  <ChevronDownOutline />
-                </button>
+    <div className="holder">
+      <p className="new-sign-up-title">New Sign Ups</p>
+      <Link href={"accepted_users/users"}>
+        <button className="allusers-button">All Users</button>
+      </Link>
+      <div className="flex items-center">
+        <SearchBar />
+        <Filter />
+      </div>
+      <div className="table">
+        <div className="m-5">
+          <div className="title-row">
+            <p className="ms-1 w-5/12">Name</p>
+            <p className="w-5/12">Email</p>
+            <p className="w-2/12">Time</p>
+          </div>
+          <div>
+            {displayedFarmers.map((farmer) => (
+              <div key={farmer.id} className="data-row">
+                <div className="flex flex-row">
+                  <p className="ms-2 w-5/12">{farmer.name}</p>
+                  <p className="w-5/12">{farmer.email}</p>
+                  <p className="w-1/12">{farmer.time}</p>
+                  <button
+                    className="arrow-button"
+                    onClick={() => handleButtons(farmer)}
+                  >
+                    <ChevronDownOutline />
+                  </button>
+                </div>
+                {revealButtons &&
+                  selectedFarmer &&
+                  selectedFarmer.id === farmer.id && (
+                    <div className="button-container">
+                      <button
+                        className="approve-button"
+                        onClick={() => approveFarmer(farmer)}
+                      >
+                        <div className="flex items-center">
+                          <CheckmarkCircleOutline />
+                          <p className="ms-2 text-sm">Approve</p>
+                        </div>
+                      </button>
+                      <button
+                        className="reject-button"
+                        onClick={() => rejectFarmer(farmer)}
+                      >
+                        <div className="flex items-center">
+                          <CloseCircleOutline />
+                          <p className="ms-2 text-sm">Reject</p>
+                        </div>
+                      </button>
+                    </div>
+                  )}
               </div>
-              {revealButtons &&
-                selectedFarmer &&
-                selectedFarmer.id === farmer.id && (
-                  <div className="button-container">
-                    <button
-                      className="approve-button"
-                      onClick={() => approveFarmer(farmer)}
-                    >
-                      <div className="flex items-center">
-                        <CheckmarkCircleOutline />
-                        <p className="ms-2 text-sm">Approve</p>
-                      </div>
-                    </button>
-                    <button
-                      className="reject-button"
-                      onClick={() => rejectFarmer(farmer)}
-                    >
-                      <div className="flex items-center">
-                        <CloseCircleOutline />
-                        <p className="ms-2 text-sm">Reject</p>
-                      </div>
-                    </button>
-                  </div>
-                )}
-            </div>
-          ))}
+            ))}
+          </div>
+          <ReactPaginate
+            breakLabel={"..."}
+            nextLabel={">"}
+            previousLabel={"<"}
+            pageCount={Math.ceil(sampleFarmers.length / itemsPerPage)}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination-container"}
+            activeClassName={"pagination-active"}
+            pageClassName={"pagination-page"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"pagination-arrow"}
+            nextClassName={"pagination-arrow"}
+          />
         </div>
-        <ReactPaginate
-          breakLabel={"..."}
-          nextLabel={">"}
-          previousLabel={"<"}
-          pageCount={Math.ceil(sampleFarmers.length / itemsPerPage)}
-          pageRangeDisplayed={5}
-          marginPagesDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination-container"}
-          activeClassName={"pagination-active"}
-          pageClassName={"pagination-page"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"pagination-arrow"}
-          nextClassName={"pagination-arrow"}
-        />
       </div>
     </div>
   )

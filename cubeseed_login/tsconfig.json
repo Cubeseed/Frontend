@@ -24,6 +24,12 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/component/moderator_sidebar/sidebar.tsx"
+  ],
   "exclude": ["node_modules"]
 }
