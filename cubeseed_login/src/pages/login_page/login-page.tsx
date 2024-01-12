@@ -1,92 +1,115 @@
-import React, { useState } from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
-import Image from "next/image"
-import loginoptions from "@assets/loginoptions.png"
-import logo from "@assets/cubeseed.png"
-import styles from "@/styles/loginpage.module.scss"
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+import loginoptions from "@assets/loginoptions.png";
+import logo from "@assets/cubeseed.png";
+import styles from "@/styles/loginpage.module.scss";
 
 interface LoginFormProps {
-  onSubmit: (email: string, password: string, rememberMe: boolean) => void
-  onForgotPassword: () => void
+  onSubmit: (email: string, password: string, rememberMe: boolean) => void;
+  onForgotPassword: () => void;
 }
 
 const LoginPage: React.FC<LoginFormProps> = ({
   onSubmit,
   onForgotPassword,
 }) => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [rememberMe, setRememberMe] = useState(false)
-  const [emailError, setEmailError] = useState("")
-  const [passwordError, setPasswordError] = useState("")
-  const router = useRouter()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+  const [userNameError, setUserNameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  const handleLogin = () => {
-    if (email === "") {
-      setEmailError("Please enter valid email address")
+  const router = useRouter();
+
+  const handleLogin = async () => {
+    if (username === "") {
+      setUserNameError("Please enter valid user name");
     } else {
-      setEmailError("")
+      setUserNameError("");
     }
 
     if (password === "") {
-      setPasswordError("Wrong password")
+      setPasswordError("Wrong password");
     } else {
-      setPasswordError("")
+      setPasswordError("");
     }
 
-    // if (email !== '' && password !== '') {
-    //   // Perform login logic
-    //   router.push('/farm-verification');
-    // }
-  }
+    try {
+      const response = await fetch(
+        "http://ec2-16-171-43-115.eu-north-1.compute.amazonaws.com:8000/api/auth/token/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        }
+      );
+
+      if (response.status === 200) {
+        console.log("Login successful");
+        if (username === "admin") {
+          router.push("/moderator/users");
+        } else {
+          router.push("/dashboard/choose_course");
+        }
+      }
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+  };
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value)
-  }
+    setUsername(event.target.value);
+  };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value)
-  }
+    setPassword(event.target.value);
+  };
 
   const handleRememberMeChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setRememberMe(event.target.checked)
-  }
+    setRememberMe(event.target.checked);
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
     //onSubmit(email, password, rememberMe);
-    login(email, password)
-  }
+    handleLogin();
+  };
 
-  const login = async (username: string, password: string) => {
-    try {
-      // api url
-      const response = await fetch("http://localhost:8000/api/auth/token/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      })
+  // const login = async (username: string, password: string) => {
+  //   try {
+  //     // api url
+  //     const response = await fetch("http://localhost:8000/api/auth/token/", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ username, password }),
+  //     });
 
-      if (response.ok) {
-        const data = await response.json()
-        // Login successful
-        // Redirect the user to the desired page or perform any other actions
-        console.log("Login successful:", data)
-      } else {
-        // Login failed
-        // Handle the error, e.g., show an error message to the user
-        console.log("Login failed")
-      }
-    } catch (error) {
-      // Handle network errors or other exceptions
-      console.error("Login failed", error)
-    }
-  }
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       // Login successful
+  //       // Redirect the user to the desired page or perform any other actions
+  //       console.log("Login successful:", data);
+  //     } else {
+  //       // Login failed
+  //       // Handle the error, e.g., show an error message to the user
+  //       console.log("Login failed");
+  //     }
+  //   } catch (error) {
+  //     // Handle network errors or other exceptions
+  //     console.error("Login failed", error);
+  //   }
+  // };
 
   return (
     <div className={styles.container}>
@@ -100,17 +123,17 @@ const LoginPage: React.FC<LoginFormProps> = ({
         </div>
         <form onSubmit={handleSubmit} className={styles.loginform}>
           <div className={styles.inputwrap}>
-            <label className={styles.emaillabel}>Email:</label>
+            <label className={styles.emaillabel}>Username:</label>
 
             <input
               className={styles.emailinput}
-              type="email"
-              value={email}
+              type="text"
+              value={username}
               onChange={handleEmailChange}
               required
             />
-            {emailError && (
-              <div className={styles.emailerror}>{emailError}</div>
+            {userNameError && (
+              <div className={styles.emailerror}>{userNameError}</div>
             )}
           </div>
 
@@ -152,17 +175,16 @@ const LoginPage: React.FC<LoginFormProps> = ({
             </div>
           </div>
 
-          <Link href="/dashboard/choose_course" legacyBehavior className={styles.loginbtn}>
-            <a>
-              <button
-                className={styles.button}
-                type="submit"
-                onClick={handleLogin}
-              >
-                Login
-              </button>
-            </a>
-          </Link>
+          <a>
+            <button
+              className={styles.button}
+              type="submit"
+              onClick={handleLogin}
+            >
+              Login
+            </button>
+          </a>
+
           <div className={styles.line}>
             <hr />
           </div>
@@ -196,7 +218,7 @@ const LoginPage: React.FC<LoginFormProps> = ({
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
