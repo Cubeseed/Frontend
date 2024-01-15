@@ -51,7 +51,6 @@ const MyDocumentFormEdit: React.FC<MyDocumentFormEditProps> = ({ userId }) => {
           </div>
         </div>
       </div>
-
       <div className={styles.btnBusiness}>
         <button className={styles.btnFilled}>
           <Link href="">Update</Link>
