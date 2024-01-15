@@ -3,67 +3,28 @@ import axios from "axios"
 import Link from "next/link"
 import ProfileImg from "./ProfileImg"
 import styles from "../../../styles/marketplaceprofile.module.css"
-
-interface DocData {
-  business_tax_id: string
-  EIN: string
-  SSN: string
-  file1: string
-  file2: string
-}
+import useProfilePhoto from "./hooks/useProfilePhoto"
+import useDocument from "./hooks/useDocument"
 
 interface MyDocumentFormEditProps {
   userId: string
 }
 
 const MyDocumentFormEdit: React.FC<MyDocumentFormEditProps> = ({ userId }) => {
-  const [profileImgData, setProfileImgData] = useState<ProfileImgProps>({
-    uploading: false,
-    selectedImage: null,
-    handleFileChange: () => {},
-  })
-  const [docData, setDocData] = useState<DocData>()
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [profileImgResponse, docResponse] = await Promise.all([
-          axios.get<ProfileImgProps>(`https://userprofilephoto/${userId}`),
-          axios.get<DocData>(`https://usersdoc/${userId}`),
-        ])
-
-        setProfileImgData(profileImgResponse.data)
-        setDocData(docResponse.data)
-      } catch (error) {
-        setError(error as Error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchData()
-  }, [userId]) // Update data based on userId changes
-
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>
-  }
-
-  // Verify the existence of userId before proceeding
-  if (!userId) {
-    return <div>Error: Missing user ID</div>
-  }
+  const { docInfo } = useDocument()
+  const { uploading, selectedImage, handleFileChange, error } =
+    useProfilePhoto()
 
   return (
     <>
       <div className={styles.mainContent}>
         <div className={styles.profileImg}>
-          <ProfileImg {...profileImgData} handleFileChange={() => {}} />
+          <ProfileImg
+            uploading={uploading}
+            selectedImage={selectedImage}
+            handleFileChange={handleFileChange}
+            error={error}
+          />
         </div>
 
         <div className={styles.profileContent}>
@@ -73,9 +34,9 @@ const MyDocumentFormEdit: React.FC<MyDocumentFormEditProps> = ({ userId }) => {
           </div>
 
           <div className={styles.formContent}>
-            <p>Business tax ID: {docData?.business_tax_id}</p>
-            <p>Employer ID number (EIN): {docData?.EIN}</p>
-            <p>Social Security (SSN): {docData?.SSN}</p>
+            <p>Business tax ID: {docInfo?.business_tax_id}</p>
+            <p>Employer ID number (EIN): {docInfo?.EIN}</p>
+            <p>Social Security (SSN): {docInfo?.SSN}</p>
           </div>
           <hr />
 
@@ -85,8 +46,8 @@ const MyDocumentFormEdit: React.FC<MyDocumentFormEditProps> = ({ userId }) => {
           </div>
 
           <div className={styles.formContent}>
-            <p>File [1]: {docData?.file1}</p>
-            <p>File [2]: {docData?.file2}</p>
+            <p>File [1]: {docInfo?.EIN}</p>
+            <p>File [2]: {docInfo?.SSN}</p>
           </div>
         </div>
       </div>
