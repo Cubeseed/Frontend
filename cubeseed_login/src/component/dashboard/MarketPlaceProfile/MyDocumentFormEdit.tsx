@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import Link from "next/link"
-import ProfileImg, { ProfileImgProps } from "./ProfileImg"
+import ProfileImg from "./ProfileImg"
 import styles from "../../../styles/marketplaceprofile.module.css"
 
 interface DocData {
