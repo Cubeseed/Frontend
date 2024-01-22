@@ -1,6 +1,6 @@
-import React, { useState, ReactNode } from "react"
+import React, { ReactNode } from "react"
 import "@/styles/global.css"
-import DemoSideBar from "../../../component/dashboard/MarketPlaceProfile/DemoSideBar"
+import MarketPlaceSideBar from "@/component/dashboard/MarketPlaceProfile/MarketplaceSidebar"
 import TopHelpBar from "../../../component/dashboard/MarketPlaceProfile/TopHelpBar"
 import CategoryInputField from "../../../component/dashboard/MarketPlaceProfile/CategoryInputField"
 import ProfileLinks from "../../../component/dashboard/MarketPlaceProfile/ProfileIdLinks"
@@ -9,37 +9,38 @@ import styles from "@/styles/marketplaceprofile.module.css"
 interface IdDashboardLayoutProps {
   title: string
   children: ReactNode
+  sideBarOpenContainer: boolean
 }
 
 const IdDashboardLayout: React.FC<IdDashboardLayoutProps> = ({
   title,
   children,
+  sideBarOpenContainer,
 }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
-
   return (
     <div className={styles.profileWrapper}>
-      <DemoSideBar setSidebarOpen={setSidebarOpen} />
+      <MarketPlaceSideBar />
       <div
         className={`${
-          sidebarOpen ? styles.homeExpanded : styles.homeCollapsed
+          sideBarOpenContainer ? styles.homeExpanded : styles.homeCollapsed
         }`}
       >
         <TopHelpBar />
         <CategoryInputField />
         <ProfileLinks />
         <hr
-          className={`${sidebarOpen ? styles.hrExpanded : styles.hrCollapsed}`}
+          className={`${
+            sideBarOpenContainer ? styles.hrExpanded : styles.hrCollapsed
+          }`}
         />
         <div className={styles.accountTile}>
           <p>{title}</p>
-          <hr
-            className={`${
-              sidebarOpen ? styles.accountTileHr : styles.accountTileHr2
-            }`}
-          />
         </div>
-
+        <hr
+          className={`${
+            sideBarOpenContainer ? styles.accountTileHr : styles.accountTileHr2
+          }`}
+        />
         <div className={styles.accountInfo}>{children}</div>
       </div>
     </div>

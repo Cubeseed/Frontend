@@ -4,19 +4,20 @@ this color and style is only applicable to marketplace profile
 
 .profileWrapper {
   display: flex;
+  flex-direction: row;
   max-width: 100%;
   background-color: white;
 }
 
-.sidebar {
-  /* width: 25%; */
+/* .sidebar {
   height: 150vh;
   padding: 4rem;
   background-color: var(--clr-primary-90);
   position: relative;
-}
+} */
 .homeExpanded {
   width: 75%;
+  height: 150vh;
   padding: 2rem;
   padding-left: 2rem;
   padding-right: 4rem;
@@ -24,15 +25,17 @@ this color and style is only applicable to marketplace profile
 
 .homeCollapsed {
   width: 90%;
+  height: 150vh;
   padding: 2rem;
   padding-left: 8rem;
   padding-right: 6rem;
 }
+
 .hrExpanded {
   width: 100%;
 }
 .hrCollapsed {
-  width: 80%;
+  width: 100%;
 }
 
 .helpBar {
@@ -91,15 +94,15 @@ this color and style is only applicable to marketplace profile
 }
 .accountTile hr {
   background: #b9b5b5;
-  /* width:80%; */
+  width: 100%;
   padding-left: 5rem;
   margin-top: 10px;
 }
 .accountTileHr {
-  width: 80%;
+  width: 100%;
 }
 .accountTileHr2 {
-  width: 63%;
+  width: 100%;
 }
 
 .mainContent {
