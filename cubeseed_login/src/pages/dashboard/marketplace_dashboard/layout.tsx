@@ -3,8 +3,9 @@ import "@/styles/global.css"
 import MarketPlaceSideBar from "@/component/dashboard/MarketPlaceProfile/MarketplaceSidebar"
 import TopHelpBar from "../../../component/dashboard/MarketPlaceProfile/TopHelpBar"
 import CategoryInputField from "../../../component/dashboard/MarketPlaceProfile/CategoryInputField"
-import ProfileLinks from "../../../component/dashboard/MarketPlaceProfile/ProfileIdLinks"
+import ProfileLinks from "../../../component/dashboard/MarketPlaceProfile/ProfileLinks"
 import styles from "@/styles/marketplaceprofile.module.css"
+import HorizontalRule from "@/component/dashboard/MarketPlaceProfile/horizontalRule"
 
 interface IdDashboardLayoutProps {
   title: string
@@ -28,19 +29,11 @@ const IdDashboardLayout: React.FC<IdDashboardLayoutProps> = ({
         <TopHelpBar />
         <CategoryInputField />
         <ProfileLinks />
-        <hr
-          className={`${
-            sideBarOpenContainer ? styles.hrExpanded : styles.hrCollapsed
-          }`}
-        />
+        <HorizontalRule sideBarOpenContainer={sideBarOpenContainer} />
         <div className={styles.accountTile}>
           <p>{title}</p>
         </div>
-        <hr
-          className={`${
-            sideBarOpenContainer ? styles.accountTileHr : styles.accountTileHr2
-          }`}
-        />
+        <HorizontalRule sideBarOpenContainer={sideBarOpenContainer} />
         <div className={styles.accountInfo}>{children}</div>
       </div>
     </div>

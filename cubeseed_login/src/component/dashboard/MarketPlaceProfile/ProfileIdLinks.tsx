@@ -8,10 +8,10 @@ const ProfileLinks: React.FC<{ userId?: string }> = ({ userId = "" }) => {
       <Link href={`/dashboard/marketplace_dashboard/${userId}/myaccountform`}>
         My Account
       </Link>
-      <Link href={`/dashboard/marketplace_dashboard/${userId}/myaccountform`}>
+      <Link href={`/dashboard/marketplace_dashboard/${userId}/mybusinessform`}>
         My Business
       </Link>
-      <Link href={`/dashboard/marketplace_dashboard/${userId}/myaccountform`}>
+      <Link href={`/dashboard/marketplace_dashboard/${userId}/mydocumentform`}>
         My Document
       </Link>
     </div>

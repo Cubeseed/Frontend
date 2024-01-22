@@ -4,7 +4,7 @@ import PersonalDetailForm from "../../../component/dashboard/MarketPlaceProfile/
 
 const MyAccountForm: React.FC = () => {
   return (
-    <DashboardLayout title="Personal Information">
+    <DashboardLayout title="Personal Information" sideBarOpenContainer={true}>
       <PersonalDetailForm />
     </DashboardLayout>
   )

@@ -6,13 +6,7 @@ import useBusiness from "./hooks/useBusiness"
 import { Input } from "@cs/stories/Input"
 import useProfilePhoto from "./hooks/useProfilePhoto"
 
-interface BusinessDetailFormProps {
-  sidebarOpen: boolean
-}
-
-const BusinessDetailForm: React.FC<BusinessDetailFormProps> = ({
-  sidebarOpen,
-}) => {
+const BusinessDetailForm: React.FC = () => {
   const { bizData, handleBizInputs, handleBusinessSubmit, errors } =
     useBusiness()
   const { uploading, selectedImage, handleFileChange, error } =
@@ -92,11 +86,7 @@ const BusinessDetailForm: React.FC<BusinessDetailFormProps> = ({
               <div className={styles.error}>{errors.category}</div>
             )}
           </div>
-          <hr
-            className={`${
-              sidebarOpen ? styles.hrExpanded : styles.hrCollapsed
-            }`}
-          />
+          <hr />
           <div className="flex flex-col justify-between gap-4 pt-8">
             <p>Business Address</p>
             <Input
@@ -112,11 +102,11 @@ const BusinessDetailForm: React.FC<BusinessDetailFormProps> = ({
               <div className={styles.error}>{errors.business_address}</div>
             )}
           </div>
-          <hr
+          {/* <hr
             className={`${
-              sidebarOpen ? styles.hrExpanded : styles.hrCollapsed
+              sideBarOpenContainer ? styles.hrExpanded : styles.hrCollapsed
             }`}
-          />
+          /> */}
           <div className="flex flex-col justify-between gap-4 pt-8">
             <p>Custom Fields</p>
             <Input

@@ -4,7 +4,7 @@ import DocumentUploadForm from "../../../component/dashboard/MarketPlaceProfile/
 
 const MyDocumentForm: React.FC = () => {
   return (
-    <DashboardLayout title="Document Information">
+    <DashboardLayout title="Document Information" sideBarOpenContainer={true}>
       <DocumentUploadForm />
     </DashboardLayout>
   )
