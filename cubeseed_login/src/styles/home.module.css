@@ -17,7 +17,7 @@
   display: inline-block;
   justify-content: center;
   padding: 12px 26px;
-  gap: 10px;
+  gap: 2rem;
   color: #ffffff;
   position: relative;
   width: 161px;
@@ -48,4 +48,4 @@
 }
 .member .memberlink {
   text-decoration: underline;
-}/*# sourceMappingURL=home.module.css.map */
+} /*# sourceMappingURL=home.module.css.map */
