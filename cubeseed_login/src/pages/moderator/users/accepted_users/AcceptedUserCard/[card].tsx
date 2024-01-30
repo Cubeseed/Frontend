@@ -57,7 +57,7 @@ const AcceptedUsersCard: React.FC<AcceptedUsersCardProps> = ({ farmer }) => {
   const router = useRouter()
 
   return (
-    <div className="flex items-center">
+    <div>
       <SideBar></SideBar>
       <div className="container">
         <p className="nav-info">
@@ -65,11 +65,11 @@ const AcceptedUsersCard: React.FC<AcceptedUsersCardProps> = ({ farmer }) => {
         </p>
         <div className="card">
           <div className="titles-column">
-            <p className="title">Status</p>
-            <p className="title">Full Name</p>
-            <p className="title">Email</p>
-            <p className="title">Document Type 1</p>
-            <p className="title">Document Type 2</p>
+            <p className="title">Status : </p>
+            <p className="title">Full Name :</p>
+            <p className="title">Email :</p>
+            <p className="title">Document Type 1 :</p>
+            <p className="title">Document Type 2 :</p>
           </div>
           <div className="data-column">
             <p className="data">{sampleFarmer.status}</p>

@@ -5,9 +5,11 @@ import "tailwindcss/tailwind.css"
 
 export default function FarmerDocuments() {
   return (
-    <div className="flex items-center">
-      <SideBar></SideBar>
-      <FarmerDocsTable />
+    <div>
+      <SideBar />
+      <div style={{ ["margin" as any]: "50px 0px 0px 450px" }}>
+        <FarmerDocsTable />
+      </div>
     </div>
   )
 }

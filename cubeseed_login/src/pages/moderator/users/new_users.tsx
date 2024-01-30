@@ -3,9 +3,11 @@ import NewFarmersTable from "@/component/tables/NewFarmersTable"
 
 export default function NewUsers() {
   return (
-    <main className="flex items-center">
+    <main>
       <SideBar />
-      <NewFarmersTable />
+      <div style={{ ["margin" as any]: "50px 0px 0px 450px" }}>
+        <NewFarmersTable />
+      </div>
     </main>
   )
 }

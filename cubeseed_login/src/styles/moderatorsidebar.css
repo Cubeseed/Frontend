@@ -6,7 +6,9 @@
   flex-direction: column;
   padding: 2rem;
   width: 396px;
-  height: 982px;
+  position: fixed;
+  top: 0;
+  height: 100%;
   flex-shrink: 0;
 }
 .admin-title {
@@ -30,7 +32,7 @@
   cursor: pointer;
 }
 .sidenav-nav-item {
-  width: 100%;
+  width: 110%;
   margin-bottom: 0.8rem;
 }
 
@@ -56,7 +58,7 @@
 .sidenav-nav-item:hover {
   border-radius: 10px;
   background: #002629;
-  width: 120%;
+  /* width: 120%; */
 }
 .sidenav-nav-link:hover {
   color: #fff;
@@ -70,7 +72,7 @@
   text-decoration: none;
   border-radius: 10px;
   background: #002629;
-  width: 120%;
+  width: 110%;
 }
 .support {
   margin-top: 70%;

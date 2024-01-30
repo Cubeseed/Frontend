@@ -3,9 +3,11 @@ import AcceptedUsersTable from "@/component/tables/AcceptedUsersTable"
 
 export default function Users() {
   return (
-    <main className="flex items-center">
+    <main>
       <SideBar />
-      <AcceptedUsersTable />
+      <div style={{ ["margin" as any]: "50px 0px 0px 450px" }}>
+        <AcceptedUsersTable />
+      </div>
     </main>
   )
 }

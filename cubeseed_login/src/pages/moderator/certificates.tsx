@@ -4,9 +4,11 @@ import SideBar from "../../component/moderator_sidebar/sidebar"
 
 export default function Certificates() {
   return (
-    <div className="flex items-center">
+    <div>
       <SideBar />
-      <CertificatesTable />
+      <div style={{ ["margin" as any]: "50px 0px 0px 450px" }}>
+        <CertificatesTable />
+      </div>
     </div>
   )
 }
