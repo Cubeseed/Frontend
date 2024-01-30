@@ -5,7 +5,7 @@
     "plugin:tailwindcss/recommended",
     "plugin:storybook/recommended"
   ],
-  "plugins": ["tailwindcss"],
+  "plugins": ["tailwindcss", "prettier"],
   "rules": {
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/classnames-order": "warn"

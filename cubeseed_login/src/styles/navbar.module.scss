@@ -1,50 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap");
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 32px 12px 32px;
-  width: 100%;
   background: linear-gradient(0deg, #f0f7f7, #f0f7f7);
   border-bottom: 1px solid #bed6cd;
 
-  .navlinkgroup {
+  .navlinks {
+    align-items: center;
+  }
+
+  .navlink {
+    color: #03656b;
+    text-decoration: none;
+    // padding: 10px;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
     display: flex;
     flex-direction: row;
-    margin-left: 35rem;
+    align-items: center;
+    text-align: center;
+  }
 
-    .navlinks {
-      display: flex;
-      gap: 30px;
-    }
+  .navlink:hover {
+    background-color: #bed6cd;
+    border-radius: 25px;
+    padding: 3px 12px 3px 12px;
+  }
 
-    .navlink {
-      color: #03656b;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 5px;
-      font-family: "Inter Tight", sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 20px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      text-align: center;
-    }
-
-    .navlink:hover {
-      background-color: green;
-      color: #333;
-    }
-
-    .loginbutton {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  .loginbutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

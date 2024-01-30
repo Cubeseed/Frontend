@@ -6,17 +6,18 @@ import { useMultiSteps } from "@/hooks/useMultiSteps"
 import Head from "next/head"
 import { FormEvent } from "react"
 import homeStyles from "@/styles/home.module.scss"
-import styles from "../styles/Login.module.scss"
+import styles from "@/styles/Login.module.scss"
 import Carousel from "@/component/carousel/Carousel"
 import UserDetailsForm from "@/component/forms/UserDetailsForm"
+import UserEmail from "@/component/forms/UserEmail"
 import Link from "next/link"
 import React from "react"
-// import Profilepage from "./dashboard/profile"
 
 export default function Home() {
   const stepDivs = [
-    <ServiceForm key={"service"} />,
+    <UserEmail key={"useremail"} />,
     <UserDetailsForm key={"userdetail"} />,
+    <ServiceForm key={"service"} />,
     <Confirmation key={"confirmation"} />,
   ]
 
@@ -37,13 +38,19 @@ export default function Home() {
         <form onSubmit={handleSubmit}>
           <ProgressBar index={currentIndex} length={steps} />
           <section className={homeStyles.getStarted}>
-            <h2>Sign Up</h2>
-            <p>Lets get started. Which one of these best describes you?</p>
+            <h2>Sign Up to Cubeseed</h2>
           </section>
           {step}
           <p className={homeStyles.steps}>
             {currentIndex + 1} / {steps.length}
           </p>
+          <button
+            type="button"
+            onClick={back}
+            className={homeStyles.actionbutton}
+          >
+            back
+          </button>
           {!isLastStep ? (
             <button
               type="button"
@@ -55,13 +62,6 @@ export default function Home() {
           ) : (
             <button className={homeStyles.actionbutton}>submit</button>
           )}
-          <button
-            type="button"
-            onClick={back}
-            className={homeStyles.actionbutton}
-          >
-            back
-          </button>
         </form>
         <Carousel />
       </section>
