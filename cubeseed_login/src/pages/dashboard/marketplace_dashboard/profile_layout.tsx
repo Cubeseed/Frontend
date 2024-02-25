@@ -7,13 +7,13 @@ import ProfileLinks from "../../../component/dashboard/MarketPlaceProfile/Profil
 import styles from "@/styles/marketplaceprofile.module.css"
 import HorizontalRule from "@/component/dashboard/MarketPlaceProfile/horizontalRule"
 
-interface IdDashboardLayoutProps {
+interface ProfileLayoutProps {
   title: string
   children: ReactNode
   sideBarOpenContainer: boolean
 }
 
-const IdDashboardLayout: React.FC<IdDashboardLayoutProps> = ({
+const ProfileLayout: React.FC<ProfileLayoutProps> = ({
   title,
   children,
   sideBarOpenContainer,
@@ -40,4 +40,4 @@ const IdDashboardLayout: React.FC<IdDashboardLayoutProps> = ({
   )
 }
 
-export default IdDashboardLayout
+export default ProfileLayout

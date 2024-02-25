@@ -1,4 +1,3 @@
-"use client"
 import React, { ReactNode } from "react"
 import "@/styles/global.css"
 import MarketPlaceSideBar from "@/component/dashboard/MarketPlaceProfile/MarketplaceSidebar"

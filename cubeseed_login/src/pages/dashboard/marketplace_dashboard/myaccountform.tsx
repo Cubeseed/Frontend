@@ -1,12 +1,12 @@
 import React from "react"
-import DashboardLayout from "./layout"
+import ProfileLayout from "./profile_layout"
 import PersonalDetailForm from "../../../component/dashboard/MarketPlaceProfile/MyAccountForm"
 
 const MyAccountForm: React.FC = () => {
   return (
-    <DashboardLayout title="Personal Information" sideBarOpenContainer={true}>
+    <ProfileLayout title="Personal Information" sideBarOpenContainer={true}>
       <PersonalDetailForm />
-    </DashboardLayout>
+    </ProfileLayout>
   )
 }
 
