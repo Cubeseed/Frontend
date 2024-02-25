@@ -6,9 +6,15 @@ import useBusiness from "./hooks/useBusiness"
 import { Input } from "@cs/stories/Input"
 import useProfilePhoto from "./hooks/useProfilePhoto"
 import ProfileLinks from "./ProfileIdLinks"
-import HorizontalRule from "./horizontalRule"
+import HorizontalRule from "./HorizontalRule"
 
-const BusinessDetailForm: React.FC = () => {
+interface BusinessDetailFormProps {
+  sideBarOpenContainer: boolean
+}
+
+const BusinessDetailForm: React.FC<BusinessDetailFormProps> = ({
+  sideBarOpenContainer,
+}) => {
   const { bizData, handleBizInputs, handleBusinessSubmit, errors } =
     useBusiness()
   const { uploading, selectedImage, handleFileChange, error } =
@@ -17,7 +23,7 @@ const BusinessDetailForm: React.FC = () => {
   return (
     <>
       <ProfileLinks />
-      <HorizontalRule />
+      <HorizontalRule sideBarOpenContainer={sideBarOpenContainer} />
       <div className={styles.mainContent}>
         <div className={styles.profileImg}>
           <ProfileImg

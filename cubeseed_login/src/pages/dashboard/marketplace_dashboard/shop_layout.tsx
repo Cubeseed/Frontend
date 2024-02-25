@@ -3,7 +3,7 @@ import "@/styles/global.css"
 import MarketPlaceSideBar from "@/component/dashboard/MarketPlaceProfile/MarketplaceSidebar"
 import ShopHeader from "@/component/dashboard/MarketPlaceShop/ShopHeader"
 import styles from "@/styles/marketplaceshop.module.css"
-import HorizontalRule from "@/component/dashboard/MarketPlaceProfile/horizontalRule"
+import HorizontalRule from "@/component/dashboard/MarketPlaceProfile/HorizontalRule"
 import TinyFooter from "@/component/dashboard/MarketPlaceShop/TinyFooter"
 
 interface ShopLayoutProps {

@@ -5,10 +5,16 @@ import useDocument from "./hooks/useDocument"
 import useProfilePhoto from "./hooks/useProfilePhoto"
 import { Input } from "@cs/stories/Input"
 import FileInput from "./DocumentFIle"
-import ProfileLinks from "./ProfileIdLinks"
-import HorizontalRule from "./horizontalRule"
+import ProfileLinks from "./ProfileLinks"
+import HorizontalRule from "./HorizontalRule"
 
-const DocumentUploadForm: React.FC = () => {
+interface DocumentUploadFormProps {
+  sideBarOpenContainer: boolean
+}
+
+const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
+  sideBarOpenContainer,
+}) => {
   const { docInfo, errors, handleDocumentUpload, handleDocumentSubmit } =
     useDocument()
 
@@ -18,7 +24,7 @@ const DocumentUploadForm: React.FC = () => {
   return (
     <>
       <ProfileLinks />
-      <HorizontalRule />
+      <HorizontalRule sideBarOpenContainer={sideBarOpenContainer} />
       <div className={styles.mainContent}>
         <div className={styles.profileImg}>
           <ProfileImg
@@ -33,7 +39,7 @@ const DocumentUploadForm: React.FC = () => {
             className={styles.personalDetails}
             onSubmit={handleDocumentSubmit}
           >
-            <p>Basic Information</p>
+            <p>Document Information</p>
             <div className="flex flex-col justify-between gap-4 pt-8">
               <Input
                 id="business_taxId"

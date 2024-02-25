@@ -5,7 +5,7 @@ import TopHelpBar from "../../../component/dashboard/MarketPlaceProfile/TopHelpB
 import CategoryInputField from "../../../component/dashboard/MarketPlaceProfile/CategoryInputField"
 import ProfileLinks from "../../../component/dashboard/MarketPlaceProfile/ProfileLinks"
 import styles from "@/styles/marketplaceprofile.module.css"
-import HorizontalRule from "@/component/dashboard/MarketPlaceProfile/horizontalRule"
+import HorizontalRule from "@/component/dashboard/MarketPlaceProfile/HorizontalRule"
 
 interface ProfileLayoutProps {
   title: string

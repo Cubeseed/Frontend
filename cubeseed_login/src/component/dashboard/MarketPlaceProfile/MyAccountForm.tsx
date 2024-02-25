@@ -6,9 +6,15 @@ import useProfile from "./hooks/useProfile"
 import { Input } from "@cs/stories/Input"
 import useProfilePhoto from "./hooks/useProfilePhoto"
 import ProfileLinks from "./ProfileIdLinks"
-import HorizontalRule from "./horizontalRule"
+import HorizontalRule from "./HorizontalRule"
 
-const PersonalDetailForm: React.FC = () => {
+interface PersonalDetailFormProps {
+  sideBarOpenContainer: boolean
+}
+
+const PersonalDetailForm: React.FC<PersonalDetailFormProps> = ({
+  sideBarOpenContainer,
+}) => {
   const { errors, formData, handleUserInputs, handleSubmit } = useProfile()
   const { uploading, selectedImage, handleFileChange, error } =
     useProfilePhoto()
@@ -16,7 +22,7 @@ const PersonalDetailForm: React.FC = () => {
   return (
     <>
       <ProfileLinks />
-      <HorizontalRule />
+      <HorizontalRule sideBarOpenContainer={sideBarOpenContainer} />
       <div className={styles.mainContent}>
         <div className={styles.profileImg}>
           <ProfileImg
