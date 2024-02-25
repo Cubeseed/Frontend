@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.accountInfo {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.shopHeaderWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f0f6f6;
+  height: 12vh;
+  padding: 20px 12px 20px 12px;
+}
+
+.shopIconBar {
+  display: flex;
+  flex-direction: row;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  border-radius: 50px;
+  border: 1px solid var(--clr-primary);
+  background: white;
+  padding: 5px 10px 5px 10px;
+}
+
+.input {
+  border: 0;
+  border-radius: none;
+  position: none;
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+  outline: none;
+}
+
+.searchIcon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--clr-primary-10);
+}
+.searchBox input::placeholder {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--clr-neutral-70);
+}

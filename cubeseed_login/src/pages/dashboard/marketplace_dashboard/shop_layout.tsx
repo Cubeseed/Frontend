@@ -1,4 +1,3 @@
-"use client"
 import React, { ReactNode } from "react"
 import "@/styles/global.css"
 import MarketPlaceSideBar from "@/component/dashboard/MarketPlaceProfile/MarketplaceSidebar"
@@ -7,12 +6,15 @@ import styles from "@/styles/marketplaceshop.module.css"
 import HorizontalRule from "@/component/dashboard/MarketPlaceProfile/HorizontalRule"
 import TinyFooter from "@/component/dashboard/MarketPlaceShop/TinyFooter"
 
-interface LayoutProps {
+interface ShopLayoutProps {
   children: ReactNode
   sideBarOpenContainer: boolean
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, sideBarOpenContainer }) => {
+const ShopLayout: React.FC<ShopLayoutProps> = ({
+  children,
+  sideBarOpenContainer,
+}) => {
   return (
     <div className={styles.container}>
       <MarketPlaceSideBar sideBarOpenContainer={sideBarOpenContainer} />
@@ -30,4 +32,4 @@ const Layout: React.FC<LayoutProps> = ({ children, sideBarOpenContainer }) => {
   )
 }
 
-export default Layout
+export default ShopLayout
