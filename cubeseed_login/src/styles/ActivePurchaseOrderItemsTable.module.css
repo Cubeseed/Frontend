@@ -1,0 +1,32 @@
+.heading {
+  color: #3c7174;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.headingRow {
+  width: 48%;
+  border-bottom: #3c7174 1px solid;
+}
+
+.table {
+  width: 90%;
+}
+
+.th {
+  color: darkgrey;
+  font-size: 0.85rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: left;
+  border-top: darkgrey 1px solid;
+  border-bottom: darkgrey 1px solid;
+}
+
+.td {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: #b1d6d6 1px solid;
+  align-items: center;
+  text-align: left;
+}

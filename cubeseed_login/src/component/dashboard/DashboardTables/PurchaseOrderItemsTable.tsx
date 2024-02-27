@@ -2,6 +2,7 @@ import React from "react"
 import styles from "@/styles/PurchaseOrderItemsTable.module.css"
 import "tailwindcss/tailwind.css"
 import Link from "next/link"
+import Image from "next/image"
 // import flag from "@cs/public/Flag_of_Nigeria.png"
 
 interface Item {
@@ -49,7 +50,7 @@ const PurchaseOrderItemsTable: React.FC<PurchaseOrderItemsTableProps> = ({
             <tr key={item.id}>
               <td className={styles.td}>
                 <img
-                  className="mr-3 inline-block h-10 w-10 rounded-full"
+                  className="mr-3 size-10 rounded-full"
                   src={item.image}
                   alt=""
                 />

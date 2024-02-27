@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import styles from "@/styles/purchase_orders.module.css"
 import SearchBar from "@/component/dashboard/SearchBar/SearchBar"
 
-const PurchaseOrders = () => {
+const FarmPlanner = () => {
   const [orders, setOrders] = useState([])
   const sampleOrders = [
     {
@@ -117,7 +117,7 @@ const PurchaseOrders = () => {
   /* ---uncomment useEffect when api endpoint is added--- */
 
   // useEffect(() => {
-  //   const getPurchaseOrders = async () => {
+  //   const getActivePurchaseOrders = async () => {
   //     try {
   //       const response = await fetch(/* api endpoint here */);
   //       const data: Farmer[] = await response.json();
@@ -126,17 +126,16 @@ const PurchaseOrders = () => {
   //       console.error(error);
   //     }
   //   };
-  //   getPurchaseOrders();
+  //   getActivePurchaseOrders();
   // }, [orders]);
 
   const tableData = sampleOrders
-
   return (
     <div className="flex">
       <DashboardSidePannel />
       <div className="flex flex-col">
-        <h1 className={styles.title}>Available Purchase Orders</h1>
-        <p className={styles.subtitle}>Orders</p>
+        <h1 className={styles.title}>Work On A Purchase Order</h1>
+        <p className={styles.subtitle}>Active Orders</p>
         <div className={styles.searchBar}>
           <SearchBar />
         </div>
@@ -146,4 +145,4 @@ const PurchaseOrders = () => {
   )
 }
 
-export default PurchaseOrders
+export default FarmPlanner

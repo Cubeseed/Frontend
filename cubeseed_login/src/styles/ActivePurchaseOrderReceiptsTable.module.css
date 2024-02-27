@@ -1,0 +1,109 @@
+.heading {
+  color: #3c7174;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: #3c7174 1px solid;
+}
+
+.headingRow {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.table {
+  width: 90%;
+}
+
+.th {
+  color: darkgrey;
+  font-size: 0.85rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: left;
+  border-top: darkgrey 1px solid;
+  border-bottom: darkgrey 1px solid;
+}
+
+.td {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: #b1d6d6 1px solid;
+  border-radius: 10px;
+  align-items: center;
+  text-align: left;
+}
+
+.statusSent {
+  display: inline-block;
+  background-color: #f6c692;
+  font-weight: 500;
+  font-size: 12px;
+  border: #e6ab6c 1px solid;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.statusReceived {
+  display: inline-block;
+  background-color: #32fa9d;
+  font-weight: 500;
+  font-size: 12px;
+  border: #1f9d6d 1px solid;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.statusPending {
+  display: inline-block;
+  background-color: #c6c6c6;
+  font-weight: 500;
+  font-size: 12px;
+  border: #a6a6a6 1px solid;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.dropdownRow {
+  display: flex;
+  justify-content: end;
+  width: 90%;
+}
+
+.dropdown {
+  position: left;
+  display: inline-block;
+}
+
+.ellipsisButton {
+  font-size: 30px;
+  color: #3c7174;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  background-color: #f9f9f9;
+  border: 1px solid #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.menuItem {
+  padding: 6px 8px;
+  color: #3c7174;
+  width: 90%;
+  text-align: left;
+  display: block;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: #f1f1f1;
+}
+
+.menuItemContent {
+  display: flex;
+  align-items: center;
+}
