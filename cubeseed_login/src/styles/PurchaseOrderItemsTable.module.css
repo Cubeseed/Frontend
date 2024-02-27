@@ -1,0 +1,13 @@
+.table {
+  margin: 25px;
+  background-color: #f0f7f7;
+  border: #3c7174 2px solid;
+  border-radius: 10px;
+}
+
+.th,
+.td {
+  padding: 1rem;
+  border: #3c7174 1px solid;
+  border-radius: 10px;
+}

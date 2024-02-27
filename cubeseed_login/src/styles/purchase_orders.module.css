@@ -1,0 +1,22 @@
+.title {
+  font-size: 2rem;
+  color: #000000;
+  font-weight: bold;
+  margin-left: 45px;
+  margin-top: 75px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #03656b;
+  font-weight: bold;
+  border-bottom: #03656b 2px solid;
+  width: 60%;
+  margin-left: 45px;
+  margin-top: 25px;
+}
+
+.searchBar {
+  margin-left: 45px;
+  margin-top: 25px;
+}
