@@ -1,15 +1,19 @@
 import type { AppProps } from "next/app"
 import "@/styles/globals.scss"
-// import "@/styles/global.css" // tailwind
 import { FarmContextProvider } from "@/context/context"
 import { SignUpContextProvider } from "@/context/signup"
+import Layout from "@/component/Layout"
 
-export default function App({ Component, pageProps }: AppProps) {
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <FarmContextProvider>
       <SignUpContextProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </SignUpContextProvider>
     </FarmContextProvider>
   )
 }
+
+export default App
