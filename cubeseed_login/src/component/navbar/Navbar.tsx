@@ -7,7 +7,7 @@ import { PiUserCircleFill } from "react-icons/pi"
 
 const Navbar = () => {
   return (
-    <div className="fixed z-10 w-full bg-[#e2f5f5] shadow-sm">
+    <div className="fixed z-10 w-full border-b border-[#8bc8c8] bg-[#e2f5f5] shadow-sm">
       <div className="py-4">
         <Container>
           <div className="flex flex-row items-center justify-between">
@@ -28,7 +28,7 @@ const Navbar = () => {
               {/* Sign in button */}
               <Link href="/signin">
                 <div className="flex flex-row items-center gap-1 hover:text-[#4cacb3]">
-                  <PiUserCircleFill size={20} />
+                  <PiUserCircleFill size={28} />
                   <div>Sign in</div>
                 </div>
               </Link>

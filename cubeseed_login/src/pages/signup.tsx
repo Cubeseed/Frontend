@@ -184,7 +184,7 @@ const SignUpPage: React.FC<LoginFormProps> = ({
         {/* Login button */}
         <div className="ml-auto flex flex-row items-center py-[10%] pr-12 text-sm">
           <div className="mr-2">Already a member?</div>
-          <Link href="/login">
+          <Link href="/signin">
             <span className="mr-10 font-bold text-[#03656b]">Log in</span>
           </Link>
 
