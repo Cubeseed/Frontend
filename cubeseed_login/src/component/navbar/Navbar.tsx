@@ -1,37 +1,43 @@
 import Link from "next/link"
-import navStyles from "@/styles/navbar.module.scss"
 import React from "react"
-import LoginPage from "@/pages/login_page/login-page"
+import SignInPage from "@/pages/signin"
+import Container from "@/comps/Container"
+import Logo from "./Logo"
+import { PiUserCircleFill } from "react-icons/pi"
 
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <nav className={navStyles.nav}>
-      <h1>CubeSeed</h1>
-      <div className={navStyles.navlinkgroup}>
-        <ul className={navStyles.navlinks}>
-          <li className={navStyles.navlink}>
-            <Link href="/about">About</Link>
-          </li>
-          <li className={navStyles.navlink}>
-            <Link href="/features">Features</Link>
-          </li>
-          <li className={navStyles.navlink}>
-            <Link href="/contact_us">Contact Us</Link>
-          </li>
-        </ul>
+    <div className="fixed z-10 w-full border-b border-[#8bc8c8] bg-[#e2f5f5] shadow-sm">
+      <div className="py-4">
+        <Container>
+          <div className="flex flex-row items-center justify-between">
+            <Logo />
+
+            {/* Links */}
+            <div className="flex cursor-pointer flex-row items-center gap-8 text-[15px] text-[#03656b]">
+              <Link href="/about">
+                <div className="hover:text-[#4cacb3]">About</div>
+              </Link>
+              <Link href="/features">
+                <div className="hover:text-[#4cacb3]">Features</div>
+              </Link>
+              <Link href="/testimonials">
+                <div className="hover:text-[#4cacb3]">Testimonials</div>
+              </Link>
+
+              {/* Sign in button */}
+              <Link href="/signin">
+                <div className="flex flex-row items-center gap-1 hover:text-[#4cacb3]">
+                  <PiUserCircleFill size={28} />
+                  <div>Sign in</div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </Container>
       </div>
-      <div className={navStyles.navbuttongroup}>
-        <Link
-          href="/login_page/login-page"
-          legacyBehavior
-          className={navStyles.loginbutton}
-        >
-          <a className={navStyles.button}>Login</a>
-        </Link>
-        <Link href="/signup" legacyBehavior className={navStyles.signupbutton}>
-          <a className={navStyles.button}>Signup</a>
-        </Link>
-      </div>
-    </nav>
+    </div>
   )
 }
+
+export default Navbar

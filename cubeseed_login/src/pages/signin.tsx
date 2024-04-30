@@ -4,14 +4,20 @@ import Link from "next/link"
 import Image from "next/image"
 import loginoptions from "@assets/loginoptions.png"
 import logo from "@assets/cubeseed.png"
-import styles from "@/styles/loginpage.module.scss"
+import Navbar from "@/component/navbar/Navbar"
+
+import { FcGoogle } from "react-icons/fc"
+import { GoArrowLeft } from "react-icons/go"
+import facebookicon from "@assets/facebook-icon.png"
+import rightpane from "@assets/signup-rightpane.png"
+import ProgressBar from "@/comps/ProgressBar"
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void
   onForgotPassword: () => void
 }
 
-const LoginPage: React.FC<LoginFormProps> = ({
+const SignInPage: React.FC<LoginFormProps> = ({
   onSubmit,
   onForgotPassword,
 }) => {
@@ -89,7 +95,120 @@ const LoginPage: React.FC<LoginFormProps> = ({
   }
 
   return (
-    <div className={styles.container}>
+    <div className="flex h-screen">
+      {/* Left pane */}
+      <div className="flex w-8/12 flex-col items-center justify-center p-4">
+        {/* Sign up content */}
+        <div className="flex w-7/12 flex-col">
+          <div>
+            <div className="mb-10 text-[22px] font-semibold">
+              Sign in to Cubeseed
+            </div>
+
+            {/* Email & password input */}
+            <div className="flex flex-col gap-2">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="w-full rounded-sm border border-[#03656b] px-4 py-2 focus:outline-none"
+                placeholder="Email"
+              />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="w-full rounded-sm border border-[#03656b] px-4 py-2 focus:outline-none"
+                placeholder="Password"
+              />
+            </div>
+
+            {/* Remember me */}
+            <div className="mt-6 flex justify-between text-sm">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="myCheckbox"
+                  // checked={isChecked}
+                  // onChange={handleCheckboxChange}
+                  className="form-checkbox h-4 w-4"
+                />
+                <label htmlFor="myCheckbox" className="ml-2">
+                  Remember me
+                </label>
+              </div>
+              <Link href="/">
+                <span className="font-bold text-[#03656b]">
+                  Forgot Password?
+                </span>
+              </Link>
+            </div>
+
+            {/* Sign in button */}
+            <div className="mt-8 flex flex-col items-center justify-center text-sm">
+              <Link href="/" className="mb-4">
+                <div className="w-full items-center justify-center rounded-[30px] bg-[#27797e] px-[140px] py-2 text-center text-white">
+                  Sign in
+                </div>
+              </Link>
+
+              <div className="flex flex-row">
+                <div className="mr-2">Not a member yet?</div>
+                <Link href="/signup">
+                  <span className="font-bold text-[#03656b]">Sign up</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Divider with "OR"  */}
+            <div className="relative mt-1 flex w-full items-center py-5">
+              <div className="flex-grow border-t border-[#7ea9ab]"></div>
+              <span className="mx-4 flex-shrink text-[12px] text-[#7ea9ab]">
+                OR
+              </span>
+              <div className="flex-grow border-t border-[#7ea9ab]"></div>
+            </div>
+
+            {/* Sign in with Google and Facebook buttons */}
+            <div className="flex flex-col gap-1">
+              <Link href="/">
+                <div className="flex w-full flex-row items-center justify-center gap-2 rounded-3xl border border-[#03656b] p-2 text-center text-sm text-[#03656b]">
+                  <FcGoogle size={18} />
+                  <span>Sign in with Google</span>
+                </div>
+              </Link>
+              <Link href="/">
+                <div className="flex w-full flex-row items-center justify-center gap-2 rounded-3xl border border-[#03656b] p-2 text-center text-sm text-[#03656b]">
+                  <Image
+                    src={facebookicon}
+                    height="20"
+                    width="20"
+                    alt="Facebook Icon"
+                  />
+                  <span>Sign in with Facebook</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right pane */}
+      <div className="w-4/12">
+        <Image
+          src={rightpane}
+          className="h-screen w-full object-cover"
+          alt="Right pane"
+        />
+      </div>
+    </div>
+  )
+}
+
+export default SignInPage
+
+/**
+ * <div className={styles.container}>
       <div className={styles.background}></div>
       <div className={styles.logincontainer}>
         <div className={styles.logo}>
@@ -196,7 +315,4 @@ const LoginPage: React.FC<LoginFormProps> = ({
         </form>
       </div>
     </div>
-  )
-}
-
-export default LoginPage
+ */
