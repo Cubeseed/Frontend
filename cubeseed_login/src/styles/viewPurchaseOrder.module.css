@@ -1,0 +1,86 @@
+.tableContainer {
+  height: 175px;
+  overflow: auto;
+  scrollbar-color: #edd522 #ffffff;
+}
+
+.venueAddress {
+  color: #3c7174;
+  font-size: 20px;
+  font-weight: medium;
+  margin-bottom: 10px;
+}
+
+.addressContainer {
+  color: #3c7174;
+  border: #3c7174 2px solid;
+  border-radius: 10px;
+  height: 125px;
+  padding: 10px;
+}
+
+.termsContainer {
+  border: #797979 2px solid;
+  border-radius: 10px;
+  height: 75px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+
+.termsTitle {
+  color: #797979;
+  font-size: 15px;
+  font-weight: medium;
+  margin-bottom: 10px;
+}
+
+.termsText {
+  color: #797979;
+  font-size: 12px;
+}
+
+.noteText {
+  color: #797979;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.rejectButton {
+  background-color: #ffffff;
+  border: #edd522 2px solid;
+  border-radius: 25px;
+  color: #4f4102;
+  font-size: 15px;
+  font-weight: medium;
+  height: 40px;
+  width: 150px;
+}
+
+.approveButtonInactive {
+  background-color: #ffffff;
+  border: #edd522 2px solid;
+  border-radius: 25px;
+  color: #4f4102;
+  font-size: 15px;
+  font-weight: medium;
+  height: 40px;
+  width: 150px;
+}
+
+.approveButtonActive {
+  background-color: #edd522;
+  border: #edd522 2px solid;
+  border-radius: 25px;
+  color: #4f4102;
+  font-size: 15px;
+  font-weight: medium;
+  height: 40px;
+  width: 150px;
+}
+
+.acceptTerms {
+  color: #797979;
+  font-size: 14px;
+}
