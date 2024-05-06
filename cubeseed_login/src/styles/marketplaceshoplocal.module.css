@@ -1,0 +1,14 @@
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 3rem 0 2rem 0;
+}
+
+.heading h2 {
+  /* font-family: Inter; */
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+}

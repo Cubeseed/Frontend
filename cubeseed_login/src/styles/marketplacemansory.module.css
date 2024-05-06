@@ -1,0 +1,57 @@
+.cardWrapper {
+  margin-top: 2rem;
+}
+
+.mansoryGallary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem 3rem;
+}
+.mansoryGallary .eachCardImg:first-child {
+  grid-row: span 2;
+  height: 400px;
+}
+
+.eachCardImg {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  height: 190px;
+}
+
+.eachCardImg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.overlayButton {
+  background-color: white;
+  color: black;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: -7rem;
+}
+
+.favouriteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  z-index: 2;
+}
+
+.eachCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
