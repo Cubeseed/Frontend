@@ -1,8 +1,8 @@
-import React, { useEffect } from "react"
 import { useSignUpContext } from "@/context/signup"
-import { SignUpErrors } from "@cs/types/index"
-import { FcGoogle } from "react-icons/fc"
+import { SignUpErrors } from "@cs/lib/types/index"
+import React, { useEffect } from "react"
 import { FaMeta } from "react-icons/fa6"
+import { FcGoogle } from "react-icons/fc"
 // import "@/styles/globals.css"
 
 const UserEmail: React.FC = () => {
@@ -17,7 +17,7 @@ const UserEmail: React.FC = () => {
       errObj["email"] = ""
     }
     setErrors(errObj)
-  }, [])
+  }, [email, setErrors])
 
   return (
     <div className=" m-auto flex w-3/6 flex-col justify-center align-middle ">

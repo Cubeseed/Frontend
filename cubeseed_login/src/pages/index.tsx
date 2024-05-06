@@ -1,17 +1,14 @@
-import Navbar from "@/component/navbar/Navbar"
-import ProgressBar from "@/component/progressbar/ProgressBar"
-import ServiceForm from "@/component/forms/ServiceForm"
-import Confirmation from "./confirmation_page/Confirmation"
-import { useMultiSteps } from "@/hooks/useMultiSteps"
-import Head from "next/head"
-import { FormEvent } from "react"
-import homeStyles from "@/styles/home.module.scss"
-import styles from "@/styles/Login.module.scss"
 import Carousel from "@/component/carousel/Carousel"
+import ServiceForm from "@/component/forms/ServiceForm"
 import UserDetailsForm from "@/component/forms/UserDetailsForm"
 import UserEmail from "@/component/forms/UserEmail"
+import Navbar from "@/component/navbar/Navbar"
+import ProgressBar from "@/component/progressbar/ProgressBar"
+import { useMultiSteps } from "@/hooks/useMultiSteps"
+import homeStyles from "@/styles/home.module.scss"
 import Link from "next/link"
-import React from "react"
+import { FormEvent } from "react"
+import Confirmation from "./confirmation_page/Confirmation"
 
 export default function Home() {
   const stepDivs = [
@@ -62,17 +59,17 @@ export default function Home() {
           ) : (
             <button className={homeStyles.actionbutton}>submit</button>
           )}
+          <div className={homeStyles.member}>
+            <div>
+              Already a member?{" "}
+              <Link className={homeStyles.memberlink} href="/">
+                Log In
+              </Link>
+            </div>
+          </div>
         </form>
         <Carousel />
       </section>
-      <div className={homeStyles.member}>
-        <div>
-          Already a member?{" "}
-          <Link className={homeStyles.memberlink} href="/">
-            Log In
-          </Link>
-        </div>
-      </div>
     </section>
   )
 }

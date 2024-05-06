@@ -1,8 +1,8 @@
-import { useState } from "react"
 import MarketPlaceSideBarStyle from "@/styles/MarketPlaceSideBar.module.css"
-import logo from "@assets/icons/TransparentCubeseed.png"
+import logo from "@assets/cubeseedlogo.svg"
 import smallLogo from "@assets/icons/TransparentSmallCubeseed.png"
 import Image from "next/image"
+import { useState } from "react"
 
 const MarketPlaceSideBar = () => {
   const [selected, setSelected] = useState<boolean>(false)

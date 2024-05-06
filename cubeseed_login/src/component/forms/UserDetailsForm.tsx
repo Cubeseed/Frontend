@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { useSignUpContext } from "@/context/signup"
-import { SignUpErrors } from "@cs/types/index"
+import { SignUpErrors } from "@cs/lib/types/index"
+import { useEffect } from "react"
 
 export default function UserDetailsForm() {
   const {
