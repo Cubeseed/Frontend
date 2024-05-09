@@ -1,8 +1,9 @@
-import Navbar from "@/component/navbar/Navbar"
-import DashboardNavbar from "@/component/dashboard/DashboardNavbar/DashboardNavbar"
+"use client"
+
 import DashboardSidePannel from "@/component/dashboard/DashboardSidePannel"
+import Navbar from "@/component/navbar/Navbar"
 import { Inter as FontSans } from "next/font/google"
-import "./globals.css"
+// import "./globals.css"
 
 export const metadata = {
   title: "Next.js",

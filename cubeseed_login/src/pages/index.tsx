@@ -6,7 +6,6 @@ import Navbar from "@/component/navbar/Navbar"
 import ProgressBar from "@/component/progressbar/ProgressBar"
 import { useMultiSteps } from "@/hooks/useMultiSteps"
 import homeStyles from "@/styles/home.module.scss"
-import Link from "next/link"
 import { FormEvent } from "react"
 import Confirmation from "./confirmation_page/Confirmation"
 
@@ -31,43 +30,37 @@ export default function Home() {
   return (
     <section>
       <Navbar />
+
       <section className={homeStyles.home}>
-        <form onSubmit={handleSubmit}>
-          <ProgressBar index={currentIndex} length={steps} />
-          <section className={homeStyles.getStarted}>
-            <h2>Sign Up to Cubeseed</h2>
-          </section>
-          {step}
-          <p className={homeStyles.steps}>
+        <section className="h-[60%]">
+          <form onSubmit={handleSubmit}>
+            <ProgressBar index={currentIndex} length={steps} />
+            {step}
+            {/* <p className={homeStyles.steps}>
             {currentIndex + 1} / {steps.length}
-          </p>
-          <button
-            type="button"
-            onClick={back}
-            className={homeStyles.actionbutton}
-          >
-            back
-          </button>
-          {!isLastStep ? (
-            <button
-              type="button"
-              onClick={next}
-              className={homeStyles.actionbutton}
-            >
-              next
-            </button>
-          ) : (
-            <button className={homeStyles.actionbutton}>submit</button>
-          )}
-          <div className={homeStyles.member}>
-            <div>
-              Already a member?{" "}
-              <Link className={homeStyles.memberlink} href="/">
-                Log In
-              </Link>
+          </p> */}
+            <div className={homeStyles.actionbutton}>
+              <button
+                type="button"
+                onClick={back}
+                className={homeStyles.stepbutton}
+              >
+                back
+              </button>
+              {!isLastStep ? (
+                <button
+                  type="button"
+                  onClick={next}
+                  className={homeStyles.stepbutton}
+                >
+                  next
+                </button>
+              ) : (
+                <button className={homeStyles.stepbutton}>submit</button>
+              )}
             </div>
-          </div>
-        </form>
+          </form>
+        </section>
         <Carousel />
       </section>
     </section>

@@ -1,10 +1,9 @@
-import React, { useState } from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
-import Image from "next/image"
-import loginoptions from "@assets/loginoptions.png"
-import logo from "@assets/cubeseedlogo.svg"
 import styles from "@/styles/loginpage.module.scss"
+import logo from "@assets/cubeseedlogo.svg"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import React, { useState } from "react"
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, rememberMe: boolean) => void
@@ -166,18 +165,6 @@ const LoginPage: React.FC<LoginFormProps> = ({
           <div className={styles.line}>
             <hr />
           </div>
-
-          <div className={styles.or}>OR</div>
-          <div className={styles.loginoptions}>
-            <Link href="/redirect_page/redirect-page">
-              <Image
-                src={loginoptions}
-                alt="loginoptions"
-                className={styles.optionsimg}
-              />
-            </Link>
-          </div>
-
           <div className={styles.new}>
             <p className={styles.new_text}>New to CubeSeed? Get Started</p>
           </div>

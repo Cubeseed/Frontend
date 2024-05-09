@@ -38,7 +38,7 @@
     "@storybook/react": "^7.5.1",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.5.1",
-    "@types/find-cache-dir": "^5.0.0",
+    "find-cache-dir": "^5.0.0",
     "@types/node": "^20.1.4",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",

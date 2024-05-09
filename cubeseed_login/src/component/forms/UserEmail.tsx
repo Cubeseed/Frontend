@@ -1,57 +1,68 @@
 import { useSignUpContext } from "@/context/signup"
-import { SignUpErrors } from "@cs/lib/types/index"
-import React, { useEffect } from "react"
+import React from "react"
 import { FaMeta } from "react-icons/fa6"
 import { FcGoogle } from "react-icons/fc"
 // import "@/styles/globals.css"
 
+const EmailRegex = /^\S+@\S+\.\S+$/
 const UserEmail: React.FC = () => {
   const { email, setEmail, errors, setErrors } = useSignUpContext()
-  useEffect(() => {
-    const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-    const errObj: SignUpErrors = {}
+  const handleEmailChange = (e: { target: { value: any } }) => {
+    const { value } = e.target
+    setEmail(value)
 
-    if (!emailValidation.test(email)) {
+    // Validate email immediately on input change
+    validateEmail(value)
+  }
+
+  const validateEmail = (value: string) => {
+    const errObj = { ...errors }
+
+    if (!value.trim()) {
+      errObj["email"] = "email is required"
+    } else if (!EmailRegex.test(value)) {
       errObj["email"] = "Please enter a valid email"
     } else {
-      errObj["email"] = ""
+      errObj["email"] = "" // Clear error if email is valid
     }
+
     setErrors(errObj)
-  }, [email, setErrors])
+  }
 
   return (
     <div className=" m-auto flex w-3/6 flex-col justify-center align-middle ">
-      {/* {errors.email && <p className="signup-error">{errors.email}</p>} */}
+      <h1 className="signup-text  mb-4 mt-8 text-2xl">Sign up to Cubeseed</h1>
       <div className="input-wrapper my-4">
         <input
           type="email"
-          className="required:border-red-500"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
+          onChange={handleEmailChange}
+          className={`mb-1 border ${errors.email ? "border-red-500" : ""}`}
         />
+        {errors.email && <p className="text-red-500">{errors.email}</p>}
       </div>
-      <div className="mb-8 flex flex-row justify-center">
-        <span className="border-2 border-solid">
+      <div className="align-center my-auto flex justify-center">
+        <span className="line">
           <hr />
         </span>
-        <span>or</span>
-        <span className="border-2 border-solid">
+        <span>OR</span>
+        <span className="line">
           <hr />
         </span>
       </div>
-      <div className="mb-2 flex cursor-pointer justify-center rounded-full border-2 border-solid p-1">
+      <div className="social-signin mb-2 flex justify-center gap-2 rounded-full border-2 border-solid p-1 align-bottom">
         <FcGoogle />
-        <button className="px-1">Sign up with Google</button>
+        <button className="">Sign up with Google</button>
       </div>
-      <div className="mb-6 flex cursor-pointer justify-center rounded-full border-2 border-solid p-1">
+      <div className="social-signin mb-8 flex justify-center gap-2 rounded-full border-2 border-solid p-1 align-bottom">
         <FaMeta />
-        <button className="px-1">Sign up with Meta</button>
+        <button className="">Sign up with Meta</button>
       </div>
-      <p>
-        By signing up with Cubeseed you agree to the Terms and Conditions, and
-        Privacy Policy.
+      <p className="mb-10 mt-4">
+        By signing up with Cubeseed you agree to the{" "}
+        <span>Terms and Conditions</span> , and
+        <span>Privacy Policy</span>.
       </p>
     </div>
   )

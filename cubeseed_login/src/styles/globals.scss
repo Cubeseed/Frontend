@@ -4,8 +4,13 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap");
 
+$primary-color: #45dfa9;
+$secondary-color: #02575d;
+$basic-color: #03656b;
+$primary-font: "Inter Tight", sans-serif;
+
 body {
-  font-family: "Inter Tight", sans-serif;
+  font-family: $primary-font;
 }
 
 li {
@@ -128,9 +133,7 @@ nav,
 section {
   display: block;
 }
-body {
-  line-height: 1;
-}
+
 ol,
 ul {
   list-style: none;
@@ -155,22 +158,14 @@ a {
   all: unset;
 }
 
-.input-wrapper {
-  position: relative;
-  width: 100%;
-  margin: 10px;
-}
-
 input {
-  border: 1px solid #45dfa9;
-  border-radius: 6px;
+  border: 1px solid $primary-color;
+  border-radius: 3px;
   position: relative;
   width: 100%;
-  margin: 10px;
-  width: 100%;
-  margin: 10px;
-  line-height: 6ex;
-  outline: #45dfa9;
+  padding: 0 5px;
+  line-height: 4ex;
+  outline: $primary-color;
 }
 
 label {
@@ -184,4 +179,20 @@ label {
 
 form {
   height: 100vh;
+}
+
+.signup-text {
+  color: $secondary-color;
+  font-weight: 600;
+}
+
+.social-signin {
+  border-color: $basic-color;
+  color: $basic-color;
+  cursor: pointer;
+}
+
+.line {
+  color: gray 0.5px solid;
+  width: 100%;
 }

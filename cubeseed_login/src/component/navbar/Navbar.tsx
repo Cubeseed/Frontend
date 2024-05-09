@@ -1,15 +1,13 @@
-import { useState } from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
 import navStyles from "@/styles/navbar.module.scss"
-import React from "react"
 import cubeseed from "@assets/cubeseedlogo.svg"
 import loginIcon from "@assets/icons/loginIcon.svg"
 import Image from "next/image"
+import Link from "next/link"
+import { useState } from "react"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
+  // const router = useRouter()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -86,7 +84,7 @@ const Navbar = () => {
                     src={loginIcon}
                     alt="icon indicating user login option"
                   />
-                  <Link href="/login_page/login-page" legacyBehavior>
+                  <Link href="/login_page/login-page">
                     <a>Login</a>
                   </Link>
                 </div>

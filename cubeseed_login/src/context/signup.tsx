@@ -1,5 +1,5 @@
-import { SignUpErrors } from "@cs/lib/types/index"
 import React, { useContext, useState } from "react"
+import { SignUpErrors } from "../../types/index"
 
 type props = {
   choice: string
