@@ -6,7 +6,11 @@
 
 $primary-color: #45dfa9;
 $secondary-color: #02575d;
-$basic-color: #03656b;
+$secondary-color-60: #3a868a;
+$tertiary-color: #03656b;
+$tertiary-color-60: #98c0c3;
+$tertiary-color-80: #bed6cd;
+$neutral-color: #edf0f0;
 $primary-font: "Inter Tight", sans-serif;
 
 body {
@@ -187,12 +191,22 @@ form {
 }
 
 .social-signin {
-  border-color: $basic-color;
-  color: $basic-color;
+  border-color: $tertiary-color;
+  color: $tertiary-color;
   cursor: pointer;
 }
 
 .line {
-  color: gray 0.5px solid;
+  color: $tertiary-color-80 0.5px solid;
   width: 100%;
+}
+
+.terms {
+  font-size: 14px;
+  word-spacing: 0.5px;
+}
+
+.login,
+.policy {
+  color: $secondary-color-60;
 }

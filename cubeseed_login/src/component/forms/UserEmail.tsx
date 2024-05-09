@@ -59,10 +59,10 @@ const UserEmail: React.FC = () => {
         <FaMeta />
         <button className="">Sign up with Meta</button>
       </div>
-      <p className="mb-10 mt-4">
-        By signing up with Cubeseed you agree to the{" "}
-        <span>Terms and Conditions</span> , and
-        <span>Privacy Policy</span>.
+      <p className="terms mb-10 mt-4">
+        By signing up with Cubeseed you agree to the
+        <span className="policy px-1">Terms and Conditions,</span>and
+        <span className="policy px-1">Privacy Policy</span>.
       </p>
     </div>
   )

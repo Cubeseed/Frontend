@@ -36,17 +36,21 @@ export default function Home() {
           <form onSubmit={handleSubmit}>
             <ProgressBar index={currentIndex} length={steps} />
             {step}
-            {/* <p className={homeStyles.steps}>
-            {currentIndex + 1} / {steps.length}
-          </p> */}
             <div className={homeStyles.actionbutton}>
-              <button
-                type="button"
-                onClick={back}
-                className={homeStyles.stepbutton}
-              >
-                back
-              </button>
+              {isFirstStep ? (
+                <div className="terms ml-auto px-6">
+                  Already a member? <span className="login px-2">Log in</span>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={back}
+                  className={homeStyles.stepbutton}
+                >
+                  back
+                </button>
+              )}
+
               {!isLastStep ? (
                 <button
                   type="button"
