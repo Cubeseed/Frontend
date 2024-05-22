@@ -1,3 +1,5 @@
+"use client"
+
 import navStyles from "@/styles/navbar.module.scss"
 import cubeseed from "@assets/cubeseedlogo.svg"
 import loginIcon from "@assets/icons/loginIcon.svg"

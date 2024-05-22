@@ -12,8 +12,8 @@ import Confirmation from "./confirmation_page/Confirmation"
 export default function Home() {
   const stepDivs = [
     <UserEmail key={"useremail"} />,
-    <UserDetailsForm key={"userdetail"} />,
     <ServiceForm key={"service"} />,
+    <UserDetailsForm key={"userdetail"} />,
     <Confirmation key={"confirmation"} />,
   ]
 
@@ -39,7 +39,7 @@ export default function Home() {
             <div className={homeStyles.actionbutton}>
               {isFirstStep ? (
                 <div className="terms ml-auto px-6">
-                  Already a member? <span className="login px-2">Log in</span>
+                  Already a member? <span className="login pl-1">Log in</span>
                 </div>
               ) : (
                 <button

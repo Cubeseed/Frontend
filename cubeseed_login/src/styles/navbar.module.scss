@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap");
+@import "../styles/variables.module.scss";
 
 .nav {
   background: linear-gradient(0deg, #f0f7f7, #f0f7f7);
-  border-bottom: 1px solid #bed6cd;
+  border-bottom: 1px solid $tertiary-color-80;
 
   .navlinks {
     align-items: center;
   }
 
   .navlink {
-    color: #03656b;
+    color: $tertiary-color;
     text-decoration: none;
     border-radius: 5px;
     font-style: normal;
