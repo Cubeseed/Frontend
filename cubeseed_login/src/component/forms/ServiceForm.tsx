@@ -9,11 +9,10 @@ export default function ServiceForm({ setService }: any) {
   }
 
   return (
-    <div className=" m-auto flex w-3/6 flex-col justify-center align-middle ">
-      <div className=" mb-4 mt-8">
-        <h1 className="signup-text mb-4 mt-8 text-3xl">
-          Firstly, who are you?
-        </h1>
+    <div className={serviceStyles.container}>
+      <div className={`${serviceStyles.heading} mb-4 mt-8`}>
+        <h1 className="signup-text">Firstly, who are you?</h1>
+        <p>Select the option that best describes you.</p>
       </div>
 
       <div className={serviceStyles.form} onSubmit={handleSubmit}>
