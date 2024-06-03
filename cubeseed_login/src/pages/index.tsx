@@ -33,7 +33,7 @@ export default function Home() {
     <section>
       <Navbar />
       <section className="flex size-full flex-row">
-        <section className="m-auto size-full">
+        <section className="m-auto size-full min-h-screen">
           <form onSubmit={handleSubmit}>
             <ProgressBar index={currentIndex} length={steps} />
             {step}

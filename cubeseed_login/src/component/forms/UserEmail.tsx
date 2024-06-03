@@ -30,7 +30,7 @@ const UserEmail: React.FC = () => {
   }
 
   return (
-    <div className=" m-auto flex flex-col justify-center align-middle sm:w-full md:w-3/6 ">
+    <div className=" m-auto flex flex-col justify-center p-4 align-middle sm:w-full md:w-1/2 ">
       <h1 className="signup-text  mb-4 mt-8 text-2xl">Sign up to Cubeseed</h1>
       <div className="input-wrapper my-4">
         <input
@@ -42,14 +42,10 @@ const UserEmail: React.FC = () => {
         />
         {errors.email && <p className="text-red-500">{errors.email}</p>}
       </div>
-      <div className="align-center my-auto flex justify-center">
-        <span className="line">
-          <hr />
-        </span>
-        <span>OR</span>
-        <span className="line">
-          <hr />
-        </span>
+      <div className="mb-2 flex items-center justify-center">
+        <span className=" w-full border-t border-solid border-gray-300"></span>
+        <span className="mx-2">OR</span>
+        <span className="w-full border-t border-solid border-gray-300"></span>
       </div>
       <div className="social-signin mb-2 flex justify-center gap-2 rounded-full border-2 border-solid p-1 align-bottom">
         <FcGoogle />
