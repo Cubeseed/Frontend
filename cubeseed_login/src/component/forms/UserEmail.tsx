@@ -30,7 +30,7 @@ const UserEmail: React.FC = () => {
   }
 
   return (
-    <div className=" m-auto flex w-3/6 flex-col justify-center align-middle ">
+    <div className=" m-auto flex flex-col justify-center align-middle sm:w-full md:w-3/6 ">
       <h1 className="signup-text  mb-4 mt-8 text-2xl">Sign up to Cubeseed</h1>
       <div className="input-wrapper my-4">
         <input

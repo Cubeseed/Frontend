@@ -11,10 +11,10 @@ import Confirmation from "./confirmation_page/Confirmation"
 
 export default function Home() {
   const stepDivs = [
-    <UserEmail key={"useremail"} />,
-    <ServiceForm key={"service"} />,
-    <UserDetailsForm key={"userdetail"} />,
-    <Confirmation key={"confirmation"} />,
+    <UserEmail key="useremail" />,
+    <ServiceForm key="service" />,
+    <UserDetailsForm key="userdetail" />,
+    // <Confirmation key="confirmation" />,
   ]
 
   const { steps, step, next, back, currentIndex, isLastStep, isFirstStep } =
@@ -22,7 +22,9 @@ export default function Home() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
-    if (!isLastStep) return next()
+    if (!isLastStep) {
+      return next()
+    }
     console.log("finished")
     // alert('submitted')
   }
@@ -30,9 +32,8 @@ export default function Home() {
   return (
     <section>
       <Navbar />
-
-      <section className={homeStyles.home}>
-        <section className="h-[60%]">
+      <section className="flex size-full flex-row">
+        <section className="m-auto size-full">
           <form onSubmit={handleSubmit}>
             <ProgressBar index={currentIndex} length={steps} />
             {step}
@@ -60,12 +61,16 @@ export default function Home() {
                   next
                 </button>
               ) : (
-                <button className={homeStyles.stepbutton}>submit</button>
+                <button type="submit" className={homeStyles.stepbutton}>
+                  submit
+                </button>
               )}
             </div>
           </form>
         </section>
-        <Carousel />
+        <section className="hidden w-full md:block md:w-2/3">
+          <Carousel />
+        </section>
       </section>
     </section>
   )
