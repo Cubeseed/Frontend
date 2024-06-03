@@ -2,7 +2,7 @@
 
 import { useSignUpContext } from "@/context/signup"
 import { useEffect } from "react"
-import { SignUpErrors } from "../../../types/index"
+import { SignUpErrors } from "@cs/types"
 
 export default function UserDetailsForm() {
   const {

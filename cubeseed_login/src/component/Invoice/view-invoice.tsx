@@ -1,7 +1,7 @@
 import cal from "@assets/cal.svg"
 import dload from "@assets/download.svg"
 import face from "@assets/face.svg"
-import { BillType, OrderType, SummaryType } from "@cs/lib/types"
+import { BillType, OrderType, SummaryType } from "@cs/types"
 import Image from "next/image"
 import Link from "next/link"
 import Table from "../../comps/Table/table"

@@ -1,14 +1,5 @@
 @import "../styles/variables.module.scss";
 
-// .home {
-//   height: 100vh;
-//   width: 100%;
-//   display: grid;
-//   grid-template-columns: 60% 40%;
-//   gap: 20px;
-//   overflow-x: hidden;
-// }
-
 .getStarted {
   line-height: 30px;
   margin-left: 10px;
@@ -26,6 +17,7 @@
   color: #ffffff;
   background: $tertiary-color;
   border-radius: 25px;
+  margin-right: 15px;
 }
 
 .action:hover {

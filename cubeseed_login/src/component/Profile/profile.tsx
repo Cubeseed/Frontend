@@ -1,6 +1,6 @@
 "use client"
 
-import { UserProfileType } from "@cs/lib/types"
+import { UserProfileType } from "@cs/types"
 import farmer from "@cs/public/farmer1.png"
 import star from "@cs/public/star.svg"
 import Image, { StaticImageData } from "next/image"

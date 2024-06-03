@@ -1,13 +1,12 @@
-import Carousel from "@/component/carousel/Carousel"
+import { FormEvent } from "react"
+import { useMultiSteps } from "@/hooks/useMultiSteps"
+import Navbar from "@/component/navbar/Navbar"
+import UserEmail from "@/component/forms/UserEmail"
 import ServiceForm from "@/component/forms/ServiceForm"
 import UserDetailsForm from "@/component/forms/UserDetailsForm"
-import UserEmail from "@/component/forms/UserEmail"
-import Navbar from "@/component/navbar/Navbar"
 import ProgressBar from "@/component/progressbar/ProgressBar"
-import { useMultiSteps } from "@/hooks/useMultiSteps"
+import Carousel from "@/component/carousel/Carousel"
 import homeStyles from "@/styles/home.module.scss"
-import { FormEvent } from "react"
-import Confirmation from "./confirmation_page/Confirmation"
 
 export default function Home() {
   const stepDivs = [
