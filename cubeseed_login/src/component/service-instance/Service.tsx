@@ -1,15 +1,9 @@
 "use client" //use client side rendering when using state
-import Image from "next/image"
-import icon from "../../../public/assets/agriculture.svg"
-import serviceStyles from "@/styles/service.module.scss"
-import {
-  FormEvent,
-  InputHTMLAttributes,
-  useEffect,
-  useRef,
-  useState,
-} from "react"
 import { useSignUpContext } from "@/context/signup"
+import serviceStyles from "@/styles/service.module.scss"
+import Image from "next/image"
+import { useRef } from "react"
+import icon from "../../../public/assets/agriculture.svg"
 
 type value = {
   value: string
@@ -20,7 +14,6 @@ export default function Service({ value, setService }: value) {
   // const [isChecked, setIsChecked] = useState<boolean>(false); // unused state
   const { choice, setChoice } = useSignUpContext()
 
-  //const radioRef = useRef<InputHTMLAttributes<HTMLInputElement>>(null)
   const radioRef = useRef<HTMLInputElement>(null)
 
   const selectOption = () => {

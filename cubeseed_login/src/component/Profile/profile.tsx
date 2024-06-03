@@ -1,13 +1,13 @@
 "use client"
 
-import Image, { StaticImageData } from "next/image"
-import star from "@cs/public/star.svg"
-import farmer from "@cs/public/farmer1.png"
 import { UserProfileType } from "@cs/types"
-import ReviewCard from "../../comps/userCardInfo/review-card"
+import farmer from "@cs/public/farmer1.png"
+import star from "@cs/public/star.svg"
+import Image, { StaticImageData } from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 import ImageBox from "../../comps/ImageBox/image-box"
-import Link from "next/link"
+import ReviewCard from "../../comps/userCardInfo/review-card"
 // import place from "@cs/assets/svg/place_24px.svg";
 
 interface UserProfile {

@@ -1,8 +1,7 @@
-import type { AppProps } from "next/app"
-import "@/styles/globals.scss"
-// import "@/styles/global.css" // tailwind
 import { FarmContextProvider } from "@/context/context"
 import { SignUpContextProvider } from "@/context/signup"
+import "@/styles/globals.scss"
+import type { AppProps } from "next/app"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

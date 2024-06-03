@@ -14,6 +14,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "dark-green": "#03656b",
         primary: {
           DEFAULT: "var(--clr-primary)",
           100: "var(--clr-primary-10)",
